@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'spa',
   head: {
     title: '饿了么',
     meta: [
@@ -23,22 +22,36 @@ module.exports = {
   cache: true,
 
   build: {
+    /**
+     * 将查看源代码中的css采用外部引入方式
+     */
+    extractCSS: {
+      allChunks: true
+    },
     vendor: ['axios', 'mint-ui', 'js-cookie'],
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    // extend (config, { isDev, isClient }) {
+    //   if (isDev && isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
   },
-
+  //设置缓存
+  cache: true,
+  //禁止预加载效果
+  performance: {
+    prefetch: false
+  },
   plugins: [
-    { src: '~plugins/mint-ui' },
+    { src: '~plugins/mint-ui' ,ssr:false},
     { src: '~assets/styles/base.scss' },
   ],
+  proxy:{
+    url:'https://qhc16.com', // 接口反向代理目标地址
+  }
 }
 

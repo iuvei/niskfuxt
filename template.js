@@ -1,5 +1,5 @@
 /**
- * pages模版自动生成快速生成脚本,执行命令 npm run tep `文件名`，后期可以扩展为自动拼凑页面
+ * pages模版快速生成脚本,执行命令 npm run tep `文件名`
  */
 
 const fs = require('fs');

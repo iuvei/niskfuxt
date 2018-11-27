@@ -5,7 +5,7 @@ const prefix = '/user';
 // 登录
 export const loginApi = (params) => {
   return request({
-    url: `${prefix}/login`,
+    url: `/index/login.php`,
     method: 'POST',
     data: params,
   })
