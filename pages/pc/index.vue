@@ -17,7 +17,7 @@
       type="text" 
       placeholder="验证码">
       <img src="/proxy/mobi/validateImage.php?random=234">
-    <a @click="login">登陆</a>
+    <a @click="login">登陆-PC</a>
     <mt-header fixed title="静安区">
       <mt-button slot="right" icon="search" @click="$router.push('/search')" />
     </mt-header>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layoutessfklj">
     <nuxt/>
   </div>
 </template>
@@ -9,6 +9,12 @@ import svgIcon from "../components/svg";
 export default {
   components: {
     svgIcon
+  },
+  created(){
+    console.log('created')
+  },
+  mounted(){
+    console.log(window.location.href)
   }
 };
 </script>
