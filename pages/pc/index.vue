@@ -117,7 +117,7 @@
 </script>
 
 <style lang="scss">
-  @import "~assets/styles/mixin";
+  @import "../../assets/styles/mixin";
 
   .home-page {
     background-color: #fff;

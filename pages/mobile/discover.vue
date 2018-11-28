@@ -40,7 +40,7 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/styles/mixin";
+  @import "../../assets/styles/mixin";
 
   .discover-page {
     padding: px2rem(88px) 0 53px 0;

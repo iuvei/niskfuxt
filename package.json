@@ -7,6 +7,8 @@
   "license": "GPL",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "devpc": "cross-env NODE_ENV=development DEVICE=PC nodemon server/index.js --watch server ",
+    "devmobile": "cross-env NODE_ENV=development DEVICE=MOBILE nodemon server/index.js --watch server",
     "start": "nuxt build && cross-env NODE_ENV=production pm2 start server/index.js --node-args='--harmony' --name 'nuxt-elm'",
     "stop": "pm2 stop server/index.js --name 'nuxt-elm'",
     "restart": "nuxt build && cross-env NODE_ENV=production pm2 restart server/index.js --node-args='--harmony' --name 'nuxt-elm'",

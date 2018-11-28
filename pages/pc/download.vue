@@ -22,7 +22,7 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/styles/mixin";
+  @import "../../assets/styles/mixin";
 
   .download-page {
     padding: 0;

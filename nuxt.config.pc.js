@@ -1,17 +1,6 @@
-var _ = require('lodash');
-const config_pc = require('./nuxt.config.pc.js')
-const config_mobile = require('./nuxt.config.mobile.js')
-// 合并配置
-function customizer(objValue, srcValue) {
-  if (_.isArray(objValue)) {
-    return objValue.concat(srcValue);
-  }
-}
-// 根据启动命令合并
-const mergeData=process.env.DEVICE=='MOBILE'?config_mobile:config_pc
-module.exports =_.mergeWith( {
+module.exports = {
   head: {
-    title: '饿了么',
+    title: '饿了么--PC',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
@@ -64,5 +53,5 @@ module.exports =_.mergeWith( {
   proxy:{
     url:'https://qhc16.com', // 接口反向代理目标地址
   }
-},mergeData,customizer)
+}
 
