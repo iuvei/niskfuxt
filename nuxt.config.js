@@ -7,11 +7,13 @@ function customizer(objValue, srcValue) {
     return objValue.concat(srcValue);
   }
 }
-// 根据启动命令合并
+/**
+ * 根据启动命令，装载PC/MOBILE配置文档
+ */
 const mergeData=process.env.DEVICE=='MOBILE'?config_mobile:config_pc
 module.exports =_.mergeWith( {
   head: {
-    title: '饿了么',
+    title: 'NUXT',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
@@ -28,10 +30,10 @@ module.exports =_.mergeWith( {
     ],
   },
 
-  loading: { color: '#3B8070' },
-
+  /**
+   *开启缓存 
+   */
   cache: true,
-
   build: {
     /**
      * 将查看源代码中的css采用外部引入方式
@@ -39,7 +41,7 @@ module.exports =_.mergeWith( {
     extractCSS: {
       allChunks: true
     },
-    vendor: ['axios', 'mint-ui', 'js-cookie'],
+    // vendor: ['axios', 'mint-ui', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
     //   if (isDev && isClient) {
     //     config.module.rules.push({
@@ -51,14 +53,12 @@ module.exports =_.mergeWith( {
     //   }
     // }
   },
-  //设置缓存
-  cache: true,
   //禁止预加载效果
   performance: {
     prefetch: false
   },
   plugins: [
-    { src: '~plugins/mint-ui' ,ssr:false},
+    // { src: '~plugins/mint-ui' ,ssr:false},
     { src: '~assets/styles/base.scss' },
   ],
   proxy:{

@@ -9,7 +9,10 @@ import {
 } from '../types.js';
 
 const state = {
-  userInfo: {}
+  userInfo: {
+    "name":"namesss"
+  },
+  test:'test'
 }
 
 const getters = {
