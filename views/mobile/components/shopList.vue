@@ -83,7 +83,8 @@
 
 <script>
   import ratingStar from "./ratingStar";
-  import config from "~/config";
+  // import config from "~/config";
+  import config from '../../../config';
   import {
     restaurants
   } from "~/assets/services/shopping";

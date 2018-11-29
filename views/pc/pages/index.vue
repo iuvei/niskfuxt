@@ -17,7 +17,8 @@
       type="text" 
       placeholder="验证码">
       <img src="/proxy/mobi/validateImage.php?random=234">
-    <a @click="login">登陆-{{$store.getters.userInfo.name}}PC</a>
+    <a @click="login">登陆-{{$store.getters.userInfo.name}}--PC</a> 
+    <img v-lazy="'https://avatar-static.segmentfault.com/122/290/1222908597-5692044f6b297_big64'">
     <mt-header fixed title="静安区">
       <mt-button slot="right" icon="search" @click="$router.push('/search')" />
     </mt-header>

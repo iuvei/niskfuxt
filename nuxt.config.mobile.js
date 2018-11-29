@@ -21,12 +21,6 @@ module.exports = {
   cache: true,
 
   build: {
-    /**
-     * 将查看源代码中的css采用外部引入方式
-     */
-    extractCSS: {
-      allChunks: true
-    },
     vendor: ['axios', 'mint-ui', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
     //   if (isDev && isClient) {
@@ -37,7 +31,8 @@ module.exports = {
     //       exclude: /(node_modules)/
     //     })
     //   }
-    // }
+    // },
+
   },
   //设置缓存
   cache: true,
@@ -46,7 +41,8 @@ module.exports = {
     prefetch: false
   },
   plugins: [
-    { src: '~plugins/mint-ui' ,ssr:false},
+    { src: '~~plugins/event-bus'},
+    { src: '~plugins/mint-ui'},
     { src: '~assets/styles/base.scss' },
   ]
 }

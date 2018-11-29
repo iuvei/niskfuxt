@@ -4,7 +4,7 @@ const proxy = require('express-http-proxy')
 const { Nuxt, Builder } = require('nuxt')
 const ifaces = require('os').networkInterfaces();
 const net = require('net')
-const app = express()
+const app = new express()
 const config = require('../nuxt.config.js')
 
 let port = process.env.PORT || 9527
@@ -18,11 +18,13 @@ function getIp() {
 // 检测端口是否被占用
 function portIsOccupied (port) {
   // 创建服务并监听该端口
-  var server = net.createServer().listen(port)
-  server.on('listening', function () { 
+  var server =new net.createServer().listen(port)
+  server.on('listening', function () {
     // 执行这块代码说明端口未被占用，可以正常使用
+    console.log('lisitening')
     server.close() // 关闭服务
     port=port
+
     start(port)
   })
   server.on('error', function (err) {

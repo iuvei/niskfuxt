@@ -17,7 +17,7 @@
       type="text" 
       placeholder="验证码">
       <img src="/proxy/mobi/validateImage.php?random=234">
-    <a @click="login">登陆-MOBILE</a>
+    <a @click="login">登陆-{{$store.getters.userInfo.name}}-MOBILE  </a>
     <mt-header fixed title="静安区">
       <mt-button slot="right" icon="search" @click="$router.push('/search')" />
     </mt-header>
@@ -47,7 +47,8 @@
 
   import Tabbar from "~/components/tabbar";
   import ShopList from "~/components/shopList";
-  import config from "~/config";
+  // import config from "~/config";
+  import config from '~~/config';
   import {
     getHomeData,
     checkLogin,
@@ -117,7 +118,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../assets/styles/mixin";
+  @import "~assets/styles/mixin";
 
   .home-page {
     background-color: #fff;

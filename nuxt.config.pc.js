@@ -28,13 +28,7 @@ module.exports = {
   srcDir: 'views/pc', 
 
   build: {
-    /**
-     * 将查看源代码中的css采用外部引入方式
-     */
-    extractCSS: {
-      allChunks: true
-    },
-    vendor: ['axios', 'mint-ui', 'js-cookie'],
+    vendor: ['axios', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
     //   if (isDev && isClient) {
     //     config.module.rules.push({
@@ -53,7 +47,7 @@ module.exports = {
     prefetch: false
   },
   plugins: [
-    { src: '~plugins/mint-ui' ,ssr:false},
+    { src: '~~plugins/event-bus'},
     { src: '~assets/styles/base.scss' },
   ]
 }

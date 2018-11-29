@@ -10,7 +10,8 @@ function customizer(objValue, srcValue) {
 /**
  * 根据启动命令，装载PC/MOBILE配置文档
  */
-const mergeData=process.env.DEVICE=='MOBILE'?config_mobile:config_pc
+const mergeData=process.env.DEVICE.toUpperCase()=='MOBILE'?config_mobile:config_pc
+console.log(process.env.DEVICE)
 module.exports =_.mergeWith( {
   head: {
     title: 'NUXT',
@@ -23,7 +24,9 @@ module.exports =_.mergeWith( {
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
     ],
     link: [
-      { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css' }
+      
     ],
     script: [
       { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
@@ -41,6 +44,9 @@ module.exports =_.mergeWith( {
     extractCSS: {
       allChunks: true
     },
+    filenames: {
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[chunkhash].js'
+    }
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
     //   if (isDev && isClient) {

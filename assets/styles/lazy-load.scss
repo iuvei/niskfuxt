@@ -1,0 +1,29 @@
+img[lazy=loading]{
+    width:auto;
+    height:auto;
+    background:url(/favicon.ico) center center no-repeat;
+  }
+  // 图片加载错误
+  img[lazy=error]{
+      width:auto;
+      height:100%;
+      max-width:100%!important;
+      display:inline-block;
+      margin:0 auto;
+      background:url(/static/images/base/image-error.png) center center no-repeat;
+  }
+  // 加载完成的图片，显示一瞬间的动画
+  img[lazy=loaded]{
+    animation:rubberBand 0.4s linear;
+  }
+  // 动画
+  @keyframes fade {
+    0%{
+      opacity: 0;
+      transform:scale(0);
+    }
+    100%{
+      opacity: 1;
+      transform:scale(1)
+    }
+  }

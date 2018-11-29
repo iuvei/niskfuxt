@@ -136,7 +136,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/styles/mixin";
+  @import "~assets/styles/mixin";
 
   .mint-tabbar>.mint-tab-item.is-selected {
     background: #fafafa;

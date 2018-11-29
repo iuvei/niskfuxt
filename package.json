@@ -14,6 +14,8 @@
     "restart": "nuxt build && cross-env NODE_ENV=production pm2 restart server/index.js --node-args='--harmony' --name 'nuxt-elm'",
     "delete": "pm2 delete nuxt-elm",
     "lint": "eslint --cache --fix --ext .js,.vue --ignore-path .gitignore .",
+    "generatepc": "cross-env DEVICE=PC nuxt generate",
+    "generatemobile": "cross-env DEVICE=MOBILE nuxt generate",
     "generate": "nuxt generate",
     "tep": "node template",
     "precommit": "npm run lint"
