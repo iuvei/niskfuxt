@@ -32,7 +32,7 @@ service.interceptors.request.use(function(config) {
   config.data = qs.stringify(config.data)
   return config
 }, function(error) {
-  console.log('发送请求失败,' + error)
+  // console.log('发送请求失败,' + error)
   return Promise.reject(error)
 })
 
@@ -86,7 +86,7 @@ service.interceptors.response.use((response) => {
   return response.status === 200 ? response.data : response
 },
 (err) => {
-  console.log(err)
+  // console.log(err)
   // 接口报错
   // 获取错误信息
   if (err && err.response) {

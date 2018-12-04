@@ -25,11 +25,11 @@ module.exports =_.mergeWith( {
     ],
     link: [
       { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css' }
+      // { rel: 'stylesheet', href: 'https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css' }
       
     ],
     script: [
-      { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
+      // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
     ],
   },
 

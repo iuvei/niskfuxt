@@ -16,7 +16,7 @@ module.exports = {
       // { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
+      // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
     ],
   },
 
@@ -49,6 +49,7 @@ module.exports = {
   plugins: [
     { src: '~~plugins/event-bus'},
     { src: '~assets/styles/base.scss' },
+    { src: '~~plugins/lazy-load'},
   ]
 }
 

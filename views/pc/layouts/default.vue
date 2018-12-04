@@ -1,70 +1,45 @@
 <template>
-  <div class="layoutessfklj">
-    <nuxt/>
+  <div class="layout-default">
+    <headerTemp></headerTemp>
+    <div class="page-view">
+    <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
+      <nuxt/>
+    </div>
+    <footerTemp></footerTemp>
+    <rightServer></rightServer> 
   </div>
 </template>
 
 <script>
-import svgIcon from "../components/svg";
+import headerTemp from "./components/header";
+import footerTemp from "./components/footer";
+import rightServer from "./components/rightServer";
 export default {
   components: {
-    svgIcon
+    headerTemp,
+    footerTemp,
+    rightServer
   },
   created(){
-    console.log('created')
+    // 拉取用户信息
+    if(!this.$store.getters.userInfo.loginname){
+      this.$store.dispatch('UPDATE_USERDATA').then(res=>{
+        // console.log(res)
+      }).catch(err=>{
+        // console.log(err)
+      })
+    }
+
   },
   mounted(){
-    console.log(window.location.href)
+    // console.log(window.location.href)
   }
 };
 </script>
 
 <style>
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+  .page-view{
+    min-height:80vh;
+    background:#ccc;
+  }
 </style>

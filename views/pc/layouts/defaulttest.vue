@@ -1,6 +1,12 @@
 <template>
   <div class="layoutessfklj">
+    <headerTemp></headerTemp>
+
     <nuxt/>
+
+    <footerTemp></footerTemp>
+    <!-- <rightServer></rightServer> --> 
+    <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
   </div>
 </template>
 
@@ -11,10 +17,14 @@ export default {
     svgIcon
   },
   created(){
-    console.log('created')
-  },
-  mounted(){
-    console.log(window.location.href)
+    console.log('created-layouttest')
+    if(!this.$store.getters.userInfo.loginname){
+      this.$store.dispatch('UPDATE_USERDATA').then(res=>{
+        // console.log(res)
+      }).catch(err=>{
+        // console.log(err)
+      })
+    }
   }
 };
 </script>

@@ -1,23 +1,6 @@
 <template>
   <div class="home-page">
-    <input class="login-input" 
-      v-model="loginData.account" 
-      type="text" 
-      name="account_user" 
-      placeholder="游戏帐号">
-    <input class="login-input" 
-      v-model="loginData.password" 
-      ref="pwd" 
-      name="pwd_user" 
-      type="password" 
-      placeholder="游戏密码">
-    <input class="login-input" 
-      v-model="loginData.imageCode" 
-      name="imageCode" 
-      type="text" 
-      placeholder="验证码">
-      <img src="/proxy/mobi/validateImage.php?random=234">
-    <!-- <a @click="login">登陆-{{$store.getters.userInfo.name}}--PC</a>  -->
+    <!-- <a @click="login">登陆-{{$store.getters.userInfo.name}}--TEST</a>  -->
     <img v-lazy="'https://avatar-static.segmentfault.com/122/290/1222908597-5692044f6b297_big64'">
 
     <div class="show-list">
@@ -53,6 +36,7 @@
     loginApi
   } from "~/assets/services/user";
   export default {
+    layout:'defaulttest',
     components: {
       Tabbar,
       ShopList
@@ -76,11 +60,6 @@
       };
     },
     mounted() {
-      // checkLogin().then(res => {
-      //   console.log(res)
-      // }).catch(err => {
-      //   console.log(err)
-      // })
       ipapi().then(res => {
 
       }).catch(err => {

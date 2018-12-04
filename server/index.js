@@ -21,7 +21,7 @@ function portIsOccupied (port) {
   var server =new net.createServer().listen(port)
   server.on('listening', function () {
     // 执行这块代码说明端口未被占用，可以正常使用
-    console.log('lisitening')
+    // console.log('lisitening')
     server.close() // 关闭服务
     port=port
 

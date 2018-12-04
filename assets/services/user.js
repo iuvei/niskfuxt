@@ -1,6 +1,6 @@
 import request from '../utils/request';
 
-const prefix = '/user';
+const prefix = '';
 
 // 登录
 export const loginApi = (params) => {
@@ -61,6 +61,15 @@ export const deleteAddress = (params) => {
   return request({
     url: `${prefix}/deleteAddress`,
     method: 'DELETE',
+    data: params,
+  })
+}
+
+// 删除用户地址
+export const ajaxGetSessionPersonalData = (params) => {
+  return request({
+    url: `${prefix}/user/ajaxGetSessionPersonalData.php`,
+    method: 'GET',
     data: params,
   })
 }

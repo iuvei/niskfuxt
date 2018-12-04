@@ -2,17 +2,23 @@
  * 用户模块
  */
 import cookies from "js-cookie";
+import {  ajaxGetSessionPersonalData} from '@@/assets/services/user'
 import {
   LOGIN,
   OUT_LOGIN,
-  USER_INFO_UPDATA
+  USER_INFO_UPDATA,
+  UPDATE_USERDATA,
+  SET_USERDATA,
+  IS_LOGIN,
+  SET_AUTH
 } from '../types.js';
-
 const state = {
   userInfo: {
     "name":"namesss"
   },
-  test:'test'
+  test:'test',
+  isLogin:false,
+  authList:[]
 }
 
 const getters = {
@@ -22,6 +28,23 @@ const getters = {
     }
     return state.userInfo;
   },
+  isLogin(state){
+      // 这里逻辑有问题，需要再做调整
+      if (cookies.get(IS_LOGIN) === 'true') {
+        // 先查sessionStorage
+        if (state.authList.length == 0) {
+          // 浏览器刷新 authList肯定没有 没有就查一次后台
+          state.isLogin = false
+        }
+        state.isLogin = true
+      }
+      if (state.authList.length > 0) { 
+        // sessionStorage
+        cookies.set(IS_LOGIN, true)
+        state.isLogin = true
+      }
+      return state.isLogin
+  }
 }
 
 const actions = {
@@ -39,7 +62,23 @@ const actions = {
     commit
   }, value) {
     commit(USER_INFO_UPDATA, value);
-  }
+  },
+    // 更新用户数据
+    [UPDATE_USERDATA]({
+      commit
+    }, val) { // 获取 初始化信息
+      return ajaxGetSessionPersonalData().then(res => {
+        if (res.success) {
+          commit(SET_USERDATA, res.data)
+          commit(SET_AUTH, res.data.role)
+          return Promise.resolve(res)
+        } else {
+          return Promise.reject(res)
+        }
+      }).catch(err => {
+        return Promise.reject(err)
+      })
+    }
 }
 
 const mutations = {
@@ -61,6 +100,21 @@ const mutations = {
     state.userInfo = Object.assign(state.userInfo, value);
     cookies.set('userInfo', state.userInfo);
   },
+  [SET_USERDATA](state, value) {
+    // cookies.set(IS_LOGIN, true);
+    state.userInfo = Object.assign(state.userInfo, value);
+  },
+    // 设置权限
+    [SET_AUTH](state, val) {
+      // 设置权限
+      if (typeof val === 'string') {
+        state.authList = [val]
+      } else if (Array.isArray(val)) {
+        state.authList = val
+      } else {
+        state.authList = []
+      }
+    },
 }
 
 export default {
