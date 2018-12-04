@@ -17,7 +17,7 @@
           <span class="c-ico icobjh bjh-tele"></span>
           <span class="c-text">电话回拨</span>
         </a>
-        <nuxt-link class="cont-item" :to="{name:'download'}">
+        <nuxt-link class="cont-item" :to="{name:'index'}">
           <span class="c-ico icobjh bjh-download"></span>
           <span class="c-text">下载客户端</span>
           <div class="c-box">

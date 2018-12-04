@@ -1,5 +1,6 @@
 <template>
   <div class="home-page">
+    <el-button>默认按钮</el-button>
     <input class="login-input" 
       v-model="loginData.account" 
       type="text" 
@@ -32,16 +33,13 @@
     <div class="swiper">
     </div>
     <div style="height:10px;clear:both" />
-    <nuxt-link :to="{name:'home'}" class="shoplist-title">—— home ——</nuxt-link>
-    <nuxt-link :to="{name:'test'}" class="shoplist-title">—— test ——</nuxt-link>
-    <nuxt-link :to="{name:'index'}" class="shoplist-title">—— index ——</nuxt-link>
   </div>
 </template>
 
 <script>
 
-  import Tabbar from "~/components/tabbar";
-  import ShopList from "~/components/shopList";
+  // import Tabbar from "~/components/tabbar";
+  // import ShopList from "~/components/shopList";
   // import config from "~/config";
   import config from '~~/config';
   import {
@@ -54,8 +52,8 @@
   } from "~/assets/services/user";
   export default {
     components: {
-      Tabbar,
-      ShopList
+      // Tabbar,
+      // ShopList
     },
     data() {
       return {

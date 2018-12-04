@@ -1,22 +1,32 @@
 <template>
 
   <header class="header">
-    <div class="content">
-      <div class="links">
-        <div class="showUser" v-if="$store.getters.isLogin">
-            <p class="title1">官网在线人数</p>
-            <p class="title2">{{number}}</p>
-        </div>
-      </div>
-      <a class="logo" href="/">
-        <img src="assets/images/base/logo.gif">
-      </a>
-      <div class="input">
-        <authorForm></authorForm>
-      </div>
-    </div>
+    <!-- <div class="content"> -->
+      <el-row type="flex" class="content" justify="space-between">
+        <el-col :span="6">
+          <!-- 左边在线人数 -->
+          <div class="links">
+            <div class="showUser" v-if="!$store.getters.isLogin">
+                <p class="title1">官网在线人数</p>
+                <p class="title2">{{number}}</p>
+            </div>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <!-- 中间logo -->
+          <a class="logo" href="/">
+            <img src="@@/assets/images/base/logo.gif">
+          </a>
+        </el-col>
+        <el-col :span="10">
+          <!-- 右侧登陆表单 -->
+          <div class="input">
+            <authorForm></authorForm>
+          </div>
+        </el-col>
+      </el-row>
+    <!-- </div> -->
   </header>
-
 </template>
 <script>
 
@@ -96,7 +106,8 @@
     padding-top:20px;
     background:url(./images/icos.png) left 30px bottom no-repeat;
     padding-left:100px;
-    text-align:center;
+    text-align:left;
+    line-height:1;
   }
   .title1{
     font-size:16px;

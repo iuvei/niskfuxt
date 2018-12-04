@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import svgIcon from "../components/svg";
+// import svgIcon from "../components/svg";
 export default {
   components: {
-    svgIcon
+    // svgIcon
   },
   created(){
     console.log('created-layouttest')

@@ -47,9 +47,10 @@ module.exports = {
     prefetch: false
   },
   plugins: [
-    { src: '~~plugins/event-bus'},
+    { src: '~plugins/element-ui'},
     { src: '~assets/styles/base.scss' },
     { src: '~~plugins/lazy-load'},
+    { src: '~~plugins/event-bus'},
   ]
 }
 
