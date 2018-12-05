@@ -20,13 +20,31 @@ module.exports = {
     ],
   },
 
-  loading: { color: '#3B8070' },
+  loading: {
+    color: '#3B8070'
+  },
   /**
    * PC项目的pages地址
    * https://zh.nuxtjs.org/api/configuration-srcdir/
    */
-  srcDir: 'views/pc', 
+  srcDir: 'views/pc',
+  /**
+   * router 属性让你可以个性化配置 Nuxt.js 应用的路由
+   */
+  router: {
+    // base: '/app/',
+    // linkActiveClass: 'active',
+    // linkExactActiveClass: 'active',
+    // middleware: 'user-agent',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'home',
+        path: '/',
+        component: resolve(__dirname, 'views/pc/pages/index/index.vue')
+      })
+    }
 
+  },
   build: {
     vendor: ['axios', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
@@ -48,9 +66,6 @@ module.exports = {
   },
   plugins: [
     { src: '~plugins/iview'},
-    { src: '~assets/styles/base.scss' },
-    { src: '~~plugins/lazy-load'},
-    { src: '~~plugins/event-bus'},
+    { src: '~assets/styles/base.scss' }
   ]
 }
-

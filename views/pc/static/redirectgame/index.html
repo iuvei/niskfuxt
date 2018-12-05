@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <title>正在启动游戏，请稍等...</title>
+  <link rel="stylesheet" href="./style/redirectGame.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+
+<body>
+  <div id="first-load">
+    <!-- 首次加载时的提示 -->
+    <div class="top">
+      <p>正在启动,请耐心等待...</p>
+      <div id="load-bar-1" class="mui-progressbar mui-progressbar-infinite"><span></span></div>
+    </div>
+    <div class="center">
+      <a class="btn_index" id="link-btn">返回大厅</a>
+    </div>
+    <div class="foot">
+      <!-- 加载的icon -->
+      <span class="lds-circle">
+        <img src="" id="iconUrl">
+      </span>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+  <script src="./js/redirectGame.js"></script>
+</body>
+
+</html>

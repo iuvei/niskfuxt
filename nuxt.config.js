@@ -10,18 +10,34 @@ function customizer(objValue, srcValue) {
 /**
  * 根据启动命令，装载PC/MOBILE配置文档
  */
-const mergeData=process.env.DEVICE.toUpperCase()=='MOBILE'?config_mobile:config_pc
-console.log(process.env.DEVICE)
-module.exports =_.mergeWith( {
+const mergeData = process.env.DEVICE.toUpperCase() == 'MOBILE' ? config_mobile : config_pc
+module.exports = _.mergeWith({
   head: {
     title: 'NUXT',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
-      { name: 'format-detection', content: 'telephone=no' },
-      { name: 'msapplication-tap-highlight', content: 'no' },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js project'
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        name: 'msapplication-tap-highlight',
+        content: 'no'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
     ],
     link: [
       { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' },
@@ -45,7 +61,9 @@ module.exports =_.mergeWith( {
       allChunks: true
     },
     filenames: {
-      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[chunkhash].js'
+      chunk: ({
+        isDev
+      }) => isDev ? '[name].js' : '[id].[chunkhash].js'
     }
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
@@ -63,12 +81,41 @@ module.exports =_.mergeWith( {
   performance: {
     prefetch: false
   },
-  plugins: [
-    // { src: '~plugins/mint-ui' ,ssr:false},
-    { src: '~assets/styles/base.scss' },
+  modules: ['@nuxtjs/pwa'],
+  plugins: [{
+      src: '~~plugins/lazyLoad',
+      ssr: false
+    },
+    {
+      src: '~~plugins/eventBus',
+      ssr: false
+    },
+    {
+      src: '~~plugins/localStorage',
+      ssr: false
+    },
+    {
+      src: '~~plugins/sessionStorage',
+      ssr: false
+    },
+    {
+      src: '~~plugins/axios',
+      ssr: false
+    },
+    {
+      src: '~~plugins/filters',
+      ssr: false
+    },
+    {
+      src: '~~plugins/extend',
+      ssr: false
+    },
+    {
+      src: '~~plugins/config',
+      ssr: false
+    },
   ],
-  proxy:{
-    url:'https://qhc16.com', // 接口反向代理目标地址
+  proxy: {
+    url: 'https://qhc16.com', // 接口反向代理目标地址
   }
-},mergeData,customizer)
-
+}, mergeData, customizer)

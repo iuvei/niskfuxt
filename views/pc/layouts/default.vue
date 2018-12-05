@@ -3,11 +3,11 @@
     <headerTemp></headerTemp>
     <navTemp></navTemp>
     <div class="page-view">
-    <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
+      <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
       <nuxt/>
     </div>
     <footerTemp></footerTemp>
-    <rightServer></rightServer> 
+    <rightServer></rightServer>
   </div>
 </template>
 
@@ -23,26 +23,29 @@ export default {
     footerTemp,
     rightServer
   },
-  created(){
+  created() {
     // 拉取用户信息
-    if(!this.$store.getters.userInfo.loginname){
-      this.$store.dispatch('UPDATE_USERDATA').then(res=>{
-        // console.log(res)
-      }).catch(err=>{
-        // console.log(err)
-      })
+    if (!this.$store.getters.userInfo.loginname) {
+      this.$store
+        .dispatch("UPDATE_USERDATA")
+        .then(res => {
+          // console.log(res)
+        })
+        .catch(err => {
+          // console.log(err)
+        });
     }
-
   },
-  mounted(){
+  mounted() {
     // console.log(window.location.href)
   }
 };
 </script>
 
 <style>
-  .page-view{
-    min-height:80vh;
-    background:#ccc;
-  }
+@import url("//at.alicdn.com/t/font_700045_jfc3obnxxb.css");
+.page-view {
+  min-height: 80vh;
+  background: #ccc;
+}
 </style>
