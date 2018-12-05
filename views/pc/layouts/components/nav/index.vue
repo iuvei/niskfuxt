@@ -1,6 +1,6 @@
 <template>
-   <div class="nav6 navblock animated flipInX">
-    <div class="nav">
+   <div class="nav6 navblock ">
+    <div class="nav animated flipInX">
       <span></span>
       <nuxt-link tag="a" :to="{name:'index'}" >首页</nuxt-link>
       <span></span>

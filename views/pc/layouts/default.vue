@@ -3,7 +3,7 @@
     <headerTemp></headerTemp>
     <navTemp></navTemp>
     <div class="page-view">
-      <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
+      <h3>{{$store.getters.userData}}</h3>
       <nuxt/>
     </div>
     <footerTemp></footerTemp>
@@ -25,7 +25,7 @@ export default {
   },
   created() {
     // 拉取用户信息
-    if (!this.$store.getters.userInfo.loginname) {
+    if (!this.$store.getters.userData.loginname) {
       this.$store
         .dispatch("UPDATE_USERDATA")
         .then(res => {

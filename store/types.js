@@ -6,3 +6,4 @@ export const UPDATE_USERDATA = 'UPDATE_USERDATA' // UPDATE_USERDATA
 export const SET_USERDATA = 'SET_USERDATA' // SET_USERDATA
 export const IS_LOGIN = 'IS_LOGIN' // IS_LOGIN
 export const SET_AUTH = 'SET_AUTH' // SET_AUTH
+export const UPDATE_MONEY = 'UPDATE_MONEY' // 
