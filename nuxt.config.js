@@ -10,23 +10,43 @@ function customizer(objValue, srcValue) {
 /**
  * 根据启动命令，装载PC/MOBILE配置文档
  */
-const mergeData=process.env.DEVICE.toUpperCase()=='MOBILE'?config_mobile:config_pc
+const mergeData = process.env.DEVICE.toUpperCase() == 'MOBILE' ? config_mobile : config_pc
 console.log(process.env.DEVICE)
-module.exports =_.mergeWith( {
+module.exports = _.mergeWith({
   head: {
     title: 'NUXT',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
-      { name: 'format-detection', content: 'telephone=no' },
-      { name: 'msapplication-tap-highlight', content: 'no' },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js project'
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        name: 'msapplication-tap-highlight',
+        content: 'no'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
     ],
-    link: [
-      { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' },
+    link: [{
+        rel: 'SHORTCUT ICON',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      },
       // { rel: 'stylesheet', href: 'https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css' }
-      
+
     ],
     script: [
       // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
@@ -45,7 +65,9 @@ module.exports =_.mergeWith( {
       allChunks: true
     },
     filenames: {
-      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[chunkhash].js'
+      chunk: ({
+        isDev
+      }) => isDev ? '[name].js' : '[id].[chunkhash].js'
     }
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
@@ -63,12 +85,17 @@ module.exports =_.mergeWith( {
   performance: {
     prefetch: false
   },
-  plugins: [
-    // { src: '~plugins/mint-ui' ,ssr:false},
-    { src: '~assets/styles/base.scss' },
+  plugins: [{
+      src: '~~plugins/lazyLoad'
+    },
+    {
+      src: '~~plugins/eventBus'
+    },
+    {
+      src: '~~plugins/localStorage'
+    },
   ],
-  proxy:{
-    url:'https://qhc16.com', // 接口反向代理目标地址
+  proxy: {
+    url: 'https://qhc16.com', // 接口反向代理目标地址
   }
-},mergeData,customizer)
-
+}, mergeData, customizer)

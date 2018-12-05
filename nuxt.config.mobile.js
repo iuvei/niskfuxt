@@ -1,22 +1,39 @@
 module.exports = {
   head: {
     title: 'NUXT--MOBILE',
-    meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
-      { name: 'format-detection', content: 'telephone=no' },
-      { name: 'msapplication-tap-highlight', content: 'no' },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    meta: [{
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js project'
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        name: 'msapplication-tap-highlight',
+        content: 'no'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
     ],
     link: [
       // { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
-    ],
+    script: [{
+      src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js'
+    }, ],
   },
 
-  loading: { color: '#3B8070' },
+  loading: {
+    color: '#3B8070'
+  },
   srcDir: 'views/mobile',
   cache: true,
 
@@ -40,10 +57,11 @@ module.exports = {
   performance: {
     prefetch: false
   },
-  plugins: [
-    { src: '~~plugins/event-bus'},
-    { src: '~plugins/mint-ui'},
-    { src: '~assets/styles/base.scss' },
+  plugins: [{
+      src: '~plugins/mint-ui'
+    },
+    {
+      src: '~assets/styles/base.scss'
+    },
   ]
 }
-

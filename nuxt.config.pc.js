@@ -5,12 +5,27 @@ module.exports = {
    */
   head: {
     title: 'NUXT--PC',
-    meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
-      { name: 'format-detection', content: 'telephone=no' },
-      { name: 'msapplication-tap-highlight', content: 'no' },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    meta: [{
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js project'
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        name: 'msapplication-tap-highlight',
+        content: 'no'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
     ],
     link: [
       // { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
@@ -20,12 +35,14 @@ module.exports = {
     ],
   },
 
-  loading: { color: '#3B8070' },
+  loading: {
+    color: '#3B8070'
+  },
   /**
    * PC项目的pages地址
    * https://zh.nuxtjs.org/api/configuration-srcdir/
    */
-  srcDir: 'views/pc', 
+  srcDir: 'views/pc',
 
   build: {
     vendor: ['axios', 'js-cookie'],
@@ -46,11 +63,11 @@ module.exports = {
   performance: {
     prefetch: false
   },
-  plugins: [
-    { src: '~plugins/element-ui'},
-    { src: '~assets/styles/base.scss' },
-    { src: '~~plugins/lazy-load'},
-    { src: '~~plugins/event-bus'},
+  plugins: [{
+      src: '~plugins/element-ui'
+    },
+    {
+      src: '~assets/styles/base.scss'
+    }
   ]
 }
-
