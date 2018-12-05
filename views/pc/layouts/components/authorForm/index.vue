@@ -3,35 +3,35 @@
   <div class="author-form">
     <div class="login-form">
       <form>
-        <el-row :gutter="10">
-          <el-col :span="12">
+        <Row :gutter="10">
+          <Col span="12">
             <div class="inputs">
               <span class="fixed left icobjh bjh-yonghu"></span>
               <input v-model="loginData.account" :placeholder="placeholder.account" @keyup.enter="login">
             </div>
-          </el-col>
-          <el-col :span="12">
+          </Col>
+          <Col span="12">
             <div class="inputs">
               <span class="fixed left icobjh bjh-suo1"></span>
               <input v-model="loginData.password" :placeholder="placeholder.password" type="password" @keyup.enter="login">
             </div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="10">
-          <el-col :span="12">
+          </Col>
+        </Row>
+        <Row :gutter="10">
+          <Col span="12">
             <div class="inputs">
               <span class="fixed left icobjh bjh-yanzhengma"></span>
               <input v-model="loginData.imageCode" :placeholder="placeholder.imageCode" @keyup.enter="login">
               <img class="fixed right code" :src="ImgCode" @click="getimg" />
             </div>
-          </el-col>
-          <el-col :span="12">
+          </Col>
+          <Col span="12">
             <div class="inputs">
               <a @click="login" class="btn btn01">登录</a>
               <a class="btn btn02" @click="$bus.$emit('showForget',true)" >忘记密码?</a>
             </div>
-          </el-col>
-        </el-row>
+          </Col>
+        </Row>
       </form>
     </div>
     <!-- <forgetPwd>忘记密码框</forgetPwd> -->

@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <el-button>默认按钮</el-button>
+    <Button>默认按钮</Button>
     <input class="login-input" 
       v-model="loginData.account" 
       type="text" 
@@ -20,15 +20,6 @@
       <img src="/proxy/mobi/validateImage.php?random=234">
     <!-- <a @click="login">登陆-{{$store.getters.userInfo.name}}--PC</a>  -->
     <img v-lazy="'https://avatar-static.segmentfault.com/122/290/1222908597-5692044f6b297_big64'">
-
-    <div class="show-list">
-      <a href="https://h5.ele.me/ranking/#type=quality_meal&activity_id=1&title=%E5%93%81%E8%B4%A8%E5%A5%97%E9%A4%90&navType=0&geohash=wtw3ycy6v7pe">
-        <img :src="show1" alt="">
-      </a>
-      <a href="https://h5.ele.me/sales/#geohash=wtw3ycy6v7pe">
-        <img :src="show2" alt="">
-      </a>
-    </div>
     <div style="height:5px;clear:both" />
     <div class="swiper">
     </div>
@@ -38,9 +29,6 @@
 
 <script>
 
-  // import Tabbar from "~/components/tabbar";
-  // import ShopList from "~/components/shopList";
-  // import config from "~/config";
   import config from '~~/config';
   import {
     getHomeData,

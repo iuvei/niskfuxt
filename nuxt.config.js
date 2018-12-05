@@ -25,7 +25,7 @@ module.exports =_.mergeWith( {
     ],
     link: [
       { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel: 'stylesheet', href: 'https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css' }
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' }
       
     ],
     script: [

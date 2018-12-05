@@ -4,7 +4,7 @@ module.exports = {
    * 
    */
   head: {
-    title: 'NUXT--PC',
+    title: 'itgo-模版',
     meta: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' },
@@ -47,7 +47,7 @@ module.exports = {
     prefetch: false
   },
   plugins: [
-    { src: '~plugins/element-ui'},
+    { src: '~plugins/iview'},
     { src: '~assets/styles/base.scss' },
     { src: '~~plugins/lazy-load'},
     { src: '~~plugins/event-bus'},
