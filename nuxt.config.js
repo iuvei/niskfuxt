@@ -86,13 +86,24 @@ module.exports = _.mergeWith({
     prefetch: false
   },
   plugins: [{
-      src: '~~plugins/lazyLoad'
+      src: '~~plugins/lazyLoad',
+      ssr: false
     },
     {
-      src: '~~plugins/eventBus'
+      src: '~~plugins/eventBus',
+      ssr: false
     },
     {
-      src: '~~plugins/localStorage'
+      src: '~~plugins/localStorage',
+      ssr: false
+    },
+    {
+      src: '~~plugins/sessionStorage',
+      ssr: false
+    },
+    {
+      src: '~~plugins/axios',
+      ssr: false
     },
   ],
   proxy: {

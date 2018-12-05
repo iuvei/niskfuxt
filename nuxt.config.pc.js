@@ -43,7 +43,23 @@ module.exports = {
    * https://zh.nuxtjs.org/api/configuration-srcdir/
    */
   srcDir: 'views/pc',
+  /**
+   * router 属性让你可以个性化配置 Nuxt.js 应用的路由
+   */
+  router: {
+    // base: '/app/',
+    // linkActiveClass: 'active',
+    // linkExactActiveClass: 'active',
+    // middleware: 'user-agent',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'home',
+        path: '/',
+        component: resolve(__dirname, 'views/pc/pages/index/index.vue')
+      })
+    }
 
+  },
   build: {
     vendor: ['axios', 'js-cookie'],
     // extend (config, { isDev, isClient }) {

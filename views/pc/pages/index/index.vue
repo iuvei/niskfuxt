@@ -70,10 +70,11 @@ export default {
     console.log("window-test");
   },
   mounted() {
-    console.log(this.$store);
-    // this.$store.set("user", { name: "555555Marcus" });
-    // this.$store.get("user");
-    this.$bus.$emit("test");
+    // console.log(this.$store);
+    this.$localStorage.set("user", { name: "555555Martestcus" });
+    this.$sessionStorage.set("user", { name: "555555Martestcus" });
+    console.log(this.$sessionStorage.get("user"));
+    // this.changeData();
   },
   methods: {
     login() {
