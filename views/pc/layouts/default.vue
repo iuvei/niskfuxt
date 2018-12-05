@@ -1,6 +1,7 @@
 <template>
   <div class="layout-default">
     <headerTemp></headerTemp>
+    <navTemp></navTemp>
     <div class="page-view">
     <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
       <nuxt/>
@@ -12,11 +13,13 @@
 
 <script>
 import headerTemp from "./components/header";
+import navTemp from "./components/nav";
 import footerTemp from "./components/footer";
 import rightServer from "./components/rightServer";
 export default {
   components: {
     headerTemp,
+    navTemp,
     footerTemp,
     rightServer
   },
