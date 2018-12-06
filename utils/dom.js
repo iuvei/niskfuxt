@@ -73,3 +73,4 @@ Element.prototype.css = function(_style) {
   }
   return window.getComputedStyle ? getComputedStyle(this, null)[_style] : this.currentStyle[_style]
 }
+export default NodeList

@@ -36,7 +36,7 @@ module.exports = {
   },
   srcDir: 'views/mobile',
   router: {
-    base: '/mobile/',
+    // base: '',
     // linkActiveClass: 'active',
     // linkExactActiveClass: 'active',
     // middleware: 'user-agent',

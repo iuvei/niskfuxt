@@ -39,10 +39,16 @@ module.exports = _.mergeWith({
         content: 'yes'
       },
     ],
-    link: [
-      { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' }
-      
+    link: [{
+        rel: 'SHORTCUT ICON',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'
+      }
+
     ],
     script: [
       // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
@@ -64,7 +70,60 @@ module.exports = _.mergeWith({
       chunk: ({
         isDev
       }) => isDev ? '[name].js' : '[id].[chunkhash].js'
-    }
+    },
+    filenames: {
+      app: ({
+        isDev
+      }) => isDev ? '[name].js' : 'app_[chunkhash].js',
+      chunk: ({
+        isDev
+      }) => isDev ? '[name].js' : 'chunk_[chunkhash].js',
+      css: ({
+        isDev
+      }) => isDev ? '[name].js' : 'css/[contenthash].css',
+      img: ({
+        isDev
+      }) => isDev ? '[path][name].[ext]' : 'img/[hash:7].[ext]',
+      font: ({
+        isDev
+      }) => isDev ? '[path][name].[ext]' : 'fonts/[hash:7].[ext]',
+      video: ({
+        isDev
+      }) => isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'
+    },
+    vendor: [{
+        src: '~~plugins/lazyLoad',
+        ssr: false
+      },
+      {
+        src: '~~plugins/eventBus',
+        ssr: false
+      },
+      {
+        src: '~~plugins/localStorage',
+        ssr: false
+      },
+      {
+        src: '~~plugins/sessionStorage',
+        ssr: false
+      },
+      {
+        src: '~~plugins/axios',
+        ssr: false
+      },
+      {
+        src: '~~plugins/filters',
+        ssr: false
+      },
+      {
+        src: '~~plugins/extend',
+        ssr: false
+      },
+      {
+        src: '~~plugins/config',
+        ssr: false
+      },
+    ],
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
     // extend (config, { isDev, isClient }) {
     //   if (isDev && isClient) {

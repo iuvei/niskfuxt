@@ -3,7 +3,7 @@
     <headerTemp></headerTemp>
     <navTemp></navTemp>
     <div class="page-view">
-      <h3>{{$store.getters.userData}}</h3>
+      <h3>{{userData}}</h3>
       <nuxt/>
     </div>
     <footerTemp></footerTemp>
@@ -34,6 +34,11 @@ export default {
         .catch(err => {
           // console.log(err)
         });
+    }
+  },
+  computed:{
+    userData(){
+      return this.$store.getters.userData
     }
   },
   mounted() {

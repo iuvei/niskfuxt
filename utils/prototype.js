@@ -51,6 +51,6 @@ String.prototype.toDate = function() {
 String.prototype.strSplit = function(num = 3, rpl = ',') {
   return this.toString().replace(new RegExp('(\\w)(?=(\\w{' + num + '})+(?!\\w))', 'g'), '$1' + rpl)
 }
-
-export const DateFormat = Date.prototype.format
+export default Date
+// export const DateFormat = Date.prototype.format
 

@@ -22,7 +22,7 @@
             <div class="inputs">
               <span class="fixed left icobjh bjh-yanzhengma"></span>
               <input v-model="loginData.imageCode" :placeholder="placeholder.imageCode" @keyup.enter="login">
-              <img class="fixed right code" :src="ImgCode" @click="getimg" />
+              <img class="fixed right code" v-lazy="validateImage" @click="GET_VALIDATE" />
             </div>
           </Col>
           <Col span="12">
@@ -48,7 +48,11 @@
       return {
       };
     },
+    computed: {
+      ...mapGetters(['validateImage'])
+    },
     methods:{
+      // ...mapMutations(['GET_VALIDATE']),
       login(){
         console.log('login')
       }
