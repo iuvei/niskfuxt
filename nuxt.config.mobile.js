@@ -35,6 +35,20 @@ module.exports = {
     color: '#3B8070'
   },
   srcDir: 'views/mobile',
+  router: {
+    base: '/mobile/',
+    // linkActiveClass: 'active',
+    // linkExactActiveClass: 'active',
+    // middleware: 'user-agent',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'home',
+        path: '/',
+        component: resolve(__dirname, 'views/mobile/pages/index/index.vue')
+      })
+    }
+
+  },
   cache: true,
 
   build: {

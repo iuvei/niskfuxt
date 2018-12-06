@@ -117,5 +117,10 @@ module.exports = _.mergeWith({
   ],
   proxy: {
     url: 'https://qhc16.com', // 接口反向代理目标地址
+  },
+  manifest: {
+    name: 'nuxt-cms',
+    description: 'A pwa program',
+    theme_color: '#618cb9'
   }
 }, mergeData, customizer)
