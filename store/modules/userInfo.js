@@ -1,6 +1,7 @@
 /**
  * 用户模块
  */
+import Vue from 'vue'
 import {  ajaxGetSessionPersonalData,checkWithdrawPwd,getMessageByUser,logOut} from '@@/api/authService'
 const state = {
   userData: {

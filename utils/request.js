@@ -5,7 +5,6 @@ import qs from 'qs';
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: config.BASE_URL?config.BASE_URL:'',// api的base_url
   timeout: 5000, // 请求超时时间
   headers:{
     common:{

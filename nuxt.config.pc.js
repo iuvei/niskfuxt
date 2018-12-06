@@ -66,6 +66,7 @@ module.exports = {
   },
   plugins: [
     { src: '~plugins/iview'},
+    { src: '~plugins/common',ssr:false},
     { src: '~assets/styles/base.scss' }
   ]
 }

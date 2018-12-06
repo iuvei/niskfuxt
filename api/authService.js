@@ -1,41 +1,68 @@
 import ajax from '@@/utils/request.js' // 引入axios
-
-const $login = '/index/login.php' // 登入
-const $ajaxGetSessionPersonalData = '/user/ajaxGetSessionPersonalData.php' // 该接口用于获取用户信息
-const $logout = '/index/logout.php' // 登出
-const $register = '/mobi/register.php' // 注册
-const $addAgent = '/mobi/addAgent.php' // 代理注册
-const $checkWithdrawPwd = '/asp/checkWithdrawPwd.php' // 确认用户是否设置支付密码
-const $getMessageByUser = '/index/getMessageByUser.php' // 获取用户站内信列表
+import request from '@@/utils/request.js'
+import config from '~~/config';
+const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
 
 /**
  * 用户相关API
  */
-export function ajaxGetSessionPersonalData() {
-  return ajax.get($ajaxGetSessionPersonalData)
+// 获取用户数据
+export function ajaxGetSessionPersonalData(params) {
+  return request({
+    url: `${baseURL}/user/ajaxGetSessionPersonalData.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function login(userData) {
-  $load.open('登录中...')
-  return ajax.post($login, userData)
+// 登陆
+export function login(params) {
+  return request({
+    url: `${baseURL}/index/login.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function logOut() {
-  $load.open('正在退出...')
-  return ajax.get($logout)
+// 登出
+export function logOut(params) {
+  return request({
+    url: `${baseURL}/index/logout.php`,
+    method: 'GET',
+    data: params,
+  })
 }
+// 验证码
 export function getAuthImg() {
-  return '/mobi/validateImage.php?random=' + Math.random() // 验证码
+  return `${baseURL}/mobi/validateImage.php?random=  ${Math.random()}` // 验证码
 }
-export function register(data) {
-  $load.open('正在注册...')
-  return ajax.post($register, data)
+// 普通用户注册
+export function register(params) {
+  return request({
+    url: `${baseURL}/mobi/register.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function registerAgent(data) {
-  $load.open('正在注册...')
-  return ajax.post($addAgent, data)
+// 代理注册
+export function registerAgent(params) {
+  return request({
+    url: `${baseURL}/mobi/addAgent.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function checkWithdrawPwd(data) {
-  return ajax.get($checkWithdrawPwd, data)
+// 检查是否设置支付密码
+export function checkWithdrawPwd(params) {
+  return request({
+    url: `${baseURL}/asp/checkWithdrawPwd.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function getMessageByUser(data) {
-  return ajax.get($getMessageByUser, data)
+// 读取用户站内信
+export function getMessageByUser(params) {
+  return request({
+    url: `${baseURL}/index/getMessageByUser.php`,
+    method: 'GET',
+    data: params,
+  })
 }

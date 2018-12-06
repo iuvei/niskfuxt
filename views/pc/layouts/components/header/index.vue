@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <!-- <div class="content"> -->
-      <el-row type="flex" class="content" justify="space-between">
-        <el-col :span="6">
+      <Row type="flex" class="content" justify="space-between">
+        <Col :span="6">
           <!-- 左边在线人数 -->
           <div class="links">
             <div class="showUser" v-if="!$store.getters.isLogin">
@@ -10,20 +10,20 @@
                 <p class="title2">{{number}}</p>
             </div>
           </div>
-        </el-col>
-        <el-col :span="8">
+        </Col>
+        <Col :span="8">
           <!-- 中间logo -->
           <a class="logo" href="/">
             <img src="@@/assets/images/base/logo.gif">
           </a>
-        </el-col>
-        <el-col :span="10">
+        </Col>
+        <Col :span="10">
           <!-- 右侧登陆表单 -->
           <div class="input">
             <authorForm></authorForm>
           </div>
-        </el-col>
-      </el-row>
+        </Col>
+      </Row>
     <!-- </div> -->
   </header>
 </template>
@@ -81,6 +81,7 @@
     .links{
       margin-top:15px;
       color:#fff;
+      float:left;
       .link{
         margin-right:10px;
         cursor:pointer;

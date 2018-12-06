@@ -8,6 +8,7 @@ import {
   login
 } from '@@/api/authService'
   import {mapMutations} from 'vuex'
+  
 export const loginControl = {
   data() {
     return {
@@ -35,7 +36,7 @@ export const loginControl = {
      */
     checkLogin(obj) {
       // 代理账户是否禁止登陆
-      if (WEBCONFIG.onlyUser) {
+      if (obj.onlyUser) {
         if (this.loginData.account.indexOf('a_') > -1) {
           return '代理账户不允许登陆'
         }
@@ -103,7 +104,7 @@ export const loginControl = {
       }
     }
   },
-  created() {
+  mounted() {
     this.getRememberData()
   }
 }

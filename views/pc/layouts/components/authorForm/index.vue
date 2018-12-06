@@ -1,7 +1,7 @@
 <template>
 
   <div class="author-form">
-    <div class="login-form">
+    <div class="login-form" v-if="!isLogin">
       <form>
         <Row :gutter="10">
           <Col span="12">
@@ -34,14 +34,20 @@
         </Row>
       </form>
     </div>
+    <div v-if="isUser">
+      is isUser
+      {{userData}}
+    </div>
+    <div v-if="isAgent">
+    is isAgent
+    </div>
     <!-- <forgetPwd>忘记密码框</forgetPwd> -->
   </div>
 
 </template>
 <script>
   import {loginControl} from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
-  // import forgetPwd from "pc/views/common/pwd/pwdForgot"
-  import {mapGetters, mapActions} from 'vuex'
+  import {mapGetters, mapActions,mapMutations} from 'vuex'
   export default {
     mixins: [loginControl], // 混合
     data() {
@@ -49,11 +55,23 @@
       };
     },
     computed: {
-      ...mapGetters(['validateImage'])
+      ...mapGetters(['validateImage','isLogin','isUser','isAgent','userData'])
     },
     methods:{
-      // ...mapMutations(['GET_VALIDATE']),
+      ...mapMutations(['GET_VALIDATE']),
       login(){
+        this.loginSubmit(this.loginData).then(res=>{
+          // window.toast(res.message)
+          this.$Message.success({
+            content:res.message,
+            closable:true
+          })
+        }).catch(err=>{
+          this.$Message.error({
+            content:err.message,
+            closable:true
+          })
+        })
         console.log('login')
       }
     }

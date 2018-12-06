@@ -3,17 +3,19 @@ import { Message, confirm,Spin,conFirm } from 'iview'
 import openWin from '@@/utils/openWindow'
 
 window.toast = showToast
-window.$load = Spin
+window.$load = SpinLoad
 window.$open = openWin
-
+console.log(Message)
 function showToast(msg,type){
-    Message({
-        message:msg,
-        showClose:true,
-        type:type?type:"warning"
-    })
+    console.log(msg,type)
+    Message.warning(msg)
+    // ({
+    //     message:msg,
+    //     showClose:true,
+    //     type:type?type:"warning"
+    // })
 }
-function Spin(){
+function SpinLoad(){
     Spin.show({
         render: (h) => {
             return h('div', [

@@ -25,7 +25,7 @@ const actions = {
 }
 const mutations={
     // 更新验证码
-    [types.GET_VALIDATE](state) {
+    GET_VALIDATE(state) {
         const imgSrc = getAuthImg()
         util.ImgToBase64(imgSrc).then(res => {
           state.validateImage = res

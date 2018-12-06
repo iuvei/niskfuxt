@@ -1,5 +1,8 @@
 
 import ajax from '@/utils/request.js' // 引入axios
+import request from '@/utils/request.js'
+import config from '~~/config';
+const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
 
 const $agentReport = '/agent/agentReport.php' // 数据汇总（代理首屏页）
 const $searchagprofitData = '/agent/searchagprofitData.php' // 会员输赢查询
@@ -10,8 +13,12 @@ const $searchPtCommissionsData = '/agent/searchPtCommissionsData.php' // 老虎�
 const $searchsubuserProposalData = '/agent/searchsubuserProposalData.php' // 查询下线账务
 const $getProposalYouHuiTypeSelectionData = '/agent/getProposalYouHuiTypeSelectionData.php' // 获取优惠类型下拉数据
 
-export function agentReport(data) {
-  return ajax.get($agentReport, data)
+export function agentReport(params) {
+  return request({
+    url: `${baseURL}${$agentReport}`,
+    method: 'GET',
+    data: params,
+  })
 }
 export function searchagprofitData(data) {
   return ajax.get($searchagprofitData, data)

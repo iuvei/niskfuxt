@@ -1,4 +1,3 @@
-import { $cookie } from './storage'
 const util = {
   htmlEncode(html) {
     return document.createElement('a').appendChild(
