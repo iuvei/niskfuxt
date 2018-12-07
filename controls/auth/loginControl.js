@@ -3,7 +3,7 @@
  * 1、提交登陆表单
  * 2、是否记住账户名的功能
  */
-
+// 引入api
 import {
   login
 } from '@@/api/authService'
@@ -19,10 +19,10 @@ export const loginControl = {
         password: '', // 密码
         imageCode: '' // 验证码
       },
-      placeholder: {
-        account: '用户名', // 用户名
-        password: '密码', // 密码
-        imageCode: '验证码' // 二维码
+      formData:{
+        account: '', // true string 用户名
+        password: '', // true string 密码
+        imageCode: '' // true string 验证码
       }
     }
   },
@@ -75,6 +75,7 @@ export const loginControl = {
         login(this.loginData).then(res => {
           if (res.success) {
             // 登陆成功
+            // 是否要记住用户密码
             if (this.isRemember) {
               // 是否要记住登陆密码
               this.$localStorage.set('isRememberAccount', this.loginData.account)
@@ -96,6 +97,7 @@ export const loginControl = {
         })
       })
     },
+
     getRememberData() {
       // 读取之前记住的用户名
       if (this.$localStorage.get('isRememberAccount')) {
