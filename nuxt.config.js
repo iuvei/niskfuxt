@@ -54,7 +54,9 @@ module.exports = _.mergeWith({
       // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
     ],
   },
-
+  router: {
+    // middleware: {src:'~~plugins/lazyLoad'}
+  },
   /**
    *开启缓存 
    */
