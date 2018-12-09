@@ -6,7 +6,7 @@
 
 <script>
 
-  import transferForm from '@/components/transfer/t1';
+  import transferForm from '@/components/admin/money/transfer/t1';
   export default {
     layout: "admin", // 布局文件
     components: {

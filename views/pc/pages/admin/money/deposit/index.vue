@@ -6,7 +6,7 @@
 
 <script>
 
-  import depositForm from '@/components/deposit/t1';
+  import depositForm from '@/components/admin/money/deposit/t1';
   export default {
     layout: "admin", // 布局文件
     components: {

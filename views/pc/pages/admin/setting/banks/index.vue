@@ -6,7 +6,7 @@
 
 <script>
 
-  import banks from '@/components/banks/t1/index.vue';
+  import banks from '@/components/admin/user/banks/t1/index.vue';
   export default {
     layout: "admin", // 布局文件
     components: {

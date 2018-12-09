@@ -31,22 +31,42 @@ const $getbackPwdByDx_dc = '/index/getbackPwdByDx_dc.php' // 手机短信找回�
 const $getbackPwdByEmail = '/index/getbackPwdByEmail.php' // 邮箱找回密码
 
 const $getLoginNameByEmailOrPhone = '/index/getLoginNameByEmailOrPhone.php' // 手机短信或邮件找回账户名（目前好像没有在用）
-
 const $getIp = 'http://ip-api.com/json?lang=zh-CN' // 获取访问者ip
+
 export function getLoginNameByEmailOrPhone(data) {
-  return ajax.post($getLoginNameByEmailOrPhone, data)
+  return request({
+    url: `${baseURL}/index/getLoginNameByEmailOrPhone.php`,
+    method: 'post',
+    data: params,
+  })
 }
 export function getTouClickFlag(data) {
-  return ajax.get($getTouClickFlag, data)
+  return request({
+    url: `${baseURL}/asp/getTouClickFlag.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function queryLatestPreferential(data) {
-  return ajax.post($queryLatestPreferential, data)
+export function queryLatestPreferential(params) {
+  return request({
+    url: `${baseURL}/youhui/queryLatestPreferential.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function findLatestPreferentialById(data) {
-  return ajax.post($findLatestPreferentialById, data)
+export function findLatestPreferentialById(params) {
+  return request({
+    url: `${baseURL}/youhui/findLatestPreferentialById.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function getbackPwdByEmail(data) {
-  return ajax.post($getbackPwdByEmail, data)
+export function getbackPwdByEmail(params) {
+  return request({
+    url: `${baseURL}/index/getbackPwdByEmail.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
 export function getAllGames(type) {
@@ -56,54 +76,93 @@ export function getAllGames(type) {
     return ajax.get($allGamesDataMobile)
   }
 }
-
+// 可以废弃，用js生成二维码
 export function generateQRCode(data, size = 140) {
-  return `${$generateQRCode}?qrtext=${data}&size=${size}`
+  return `${baseURL}/index/generateQRCode.php?qrtext=${data}&size=${size}`
 }
-export function getbackPwdByDx_dc(data) {
-  return ajax.post($getbackPwdByDx_dc, data)
+export function getbackPwdByDx_dc(params) {
+  return request({
+    url: `${baseURL}/index/getbackPwdByDx_dc.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-
-export function getGuestbookCountNew(data) {
-  return ajax.get($getGuestbookCountNew, data)
+// 有延时，已废弃
+export function getGuestbookCountNew(params) {
+  return request({
+    url: `${baseURL}/index/getGuestbookCountNew.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function makeCall(data) {
-  return ajax.post($makeCall, data)
+export function makeCall(params) {
+  return request({
+    url: `${baseURL}/user/makeCall.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function getCarouselListAll(data) {
-  return ajax.get($getCarouselListAll, data)
+export function getCarouselListAll(params) {
+  return request({
+    url: `${baseURL}/index/getCarouselListAll.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function checkConfigSystem(data) {
-  return ajax.post($checkConfigSystem, data)
+export function checkConfigSystem(params) {
+  return request({
+    url: `${baseURL}/index/checkConfigSystem.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 export function queryBannerList(params) {
-  console.log(params)
-  // return ajax.post(`${baseURL}/index/queryBannerList.php`, params)
-
   return request({
     url: `${baseURL}/index/queryBannerList.php`,
     method: 'GET',
     data: params,
   })
 }
-export function getNewAnnouncement() {
-  return ajax.get($getNewAnnouncement, {
-    v: Math.random()
+export function getNewAnnouncement(params) {
+  return request({
+    url: `${baseURL}/index/getNewAnnouncement.php`,
+    method: 'GET',
+    data: params,
   })
 }
-export function queryRecommandGamesList(data) {
-  return ajax.get($queryRecommandGamesList, data)
+export function queryRecommandGamesList(params) {
+  return request({
+    url: `${baseURL}/index/queryRecommandGamesList.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function saveOrUpdateGameStatus(data) {
-  return ajax.post($saveOrUpdateGameStatus, data)
+export function saveOrUpdateGameStatus(params) {
+  return request({
+    url: `${baseURL}/user/saveOrUpdateGameStatus.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function getMessageByUser(data) {
-  return ajax.get($getMessageByUser, data)
+export function getMessageByUser(params) {
+  return request({
+    url: `${baseURL}/index/getMessageByUser.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function readMsg(data) {
-  return ajax.get($readMsg, data)
+export function readMsg(params) {
+  return request({
+    url: `${baseURL}/index/readMsg.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function getIp(data){
-  return ajax.get($getIp,data)
+export function getIp(params){
+  return request({
+    url: `http://ip-api.com/json?lang=zh-CN`,
+    method: 'GET',
+    data: params,
+  })
 }

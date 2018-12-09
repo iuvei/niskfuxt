@@ -4,6 +4,7 @@
 import {
   queryHistory
 } from '@@/api/user'
+import dateUtil from 'iview/src/utils/date'
 const filterMenu = [{
     name: '在线存款',
     value: 'deposit'
@@ -73,8 +74,8 @@ export const userLog = {
   methods: {
     // 验证表单
     checkLog(obj) {
-      console.log(obj)
       // 必须完善个人信息
+      console.log(obj)
       if (!obj.starttime) {
         return '请选择开始日期'
       } else if (!obj.endtime) {
@@ -97,6 +98,15 @@ export const userLog = {
           })
         }
         this.pageContents = []
+        // 格式化时间
+        try{
+          obj.starttime=dateUtil.format(obj.starttime, 'yyyy-MM-dd HH:MM')
+        }catch{
+        }
+        try{
+          obj.endtime=dateUtil.format(obj.endtime, 'yyyy-MM-dd HH:MM')
+        }
+        catch{}
         // 结束时间需要加上23:59:59查询当天，接口原因
         // obj.endtime = obj.endtime + ' 23:59:59'
         queryHistory(obj).then((res) => {

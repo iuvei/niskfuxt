@@ -6,7 +6,7 @@
 
 <script>
 
-  import saveSend from '@/components/saveSend/t1/index.vue';
+  import saveSend from '@/components/admin/discount/saveSend/t1/index.vue';
   export default {
     layout: "admin", // 布局文件
     components: {

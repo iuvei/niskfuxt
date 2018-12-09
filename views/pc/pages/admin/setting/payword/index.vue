@@ -6,7 +6,7 @@
 
 <script>
 
-  import paywordSet from '@/components/paywordSet/t1/index.vue';
+  import paywordSet from '@/components/admin/user/paywordSet/t1/index.vue';
   export default {
     layout: "admin", // 布局文件
     components: {

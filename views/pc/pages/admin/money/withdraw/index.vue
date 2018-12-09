@@ -6,7 +6,7 @@
 
 <script>
 
-  import withdrawForm from '@/components/withdraw/t1';
+  import withdrawForm from '@/components/admin/money/withdraw/t1';
   export default {
     layout: "admin", // 布局文件
     components: {

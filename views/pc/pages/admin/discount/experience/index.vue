@@ -6,7 +6,7 @@
 
 <script>
 
-  import experienceGold from '@/components/experienceGold/t1/index.vue';
+  import experienceGold from '@/components/admin/discount/experienceGold/t1/index.vue';
   export default {
     layout: "admin", // 布局文件
     components: {

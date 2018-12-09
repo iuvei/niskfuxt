@@ -22,9 +22,44 @@ export const vipGold = {
           bet: 0
         }]
       },
+      columnsLevel: [
+        {
+            type: 'index',
+            width: 60,
+            align: 'center'
+        },
+        {
+            title: '等级',
+            key: 'levelName'
+        },
+        {
+            title: '晋级礼金',
+            key: 'upgradeprize'
+        },
+        {
+            title: '晋级流水',
+            key: 'upgradethreshold'
+        }
+    ],
+    columnsBetList: [
+      {
+          type: 'index',
+          width: 60,
+          align: 'center'
+      },
+      {
+          title: '平台',
+          key: 'platform'
+      },
+      {
+          title: '投注额',
+          key: 'bet'
+      }
+  ],
       // 未知，好像没用到
       thisMonthMoney: 0, // 本月投注额
       level: [], // 保存对应的等级信息
+      betList:[],
       // 提示小内容
       tips: {
         allbet: 0,
@@ -45,6 +80,7 @@ export const vipGold = {
           if (res.success) {
             // 保存当前等级
             this.level = res.data.upgradeThresholdList
+            this.betList = res.data.betList
             // 计算当月总投注额
             this.tips.allbet = res.data.betList[res.data.betList.length - 1].bet // 总投注额度
             //   如果还没有到顶级
@@ -58,7 +94,10 @@ export const vipGold = {
             this.canUpgrade = res.data.upgradeThresholdList.filter(item => {
               return item.money && res.data.betList[res.data.betList.length - 1].bet >= item.money
             })
-            this.level[this.level.length-1].upgradethreshold='特邀玩家'
+
+            // 特殊处理
+            // this.level[this.level.length-1].upgradethreshold='特邀玩家'
+            console.log(this.level)
             return resolve(res)
           } else {
             return reject(res)

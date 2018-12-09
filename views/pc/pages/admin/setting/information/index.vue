@@ -6,7 +6,7 @@
 
 <script>
 
-  import infoSet from '@/components/infoSet/t1/user.vue';
+  import infoSet from '@/components/admin/user/infoSet/t1/user.vue';
   export default {
     layout: "admin", // 布局文件
     components: {

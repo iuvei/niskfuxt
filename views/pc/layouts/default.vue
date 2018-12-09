@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import headerTemp from "@/components/header/t1";
-import navTemp from "@/components/nav/t1";
-import footerTemp from "@/components/footer/t1";
-import rightServer from "@/components/rightTool/t1";
+import headerTemp from "@/components/shows/header/t1";
+import navTemp from "@/components/shows/nav/t1";
+import footerTemp from "@/components/shows/footer/t1";
+import rightServer from "@/components/shows/rightTool/t1";
 export default {
   middleware: "route",
   components: {

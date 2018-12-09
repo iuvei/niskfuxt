@@ -6,7 +6,7 @@
 
 <script>
 
-  import passwordSet from '@/components/passwordSet/t1/index.vue';
+  import passwordSet from '@/components/admin/user/passwordSet/t1/index.vue';
   export default {
     layout: "admin", // 布局文件
     components: {
