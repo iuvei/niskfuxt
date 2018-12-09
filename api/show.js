@@ -1,4 +1,7 @@
 import ajax from '@@/utils/request.js' // 引入axios
+import request from '@@/utils/request.js'
+import config from '~~/config';
+const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
 
 // 与展示有关
 const $getNewAnnouncement = '/index/getNewAnnouncement.php' // 获取公告获取公告 只获取最新15条，时间倒序排列，GET请求，无需参数
@@ -73,8 +76,15 @@ export function getCarouselListAll(data) {
 export function checkConfigSystem(data) {
   return ajax.post($checkConfigSystem, data)
 }
-export function queryBannerList(data) {
-  return ajax.get($queryBannerList, data)
+export function queryBannerList(params) {
+  console.log(params)
+  // return ajax.post(`${baseURL}/index/queryBannerList.php`, params)
+
+  return request({
+    url: `${baseURL}/index/queryBannerList.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 export function getNewAnnouncement() {
   return ajax.get($getNewAnnouncement, {

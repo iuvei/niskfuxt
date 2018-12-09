@@ -1,13 +1,13 @@
 <template>
    <div class="nav6 navblock ">
-    <div class="nav animated flipInX">
+    <div class="nav">
       <span></span>
       <nuxt-link tag="a" :to="{name:'index'}" >首页</nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'slotgame'}" >电子游艺</nuxt-link>
+      <nuxt-link tag="a" :to="{name:'admin-summary'}" >summary</nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'real'}">
-        真人娱乐
+      <nuxt-link tag="a" :to="{name:'admin-money-deposit'}">
+        deposit
       </nuxt-link>
       <span></span>
       <nuxt-link tag="a" :to="{name:'sport'}">

@@ -2,33 +2,24 @@ import axios from 'axios';
 import config from '~~/config';
 import qs from 'qs';
 
-
 // 创建axios实例
 const service = axios.create({
   timeout: 5000, // 请求超时时间
-  headers:{
-    common:{
-      'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
-    }
-  },
   responseType:'json'
 })
-// service.defaults.baseURL = config.BASE_URL?config.BASE_URL:'';
-// service.defaults.baseURL = config.BASE_URL;
-// service.defaults.timeout = config.TIMEOUT;
-// service.defaults.headers = config.HEADERS;
-// service.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
-// service.defaults.responseType = 'json'
-
-const get = service.get
-service.get = function(url, data, config) {
-  return get(url, Object.assign({
-    params: data || {}
-  }, config || {}))
-}
+// 设置为formData形式提交
+service.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+// 设置返回的数据格式
+service.defaults.responseType = 'json'
 // 发送请求前的拦截
 service.interceptors.request.use(function(config) {
-  config.data = qs.stringify(config.data)
+  if(config.method.toUpperCase()=='POST'){
+    // form-data形式
+    config.data = qs.stringify(config.data)
+  }else if(config.method.toUpperCase()=='GET'){
+    // 拼接get参数
+    config.url=`${config.url}?${qs.stringify(config.data)}&v=${(new Date()).getTime()}`
+  }
   return config
 }, function(error) {
   // console.log('发送请求失败,' + error)

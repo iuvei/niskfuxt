@@ -1,4 +1,7 @@
-import ajax from '@/utils/request.js' // 引入axios
+import ajax from '@@/utils/request.js' // 引入axios
+import request from '@@/utils/request.js'
+import config from '~~/config';
+const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
 // 与用户优惠有关
 const $youhui = '/youhui/youhui.php' // 存送优惠
 const $getSelfYouHuiObject = '/youhui/getSelfYouHuiObject.php' // 自助优惠
@@ -82,8 +85,12 @@ export function queryPTLosePromo(data) {
   return ajax.get($queryPTLosePromo, data)
 }
 
-export function getBetUpgrateVO(data) {
-  return ajax.get($getBetUpgrateVO, data)
+export function getBetUpgrateVO(params) {
+  return request({
+    url: `${baseURL}/youhui/getBetUpgrateVO.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
 export function checkUpgrade(data) {

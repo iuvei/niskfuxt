@@ -1,4 +1,7 @@
 import ajax from '@@/utils/request.js' // 引入axios
+import request from '@@/utils/request.js'
+import config from '~~/config';
+const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
 
 const $doSignRecord = '/asp/doSignRecord.php' // 签到
 const $queryGameStatus = '/user/queryGameStatus.php' // 查询用户收藏的游戏
@@ -81,6 +84,10 @@ export function completeUserInfo(data) {
 }
 
 // 获取单个直接传入 eg:"PT"
-export function getGameMoney(data) {
-  return ajax.get($getGameMoney, data)
+export function getGameMoney(params) {
+  return request({
+    url: `${baseURL}/cash/getGameMoney.php`,
+    method: 'GET',
+    data: params,
+  })
 }

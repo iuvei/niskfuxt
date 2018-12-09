@@ -1,80 +1,104 @@
 <template>
-  <div class="layoutessfklj">
-    <headerTemp></headerTemp>
-
-    <nuxt/>
-
-    <footerTemp></footerTemp>
-    <!-- <rightServer></rightServer> --> 
-    <h3>PC-{{$store.getters.isLogin}}-user-LAYOUT</h3>
-  </div>
+  <Layout class="adminUser t1">
+    <Content>
+      <Row class="banner">
+        <Col span="24">
+        <!--banner></banner-->
+        </Col>
+      </Row>
+    </Content>
+    <Content>
+      <Row class="info">
+        <Col span="24">
+        <userInfo></userInfo>
+        </Col>
+      </Row>
+    </Content>
+    <Content>
+      <Row class="banner">
+        <Col span="24">
+        <!--banner></banner-->
+        </Col>
+      </Row>
+    </Content>
+    <Content>
+      <Row class="show">
+        <Col span="5">
+          <userMenu></userMenu>
+        </Col>
+        <Col span="18" offset="1">
+          <div class="window-title">标题</div>
+          <div class="window-show">
+            <nuxt />
+          </div>
+        </Col>
+      </Row>
+    </Content>
+  </Layout>
 </template>
-
 <script>
-// import svgIcon from "../components/svg";
-export default {
-  components: {
-    // svgIcon
-  },
-  created(){
-    console.log('created-layouttest')
-    if(!this.$store.getters.userInfo.loginname){
-      this.$store.dispatch('UPDATE_USERDATA').then(res=>{
-        // console.log(res)
-      }).catch(err=>{
-        // console.log(err)
-      })
+  import banner from "@/components/banners/t1";
+  import userInfo from "@/components/userInfo/t1";
+  import userMenu from "@/components/userMenu/t1";
+
+  export default {
+    computed: {
+      userData() {
+        return this.$store.getters.userData;
+      }
+    }
+
+    ,
+    mounted() {
+      // console.log(window.location.href)
+    }
+
+    ,
+    components: {
+      banner,
+      userInfo,
+      userMenu
     }
   }
-};
+
+  ;
+
 </script>
+<style lang="scss">
+  // 引用用户中心需用的iconfont 
+  @import url("//at.alicdn.com/t/font_700045_jfc3obnxxb.css");
+  .adminUser.t1 {
+    background-image: url("/img/bg1.jpg");
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .banner {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .info {
+      width: 1200px;
+      margin: 20px auto;
 
-<style>
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+    }
+    .show{
+      width:1200px;
+      margin:20px auto;
+    }
+    .window-title{
+      background: #151515;
+      color: #fff;
+      padding: 20px 10px;
+      font-size: 16px;
+    }
+    .window-show{
+      // width: 100%;
+      background-color: #232323;
+      min-height: 500px;
+      padding: 20px;
+    }
+  }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
 </style>

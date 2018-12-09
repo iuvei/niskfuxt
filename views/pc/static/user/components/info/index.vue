@@ -17,7 +17,6 @@
             副账户余额：
             <span class="u-yellow">{{wallet['DEPUTY']}}元</span>
           </p>
-          <p></p>
         </div>
         <div class="u-vip fr">
           <div class="u-level-box" v-for="(item,i) in level" :key="i">

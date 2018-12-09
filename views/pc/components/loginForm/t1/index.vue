@@ -1,19 +1,16 @@
 <template>
-
-  <div class="author-form">
-    <div class="login-form" v-if="!isLogin">
-      <form>
+    <div class="login-form">
         <Row :gutter="10">
           <Col span="12">
             <div class="inputs">
               <span class="fixed left icobjh bjh-yonghu"></span>
-              <input v-model="loginData.account" :placeholder="placeholder.account" @keyup.enter="login">
+              <input v-model="loginData.account" @keyup.enter="login">
             </div>
           </Col>
           <Col span="12">
             <div class="inputs">
               <span class="fixed left icobjh bjh-suo1"></span>
-              <input v-model="loginData.password" :placeholder="placeholder.password" type="password" @keyup.enter="login">
+              <input v-model="loginData.password" type="password" @keyup.enter="login">
             </div>
           </Col>
         </Row>
@@ -21,8 +18,8 @@
           <Col span="12">
             <div class="inputs">
               <span class="fixed left icobjh bjh-yanzhengma"></span>
-              <input v-model="loginData.imageCode" :placeholder="placeholder.imageCode" @keyup.enter="login">
-              <img class="fixed right code" v-lazy="validateImage" @click="GET_VALIDATE" />
+              <input v-model="loginData.imageCode" @keyup.enter="login">
+              <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
             </div>
           </Col>
           <Col span="12">
@@ -32,16 +29,6 @@
             </div>
           </Col>
         </Row>
-      </form>
-    </div>
-    <div v-if="isUser">
-      is isUser
-      {{userData}}
-    </div>
-    <div v-if="isAgent">
-    is isAgent
-    </div>
-    <!-- <forgetPwd>忘记密码框</forgetPwd> -->
   </div>
 
 </template>
@@ -55,7 +42,7 @@
       };
     },
     computed: {
-      ...mapGetters(['validateImage','isLogin','isUser','isAgent','userData'])
+      ...mapGetters(['validateImage'])
     },
     methods:{
       ...mapMutations(['GET_VALIDATE']),
@@ -107,6 +94,7 @@
       .code{
         height:28px;
         width:60px;
+        cursor:pointer;
       }
       input {
         background: #fff;

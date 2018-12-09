@@ -20,7 +20,8 @@
       <Col :span="10">
         <!-- 右侧登陆表单 -->
         <div class="input">
-          <authorForm></authorForm>
+          <loginSuccess v-if="isLogin"></loginSuccess>
+          <loginForm v-else></loginForm>
         </div>
       </Col>
     </Row>
@@ -29,7 +30,8 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
-import authorForm from "@/components/loginForm/t1";
+import loginForm from "@/components/loginForm/t1";
+import loginSuccess from "@/components/loginSuccess/t1";
 import openWindow from "~~/utils/openWindow";
 
 export default {
@@ -58,6 +60,9 @@ export default {
       }, 60000);
     }
   },
+  computed: {
+      ...mapGetters(['isLogin']),
+  },
   mounted() {
     // 到访人数倒计时
     this.beginNum();
@@ -66,7 +71,7 @@ export default {
     // 删除定时器
     clearInterval(this.timer);
   },
-  components: { authorForm }
+  components: { loginForm,loginSuccess }
 };
 </script>
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 [{
     "name": "主账户",
-    "key": "MAIN"
+    "value": "MAIN"
   },
   {
     "name": "副账户彩金",

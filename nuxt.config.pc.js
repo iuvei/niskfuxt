@@ -46,7 +46,16 @@ module.exports = {
 
   },
   build: {
-    vendor: ['axios', 'js-cookie'],
+    vendor: [{
+      src: '~plugins/iview',
+      ssr: false
+    },{
+      src: '~plugins/common',
+      ssr: false
+    },{
+      src: '~plugins/swiper',
+      ssr: false
+    }],
     // extend (config, { isDev, isClient }) {
     //   if (isDev && isClient) {
     //     config.module.rules.push({
@@ -65,8 +74,9 @@ module.exports = {
     prefetch: false
   },
   plugins: [
-    { src: '~plugins/iview'},
+    { src: '~plugins/iview',ssr:false},
     { src: '~plugins/common',ssr:false},
+    { src: '~plugins/swiper',ssr:false},
     { src: '~assets/styles/base.scss' }
   ]
 }

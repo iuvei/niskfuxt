@@ -56,6 +56,8 @@ module.exports = _.mergeWith({
   },
   router: {
     // middleware: {src:'~~plugins/lazyLoad'}
+        linkActiveClass: 'active',
+    linkExactActiveClass: 'active',
   },
   /**
    *开启缓存 
@@ -95,6 +97,10 @@ module.exports = _.mergeWith({
     },
     vendor: [{
         src: '~~plugins/lazyLoad',
+        ssr: false
+      },      
+      {
+        src: '~~plugins/vueQr',
         ssr: false
       },
       {
@@ -145,6 +151,10 @@ module.exports = _.mergeWith({
   modules: ['@nuxtjs/pwa'],
   plugins: [{
       src: '~~plugins/lazyLoad',
+      ssr: false
+    },
+    {
+      src: '~~plugins/vueQr',
       ssr: false
     },
     {

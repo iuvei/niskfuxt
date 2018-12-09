@@ -1,4 +1,7 @@
-import ajax from '@/utils/request.js' // 引入axios
+import ajax from '@@/utils/request.js' // 引入axios
+import request from '@@/utils/request.js'
+import config from '~~/config';
+const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
 
 // 与金流有关的
 const $change_pws = '/asp/change_pws.php' // 修改登录密码
@@ -43,8 +46,12 @@ const $getTransferOnceProgress = '/asp/getTransferOnceProgress.php'
 export function createDepositeOrder(data) {
   return ajax.post($createDepositeOrder, data)
 }
-export function getPaymentConfigInfo(data) {
-  return ajax.post($getPaymentConfigInfo, data)
+export function getPaymentConfigInfo(params) {
+  return request({
+    url: `${baseURL}/onlinepayment/getPaymentConfigInfo.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 export function mobilePayByEbank(data) {
   return ajax.post($mobilePayByEbank, data)

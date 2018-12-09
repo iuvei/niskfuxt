@@ -150,14 +150,6 @@ export default {
       activeMenu: null // 当前展开的菜单
     };
   },
-  props: {
-    data: {
-      type: Array,
-      default() {
-        return [];
-      }
-    }
-  },
   methods: {
     // 查找当前的路由，设置菜单的展开状态
     findRouter() {
@@ -179,9 +171,9 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapGetters(["userData", "unread", "isUser"])
-  },
+  // computed: {
+  //   ...mapGetters(["userData", "unread", "isUser"])
+  // },
   created() {
     this.findRouter();
   }

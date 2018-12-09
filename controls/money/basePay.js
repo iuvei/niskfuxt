@@ -1,8 +1,7 @@
 import {
   mobilePayByEbank,
   onlinePayDispathcer
-} from '@/api/payment'
-import check from '@/util/RegExp'
+} from '@@/api/payment'
 
 export const basePay = {
   data() {

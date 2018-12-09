@@ -1,34 +1,6 @@
 <template>
   <div class="home-page">
     <Button>默认按钮</Button>
-    <input
-      class="login-input"
-      v-model="loginData.account"
-      type="text"
-      name="account_user"
-      placeholder="游戏帐号"
-    >
-    <input
-      class="login-input"
-      v-model="loginData.password"
-      ref="pwd"
-      name="pwd_user"
-      type="password"
-      placeholder="游戏密码"
-    >
-    <input
-      class="login-input"
-      v-model="loginData.imageCode"
-      name="imageCode"
-      type="text"
-      placeholder="验证码"
-    >
-    <img src="/proxy/mobi/validateImage.php?random=234">
-    <!-- <a @click="login">登陆-{{$store.getters.userInfo.name}}--PC</a>  -->
-    <img v-lazy="'https://avatar-static.segmentfault.com/122/290/1222908597-5692044f6b297_big64'">
-    <div style="height:5px;clear:both"/>
-    <div class="swiper"></div>
-    <div style="height:10px;clear:both"/>
   </div>
 </template>
 
@@ -37,7 +9,7 @@ import config from "~~/config";
 import { getHomeData, checkLogin, ipapi } from "~/assets/services/common";
 import { loginApi } from "~/assets/services/user";
 export default {
-  layout: "user-layout", // 布局文件
+  layout: "admin", // 布局文件
   components: {
     // Tabbar,
     // ShopList

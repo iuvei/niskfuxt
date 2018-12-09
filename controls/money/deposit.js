@@ -1,10 +1,10 @@
 import {
   getPaymentConfigInfo
-} from '@/api/payment'
+} from '@@/api/payment'
 import {
   mcTypech,
   payTypes
-} from '@/assets/data/deposit.js'
+} from '@@/assets/data/deposit.js'
 
 export const depositMenu = {
   data() {
