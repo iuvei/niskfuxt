@@ -14,7 +14,7 @@
       </FormItem>
 
       <FormItem label="出生日期" prop="birthday" v-if="isUser">
-        <DatePicker v-model="Data.birthday" type="date" placeholder="选择日期" value-format="yyyy-MM-dd HH:mm:ss" :readonly="userData.birthday?true:false" style="width: 100%"></DatePicker>
+        <DatePicker v-model="Data.birthday" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" :readonly="userData.birthday?true:false" style="width: 100%"></DatePicker>
       </FormItem>
 
       <FormItem label="电子邮箱" prop="email">

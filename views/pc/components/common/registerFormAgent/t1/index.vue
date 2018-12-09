@@ -1,144 +1,128 @@
 <template>
-    <div class="login-form">
-        <Row :gutter="10">
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-yonghu"></span>
-              <input v-model="loginData.account" @keyup.enter="login">
-            </div>
-          </Col>
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-suo1"></span>
-              <input v-model="loginData.password" type="password" @keyup.enter="login">
-            </div>
-          </Col>
-        </Row>
-        <Row :gutter="10">
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-yanzhengma"></span>
-              <input v-model="loginData.imageCode" @keyup.enter="login">
-              <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
-            </div>
-          </Col>
-          <Col span="12">
-            <div class="inputs">
-              <a @click="login" class="btn btn01">登录</a>
-              <a class="btn btn02" @click="$bus.$emit('showForget',true)" >忘记密码?</a>
-            </div>
-          </Col>
-        </Row>
+  <div class="register-form-agent">
+    <Form :model="registerForm" label-position="top" class="flxe-form">
+      <FormItem label="用户名">
+        <Input v-model="registerForm.loginname" placeholder="用户名(6-10位数字和字母)" :maxlength="20"></Input>
+      </FormItem>
+      <FormItem label="真实姓名">
+        <Input v-model="registerForm.accountName" placeholder="请输入真实姓名" :maxlength="20"></Input>
+      </FormItem>
+      <FormItem label="密码">
+        <Input v-model="registerForm.password" :type="passwordType.new_password" placeholder="密   码(6-16位数字或字母）"
+          :maxlength="16">
+        <Button slot="append" @click="showPwd('new_password')" v-if="passwordType.new_password=='password'">查看</Button>
+        <Button slot="append" @click="showPwd('new_password')" v-else>隐藏</Button>
+        </Input>
+      </FormItem>
+      <FormItem label="确认密码">
+        <Input v-model="registerForm.confirmPassword" :type="passwordType.confirmPassword" placeholder="密   码(6-16位数字或字母）"
+          :maxlength="16">
+        <Button slot="append" @click="showPwd('confirmPassword')" v-if="passwordType.confirmPassword=='password'">查看</Button>
+        <Button slot="append" @click="showPwd('confirmPassword')" v-else>隐藏</Button>
+        </Input>
+      </FormItem>
+      <FormItem label="出生日期" prop="birthday">
+        <DatePicker v-model="registerForm.birthday" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" style="width: 100%"></DatePicker>
+      </FormItem>
+      <FormItem label="推广网址">
+        <Input v-model="registerForm.referWebsite" placeholder="推广网址(1-6位数字/字母)"
+          :maxlength="6">
+        <Button slot="append" >{{domainName||'获取代理域名失败'}}</Button>
+        </Input>
+      </FormItem>
+            <FormItem label="电子邮箱">
+        <Input v-model="registerForm.email" placeholder="请输入电子邮箱" :maxlength="100"></Input>
+      </FormItem>
+      <FormItem label="手机号">
+        <Input v-model="registerForm.phone" placeholder="取款唯一凭证，请正确填写手机号" :maxlength="11"></Input>
+      </FormItem>
+            <FormItem label="QQ号码">
+        <Input v-model="registerForm.qq" placeholder="请输入QQ" :maxlength="20"></Input>
+      </FormItem>
+            <FormItem label="微信号码">
+        <Input v-model="registerForm.wechat" placeholder="请输入微信" :maxlength="30"></Input>
+      </FormItem>
+                  <FormItem label="代理推荐码">
+        <Input v-model="registerForm.partner" placeholder="输入代理推荐人代码" :maxlength="20"></Input>
+      </FormItem>
+      
+      <FormItem label="验证码">
+        <Input v-model="registerForm.validateCode" placeholder="验证码" :maxlength="20">
+        <a @click="GET_VALIDATE" slot="append" class="imgCode">
+          <img :src="validateImage" style="width:100px;height:20px;display:inline-block;">
+        </a>
+        </Input>
+      </FormItem>
+      <footer style="text-align:center;width:100%;">
+        <Button type="error" @click="register">马上加盟</Button>
+      </footer>
+    </Form>
   </div>
 
 </template>
 <script>
-  import {loginControl} from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
-  import {mapGetters, mapActions,mapMutations} from 'vuex'
+  import {AgentRegisterControl} from '@@/controls/auth/registerAgent'
+  import {
+    mapGetters,
+    mapActions,
+    mapMutations
+  } from 'vuex'
   export default {
-    mixins: [loginControl], // 混合
+    mixins: [AgentRegisterControl], // 混合
     data() {
       return {
+        passwordType: {
+          new_password: 'password',
+          confirmPassword:'password'
+        }
       };
     },
     computed: {
       ...mapGetters(['validateImage'])
     },
-    methods:{
+    methods: {
       ...mapMutations(['GET_VALIDATE']),
-      login(){
-        this.loginSubmit(this.loginData).then(res=>{
-          // window.toast(res.message)
+      showPwd(val) {
+        if (this.passwordType[val] === 'password') {
+          this.passwordType[val] = 'text'
+        } else {
+          this.passwordType[val] = 'password'
+        }
+      },
+      register() {
+        this.registerSubmit(this.registerForm).then(res => {
           this.$Message.success({
-            content:res.message,
-            closable:true
+            content: res.message,
+            closable: true
           })
-        }).catch(err=>{
+        }).catch(err => {
           this.$Message.error({
-            content:err.message,
-            closable:true
+            content: err.message,
+            closable: true
           })
         })
         console.log('login')
       }
     }
   };
+
 </script>
-<style lang="scss" scoped>
-  .login-form {
-    width: 330px;
-    float:right;
-    margin-top:10px;
-    .inputs {
-      width:100%;
-      margin:4px 0;
-      display: inline-block;
-      position:relative;
-      border-radius:6px;
-      overflow:hidden;
-      .fixed{
-        position:absolute;
-        top:0;
-        color:#999;
-        &.left{
-          left:0;
-        }
-        &.right{
-          right:0;
-        }
-      }
-      .icobjh{
-        margin-left:8px;
-        line-height:28px;
-      }
-      .code{
-        height:28px;
-        width:60px;
-        cursor:pointer;
-      }
-      input {
-        background: #fff;
-        color: #343434;
-        display:block;
-        width:100%;
-        height:28px;
-        padding-left:30px;
-        outline:0;
-      }
+<style lang="scss">
+  .register-form-agent {
 
-      input::-moz-placeholder {
-        color: #ccc;
-      }
+    .ivu-form {
+      flex-wrap: wrap;
+      display: flex;
 
-      input:-ms-input-placeholder {
-        color: #ccc;
-      }
-
-      input::-webkit-input-placeholder {
-        color: #ccc;
-      }
     }
-    .btn{
-      line-height:32px;
-      height:32px;
-      width:50%;
-      color:#fff;
-      display:inline-block;
-      margin:-2px;
-      text-align:center;
-      border-radius:9px;
-      cursor:pointer;
-      &.btn01{
-        background: rgb(255,236,183); /* Old browsers */
-        background: -moz-linear-gradient(top, rgba(255,236,183,1) 0%, rgba(255,209,120,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255,236,183,1) 0%,rgba(255,209,120,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255,236,183,1) 0%,rgba(255,209,120,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffecb7', endColorstr='#ffd178',GradientType=0 ); /* IE6-9 */
-        color:#343434;
-      }
-      &.btn02{
-        background:none;
+
+    .ivu-form-item {
+      min-width: 50%;
+
+      .ivu-form-item-content {
+        width: 95%;
       }
     }
   }
+
 </style>

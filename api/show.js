@@ -166,3 +166,10 @@ export function getIp(params){
     data: params,
   })
 }
+export function getDomainName(params) {
+  return request({
+    url: `${baseURL}/asp/getDomainName.php`,
+    method: 'GET',
+    data: params,
+  })
+}

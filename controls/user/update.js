@@ -3,6 +3,8 @@ import {
   getPhoneAndCode,
   modifyCustomerSocialInfo
 } from '@@/api/user'
+import dateUtil from 'iview/src/utils/date'
+
 import {
   validateBankNo
 } from '@@/api/payment'
@@ -80,7 +82,6 @@ export const update = {
         modifyCustomerSocialInfo(obj).then(res => {
           if (res.success) {
             this.$store.dispatch('UPDATE_USERDATA').then(res => {
-              console.log('s;dkfsdjflksjdf')
               Object.assign(this.Data, this.userData || {})
               return resolve(res)
             })
@@ -109,9 +110,13 @@ export const update = {
           obj.phone = ''
           // delete obj.phone
         }
+        // 格式化时间
+        try {
+          obj.birthday = dateUtil.format(obj.birthday, 'yyyy-MM-dd')
+        } catch {}
         completeUserInfo(obj).then(res => {
           // 初始化，防止重复判断showTips
-          this.Data.phone = this.userData.phone || ''// 上面phone被删除了
+          this.Data.phone = this.userData.phone || '' // 上面phone被删除了
           if (res.success) {
             this.$store.dispatch('UPDATE_USERDATA').then(res => {
               Object.assign(this.Data, this.userData || {})
@@ -128,7 +133,7 @@ export const update = {
     }
   },
   computed: {
-    ...mapGetters(['userData','isAgent']),
+    ...mapGetters(['userData', 'isAgent']),
     // 判断是否正在完善信息
     isCompleting() {
       if (this.userData.accountName && this.userData.phone && this.userData.birthday) {

@@ -1,35 +1,36 @@
 <template>
-    <div class="login-form">
-        <Row :gutter="10">
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-yonghu"></span>
-              <input v-model="loginData.account" @keyup.enter="login">
-            </div>
-          </Col>
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-suo1"></span>
-              <input v-model="loginData.password" type="password" @keyup.enter="login">
-            </div>
-          </Col>
-        </Row>
-        <Row :gutter="10">
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-yanzhengma"></span>
-              <input v-model="loginData.imageCode" @keyup.enter="login">
-              <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
-            </div>
-          </Col>
-          <Col span="12">
-            <div class="inputs">
-              <a @click="login" class="btn btn01">登录</a>
-              <a class="btn btn02" @click="$bus.$emit('showForget',true)" >忘记密码?</a>
-              <a class="btn btn02" @click="showRegister=true" >马上注册?</a>
-            </div>
-          </Col>
-        </Row>
+  <div class="login-form">
+    <Row :gutter="10">
+      <Col span="12">
+      <div class="inputs">
+        <span class="fixed left icobjh bjh-yonghu"></span>
+        <input v-model="loginData.account" @keyup.enter="login">
+      </div>
+      </Col>
+      <Col span="12">
+      <div class="inputs">
+        <span class="fixed left icobjh bjh-suo1"></span>
+        <input v-model="loginData.password" type="password" @keyup.enter="login">
+      </div>
+      </Col>
+    </Row>
+    <Row :gutter="10">
+      <Col span="12">
+      <div class="inputs">
+        <span class="fixed left icobjh bjh-yanzhengma"></span>
+        <input v-model="loginData.imageCode" @keyup.enter="login">
+        <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
+      </div>
+      </Col>
+      <Col span="12">
+      <div class="inputs">
+        <a @click="login" class="btn btn01">登录</a>
+        <a class="btn btn02" @click="$bus.$emit('showForget',true)">忘记密码?</a>
+        <a class="btn btn02" @click="showRegister=true">马上注册?</a>
+        <a class="btn btn02" @click="showRegisterAgent=true">马上加盟?</a>
+      </div>
+      </Col>
+    </Row>
     <Modal v-model="showRegister" draggable :mask-closable="false" :width="400">
       <header slot="header" style="color:#f60;text-align:center">
         <h3>
@@ -41,84 +42,114 @@
       <footer slot="footer" style="text-align:center;">
       </footer>
     </Modal>
+    <Modal v-model="showRegisterAgent" draggable :mask-closable="false" :width="800">
+      <header slot="header" style="color:#f60;text-align:center">
+        <h3>
+          <img src="/favicon.ico" style="display:inline-block;height:40px;vertical-align:middle;">
+          代理加盟
+        </h3>
+      </header>
+      <registerFormAgent></registerFormAgent>
+      <footer slot="footer" style="text-align:center;">
+      </footer>
+    </Modal>
   </div>
 
 </template>
 <script>
-  import {loginControl} from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
+  import {
+    loginControl
+  } from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
   import registerFormUser from "@/components/common/registerFormUser/t1";
-  import {mapGetters, mapActions,mapMutations} from 'vuex'
+  import registerFormAgent from "@/components/common/registerFormAgent/t1";
+  import {
+    mapGetters,
+    mapActions,
+    mapMutations
+  } from 'vuex'
   export default {
     mixins: [loginControl], // 混合
     data() {
       return {
         showRegister: false,
+        showRegisterAgent: false,
       };
     },
     computed: {
       ...mapGetters(['validateImage'])
     },
-    methods:{
+    methods: {
       ...mapMutations(['GET_VALIDATE']),
-      login(){
-        this.loginSubmit(this.loginData).then(res=>{
+      login() {
+        this.loginSubmit(this.loginData).then(res => {
           // window.toast(res.message)
           this.$Message.success({
-            content:res.message,
-            closable:true
+            content: res.message,
+            closable: true
           })
-        }).catch(err=>{
+        }).catch(err => {
           this.$Message.error({
-            content:err.message,
-            closable:true
+            content: err.message,
+            closable: true
           })
         })
         console.log('login')
       }
     },
-    components:{registerFormUser}
+    components: {
+      registerFormUser,
+      registerFormAgent
+    }
   };
+
 </script>
 <style lang="scss" scoped>
   .login-form {
     width: 330px;
-    float:right;
-    margin-top:10px;
+    float: right;
+    margin-top: 10px;
+
     .inputs {
-      width:100%;
-      margin:4px 0;
+      width: 100%;
+      margin: 4px 0;
       display: inline-block;
-      position:relative;
-      border-radius:6px;
-      overflow:hidden;
-      .fixed{
-        position:absolute;
-        top:0;
-        color:#999;
-        &.left{
-          left:0;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+
+      .fixed {
+        position: absolute;
+        top: 0;
+        color: #999;
+
+        &.left {
+          left: 0;
         }
-        &.right{
-          right:0;
+
+        &.right {
+          right: 0;
         }
       }
-      .icobjh{
-        margin-left:8px;
-        line-height:28px;
+
+      .icobjh {
+        margin-left: 8px;
+        line-height: 28px;
       }
-      .code{
-        height:28px;
-        width:60px;
-        cursor:pointer;
+
+      .code {
+        height: 28px;
+        width: 60px;
+        cursor: pointer;
       }
+
       input {
         background: #fff;
         color: #343434;
-        display:block;
-        width:100%;
-        height:28px;
-        padding-left:30px;
-        outline:0;
+        display: block;
+        width: 100%;
+        height: 28px;
+        padding-left: 30px;
+        outline: 0;
       }
 
       input::-moz-placeholder {
@@ -133,27 +164,36 @@
         color: #ccc;
       }
     }
-    .btn{
-      line-height:32px;
-      height:32px;
-      width:50%;
-      color:#fff;
-      display:inline-block;
-      margin:-2px;
-      text-align:center;
-      border-radius:9px;
-      cursor:pointer;
-      &.btn01{
-        background: rgb(255,236,183); /* Old browsers */
-        background: -moz-linear-gradient(top, rgba(255,236,183,1) 0%, rgba(255,209,120,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255,236,183,1) 0%,rgba(255,209,120,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255,236,183,1) 0%,rgba(255,209,120,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffecb7', endColorstr='#ffd178',GradientType=0 ); /* IE6-9 */
-        color:#343434;
+
+    .btn {
+      line-height: 32px;
+      height: 32px;
+      width: 50%;
+      color: #fff;
+      display: inline-block;
+      margin: -2px;
+      text-align: center;
+      border-radius: 9px;
+      cursor: pointer;
+
+      &.btn01 {
+        background: rgb(255, 236, 183);
+        /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(255, 236, 183, 1) 0%, rgba(255, 209, 120, 1) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(255, 236, 183, 1) 0%, rgba(255, 209, 120, 1) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(255, 236, 183, 1) 0%, rgba(255, 209, 120, 1) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffecb7', endColorstr='#ffd178', GradientType=0);
+        /* IE6-9 */
+        color: #343434;
       }
-      &.btn02{
-        background:none;
+
+      &.btn02 {
+        background: none;
       }
     }
   }
+
 </style>
