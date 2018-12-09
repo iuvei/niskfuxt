@@ -15,8 +15,7 @@ if (!dirName) {
 // 页面模版
 const indexTep = `<template>
   <div class="${dirName}-page">
-    <mt-header fixed title="${dirName}"></mt-header>
-    ${dirName}
+
   </div>
 </template>
 
@@ -30,9 +29,7 @@ const indexTep = `<template>
 
 <style lang="scss">
   @import '../assets/styles/mixin';
-
   .${dirName}-page {
-    padding: px2rem(88px) 0 0 0;
   }
 </style>
 `;

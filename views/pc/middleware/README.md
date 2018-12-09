@@ -1,10 +1,38 @@
-# MIDDLEWARE
+---
+title: "API: middleware 属性"
+description: 设置应用特定页面的路由中间件
+---
 
-This directory contains your Application Middleware.
-The middleware lets you define custom function to be ran before rendering a page or a group of pages (layouts).
+# middleware 属性
 
-More information about the usage of this directory in the documentation:
-https://nuxtjs.org/guide/routing#middleware
+- 类型： `String` 或 `Array`
+  - 数组元素类型： `String`
 
-**This directory is not required, you can delete it if you don't want to use it.**
+在应用中的特定页面设置中间件 
 
+例子：
+
+`pages/secret.vue` 
+```html
+<template>
+  <h1>Secret page</h1>
+</template>
+
+<script>
+export default {
+  middleware: 'authenticated'
+}
+</script>
+```
+
+`middleware/authenticated.js` 
+```javascript
+export default function ({ store, redirect }) {
+  // If the user is not authenticated
+  if (!store.state.authenticated) {
+    return redirect('/login')
+  }
+}
+``` 
+
+想了解更多关于使用中间件的信息，请移步 [中间件指引](https://zh.nuxtjs.org/api/pages-middleware)。

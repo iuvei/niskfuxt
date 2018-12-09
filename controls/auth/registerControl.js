@@ -32,8 +32,7 @@ export const registerControl = {
   },
   methods: {
     // 提交表单
-    register(obj) {
-      console.log(obj)
+    registerSubmit(obj) {
       return new Promise((resolve, reject) => {
         // 表单验证
         const unChecked = this.checked(obj)
@@ -43,7 +42,7 @@ export const registerControl = {
             message: unChecked
           })
         }
-        obj.intro = obj.friendcode = util.getQueryString('friendcode') // 推荐人
+        obj.intro = obj.friendcode = this.$route.query.friendcode||'' // 推荐人
         // 提交表单
         register(obj).then((res) => {
           if (res.success) {
@@ -60,7 +59,6 @@ export const registerControl = {
     },
     // 检查表单
     checked(obj) {
-      console.log(obj)
       if (!check.account.test(obj.account)) {
         return '登入账号的长度请介于6-10字符之间！'
       } else if (!check.password.test(obj.password)) {
