@@ -2,7 +2,7 @@ import {
   queryLatestPreferential,
   findLatestPreferentialById
 
-} from '@/api/show'
+} from '@@/api/show'
 
 export const promos = {
   data() {

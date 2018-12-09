@@ -1,8 +1,8 @@
 import {
   createDepositeOrder,
   getWxZzQuota
-} from '@/api/payment'
-import check from '@/util/RegExp'
+} from '@@/api/payment'
+import check from '@@/utils/RegExp'
 
 export const mcPay = {
   data() {

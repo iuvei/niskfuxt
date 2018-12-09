@@ -5,8 +5,8 @@
 import { 
   transferInforCoupon,
   enablePlatform
- } from '@/api/preferential-terms'
-import check from '@/util/RegExp'
+ } from '@@/api/preferential-terms'
+import check from '@@/utils/RegExp'
 
 export const coupon = {
   data() {

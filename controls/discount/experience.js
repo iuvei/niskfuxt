@@ -6,7 +6,7 @@
 import {
   commitPT8Self,
   canGetPt8CouponCheck
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 import {
   mapGetters
 } from 'vuex'

@@ -1,14 +1,14 @@
 <template>
-<div>
+  <div>
     <Form ref="form" :label-width="100" :label-position="'left'" class="deposit-class">
       <!-- 支付银行，某些网银支付需要，动态读取接口 -->
       <FormItem label="存款渠道：">
-        <span :class="{active:item.id==infoSelect.id}" @click="changeClass(item)" v-for="(item,key,i) in classes">
+        <span class="dep_item" :class="{active:item.id==infoSelect.id}" @click="changeClass(item)" v-for="(item,key,i) in classes">
           {{item.remark}}
         </span>
       </FormItem>
-      </Form>
-</div>
+    </Form>
+  </div>
 </template>
 <script>
   export default {
@@ -61,27 +61,8 @@
 
 </script>
 <style lang="scss" scoped>
-  .dep_type {
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 30px;
-
-    .test {
-      margin: 5px 0 5px 27px;
-
-      &:first-child {
-        margin: 5px 0 5px 11px;
-      }
-    }
-
-    .dep_title {
-      color: #fff;
-    }
-
-    .dep_type_tips {
-      color: #fff;
-    }
-
+  .deposit-class {
+    margin-top:20px;
     .dep_item {
       display: inline-block;
       border: solid 2px #efefef;
@@ -93,7 +74,7 @@
       line-height: 40px;
       margin: 0 10px 4px 0;
       padding: 0 10px;
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
       cursor: pointer;
       position: relative;
 
@@ -109,6 +90,20 @@
         top: -6px;
         right: -8px;
         font-size: 16px;
+      }
+
+      .rate4deputy {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        font-size: 12px;
+        border: solid 1px #f24408;
+        background: #fce36e;
+        color: #f24408;
+        padding: 2px 3px;
+        line-height: 1;
+        border-radius: 5px;
+        z-index: 2;
       }
     }
   }

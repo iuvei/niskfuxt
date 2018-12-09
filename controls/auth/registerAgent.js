@@ -5,8 +5,8 @@
 import {
   getAuthImg,
   registerAgent
-} from '@/api/authService'
-import check from '@/util/RegExp'
+} from '@@/api/authService'
+import check from '@@/utils/RegExp'
 
 export default {
   data() {

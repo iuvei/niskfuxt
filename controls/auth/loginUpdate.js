@@ -4,8 +4,8 @@
  */
 import {
   changepws
-} from '@/api/payment'
-import check from '@/util/RegExp'
+} from '@@/api/payment'
+import check from '@@/utils/RegExp'
 
 export const loginUpdate = {
   data() {

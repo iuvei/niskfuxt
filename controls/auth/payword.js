@@ -7,9 +7,9 @@
 import {
   modifyWithdrawPwd,
   bindWithdrawPwd
-} from '@/api/payment'
+} from '@@/api/payment'
 import md5 from 'MD5' // 密码加密后传给后台
-import check from '@/util/RegExp'
+import check from '@@/utils/RegExp'
 
 export const payword = {
   data() {

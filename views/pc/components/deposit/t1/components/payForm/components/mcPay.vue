@@ -1,106 +1,101 @@
 <template>
   <div class="mcpay">
-    <el-steps :active="active" finish-status="success" align-center>
-      <el-step title="填写订单"></el-step>
-      <el-step title="生成订单"></el-step>
-      <el-step title="查看订单"></el-step>
-    </el-steps>
     <div v-if="active==0">
-      <el-form ref="form" :model="submitData" label-width="110px" :label-position="'left'" class="deposit-form">
+      <Form ref="form" :model="submitData" :label-width="100" :label-position="'left'" class="deposit-form">
         <!-- 支付人姓名 -->
-        <el-form-item label="存款姓名：" prop="accountName">
-          <el-input v-model="submitData.accountName" placeholder="请输入存款人姓名"></el-input>
-        </el-form-item>
+        <FormItem label="存款姓名：" prop="accountName">
+          <Input v-model="submitData.accountName" placeholder="请输入存款人姓名"></Input>
+        </FormItem>
 
         <!-- 支付金额 -->
-        <el-form-item label="存款金额：" prop="amount">
-          <el-input v-model="submitData.amount" :placeholder="placeholder"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button class="paybtn" @click="depositPost">提交</el-button>
-        </el-form-item>
-      </el-form>
+        <FormItem label="存款金额：" prop="amount">
+          <Input v-model="submitData.amount" :placeholder="placeholder"></Input>
+        </FormItem>
+        <FormItem>
+          <Button class="paybtn" @click="depositPost" type="warning">提交</Button>
+        </FormItem>
+      </Form>
     </div>
     <div v-if="active==1">
       <el-alert title="温馨提示" type="success" :closable="false">
         请您点击【确认】，方可生成订单，并将该笔金额存入指定的银行卡(务必按系统制指定的银行卡存款) 您需要存入的金额为:{{submitData.amount}}元
         <br/> 请您存入该金额，否则存款无法到账，本订单有效时间{{help_time.min}}:{{help_time.sec}}
       </el-alert>
-      <el-form ref="form" :model="submitData" label-width="110px" :label-position="'left'" class="deposit-form">
+      <Form ref="form" :model="submitData" label-width="110px" :label-position="'left'" class="deposit-form">
         <!-- 支付银行，某些网银支付需要，动态读取接口 -->
         <!-- 支付金额 -->
-        <el-form-item label="存款金额：" prop="amount">
-          <el-input v-model="submitData.amount" readonly></el-input>
-        </el-form-item>
+        <FormItem label="存款金额：" prop="amount">
+          <Input v-model="submitData.amount" readonly></Input>
+        </FormItem>
         <!-- 协议 -->
-        <el-form-item label="协议1">
-          <el-checkbox-group v-model="agree_1">
-            <el-checkbox :label="`我已明白需要转账${submitData.amount}元`"></el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
+        <FormItem label="协议1">
+          <CheckboxGroup v-model="agree_1">
+            <Checkbox :label="`我已明白需要转账${submitData.amount}元`"></Checkbox>
+          </CheckboxGroup>
+        </FormItem>
         <!-- 提交 -->
-        <el-form-item>
-          <el-button @click="wxSecCheck" class="paybtn">提交</el-button>
-        </el-form-item>
-      </el-form>
+        <FormItem>
+          <Button @click="wxSecCheck" class="paybtn">提交</Button>
+        </FormItem>
+      </Form>
     </div>
-    <el-row v-if="active==2" :gutter="40">
-      <el-col :span="12">
+    <Row v-if="active==2" :gutter="40">
+      <Col :span="12">
         <div class="mc-title">我们的存款账户</div>
-        <el-form abel-width="80px" :model="orderData">
-          <el-form-item label="类别">
-            <el-input v-model="orderData.bank" readonly>
-              <el-button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.bank" v-clipboard:success="onCopy">复制</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="开户地址" v-if="orderData.accountOpenAddr">
-            <el-input v-model="orderData.accountOpenAddr" readonly>
-              <el-button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.accountOpenAddr" v-clipboard:success="onCopy">复制</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="卡号">
-            <el-input v-model="orderData.bankno" readonly>
-              <el-button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.bankno" v-clipboard:success="onCopy">复制</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="姓名">
-            <el-input v-model="orderData.accountname" readonly>
-              <el-button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.accountname" v-clipboard:success="onCopy">复制</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button @click="active=0" type="primary">已完成支付</el-button>
-          </el-form-item>
-        </el-form>
-      </el-col>
-      <el-col :span="12">
+        <Form abel-width="80px" :model="orderData">
+          <FormItem label="类别">
+            <Input v-model="orderData.bank" readonly>
+              <Button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.bank" v-clipboard:success="onCopy">复制</Button>
+            </Input>
+          </FormItem>
+          <FormItem label="开户地址" v-if="orderData.accountOpenAddr">
+            <Input v-model="orderData.accountOpenAddr" readonly>
+              <Button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.accountOpenAddr" v-clipboard:success="onCopy">复制</Button>
+            </Input>
+          </FormItem>
+          <FormItem label="卡号">
+            <Input v-model="orderData.bankno" readonly>
+              <Button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.bankno" v-clipboard:success="onCopy">复制</Button>
+            </Input>
+          </FormItem>
+          <FormItem label="姓名">
+            <Input v-model="orderData.accountname" readonly>
+              <Button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.accountname" v-clipboard:success="onCopy">复制</Button>
+            </Input>
+          </FormItem>
+          <FormItem>
+            <Button @click="active=0" type="warning">已完成支付</Button>
+          </FormItem>
+        </Form>
+      </Col>
+      <Col :span="12">
         <div class="mc-title">您的存款信息</div>
-        <el-form abel-width="80px" :model="orderData">
-          <el-form-item label="存款姓名">
-            <el-input v-model="orderData.uaccountname" readonly>
-              <el-button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.uaccountname" v-clipboard:success="onCopy">复制</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="存款金额">
-            <el-input v-model="orderData.amount" readonly>
-              <el-button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.amount" v-clipboard:success="onCopy">复制</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item label="存款方式">
-            <el-input v-model="mcTypech[orderData.payBy]" readonly></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" v-if="orderData.payBy=='wechat'" @click="dialogVisible=true">查看微信支付教程</el-button>
-          </el-form-item>
-        </el-form>
-      </el-col>
-    </el-row>
-    <el-dialog
+        <Form abel-width="80px" :model="orderData">
+          <FormItem label="存款姓名">
+            <Input v-model="orderData.uaccountname" readonly>
+              <Button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.uaccountname" v-clipboard:success="onCopy">复制</Button>
+            </Input>
+          </FormItem>
+          <FormItem label="存款金额">
+            <Input v-model="orderData.amount" readonly>
+              <Button slot="append" icon="el-icon-document" v-clipboard:copy="orderData.amount" v-clipboard:success="onCopy">复制</Button>
+            </Input>
+          </FormItem>
+          <FormItem label="存款方式">
+            <Input v-model="mcTypech[orderData.payBy]" readonly></Input>
+          </FormItem>
+          <FormItem>
+            <Button type="warning" v-if="orderData.payBy=='wechat'" @click="dialogVisible=true">查看微信支付教程</Button>
+          </FormItem>
+        </Form>
+      </Col>
+    </Row>
+    <Modal
       title="微信秒存教程"
       :visible.sync="dialogVisible"
       width="410px">
       <tips-mcpay></tips-mcpay>
-    </el-dialog>
+    </Modal>
   </div>
 </template>
 <script>
@@ -289,7 +284,12 @@
 </script>
 <style lang="scss" scoped>
 .mcpay{
-  margin-top: 30px;
+  .deposit-form{
+    width: 500px;
+    .el-select {
+      display: block !important;
+    }
+  }
   .paybtn{
     // width: 350px;
     color: #fff;

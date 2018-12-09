@@ -4,7 +4,7 @@ import {
 } from 'vuex'
 import {
   updateGameMoney
-} from '@/api/payment'
+} from '@@/api/payment'
 
 export const transfer = {
   data() {

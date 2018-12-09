@@ -6,7 +6,7 @@
 import {
   queryPTLosePromo,
   claimLosePromo
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 
 export const helpGold = {
   data() {

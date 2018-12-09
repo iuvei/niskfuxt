@@ -1,10 +1,10 @@
 
 <template>
-    <el-carousel height="300px" :autoplay="false">
-      <el-carousel-item v-for="item in helps" :key="item">
+    <Carousel :height="300" :autoplay="false">
+      <CarouselItem v-for="item in helps" :key="item">
         <img v-lazy="getHelp(item)">
-      </el-carousel-item>
-    </el-carousel>
+      </CarouselItem>
+    </Carousel>
 </template> 
 <script>
 

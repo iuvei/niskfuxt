@@ -26,8 +26,8 @@
         <Col span="5">
           <userMenu></userMenu>
         </Col>
-        <Col span="18" offset="1">
-          <div class="window-title">标题</div>
+        <Col span="19">
+          <div class="window-title">{{$route.title||'用户中心'}}</div>
           <div class="window-show">
             <nuxt />
           </div>
@@ -42,6 +42,15 @@
   import userMenu from "@/components/userMenu/t1";
 
   export default {
+    titil:"test-title",
+      head: {
+      titleTemplate: '%s - Nuxt.js',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: 'Meta description' }
+      ]
+    },
     computed: {
       userData() {
         return this.$store.getters.userData;
@@ -50,6 +59,7 @@
 
     ,
     mounted() {
+      console.log(this.$route)
       // console.log(window.location.href)
     }
 
@@ -90,7 +100,7 @@
     .window-title{
       background: #151515;
       color: #fff;
-      padding: 20px 10px;
+      padding: 15px 10px;
       font-size: 16px;
     }
     .window-show{

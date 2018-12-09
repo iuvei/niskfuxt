@@ -5,9 +5,9 @@
 import {
   getAuthImg,
   register
-} from '@/api/authService'
-import util from '@/util/util.js' // 获取推荐人
-import check from '@/util/RegExp'
+} from '@@/api/authService'
+import util from '@@/utils/util.js' // 获取推荐人
+import check from '@@/utils/RegExp'
 
 export const registerControl = {
   data() {

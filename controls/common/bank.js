@@ -8,11 +8,11 @@ import {
   validateBankNo, // 验证银行卡
   bindBankNo, // 绑定银行卡
   findUserBankList
-} from '@/api/payment'
+} from '@@/api/payment'
 import {
   mapGetters
 } from 'vuex'
-import check from '@/util/RegExp' // 正则
+import check from '@@/utils/RegExp' // 正则
 export const bank = {
   data() {
     return {

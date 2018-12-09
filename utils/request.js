@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '~~/config';
+import store from '@/store';
 import qs from 'qs';
 
 // 创建axios实例
@@ -60,6 +60,7 @@ service.interceptors.response.use((response) => {
   // 40001， 登陆过期
   if (response.status === 200 && /40001/.test(response.data.code)) {
     // 初始化用户信息
+    console.log(store)
     // store.dispatch('INIT_INFO')
     // 返回首页
     // 可以直接reload就可以，具体页面设置middleeware

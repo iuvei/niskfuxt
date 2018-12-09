@@ -6,12 +6,12 @@
 import {
   getbackPwdByDx_dc,
   getbackPwdByEmail
-} from '@/api/show'
+} from '@@/api/show'
 import {
   getAuthImg
-} from '@/api/authService'
+} from '@@/api/authService'
 
-import check from '@/util/RegExp'
+import check from '@@/utils/RegExp'
 
 export const loginForgot = {
   data() {

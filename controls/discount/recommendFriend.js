@@ -6,7 +6,7 @@
 import {
   queryFriendBonue,
   transferInforFriend
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 
 export const recommendFriend = {
   data() {

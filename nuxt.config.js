@@ -116,6 +116,10 @@ module.exports = _.mergeWith({
         ssr: false
       },
       {
+        src: '~~plugins/clipBoard',
+        ssr: false
+      },
+      {
         src: '~~plugins/axios',
         ssr: false
       },
@@ -163,6 +167,10 @@ module.exports = _.mergeWith({
     },
     {
       src: '~~plugins/localStorage',
+      ssr: false
+    },
+    {
+      src: '~~plugins/clipBoard',
       ssr: false
     },
     {

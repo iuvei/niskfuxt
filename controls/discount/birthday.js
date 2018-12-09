@@ -6,7 +6,7 @@
 import {
   canClaimBirthdayCoupon,
   claimBirthdayCoupon
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 
 export const birthday = {
   data() {

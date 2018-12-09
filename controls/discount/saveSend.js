@@ -6,13 +6,11 @@
 import {
   youhui,
   getSelfYouHuiObject
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 import {
   mapGetters
 } from 'vuex'
-import {
-  Money
-} from '@/assets/data/index'
+import Money from '@@/assets/data/gamesData.json'
 export const saveSend = {
   data() {
     return {

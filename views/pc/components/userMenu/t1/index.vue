@@ -24,19 +24,19 @@
             children: [{
                 name: "快速存款",
                 router: {
-                  name: "deposit"
+                  name: "admin-money-deposit"
                 }
               },
               {
                 name: "快速提款",
                 router: {
-                  name: "drawmoney"
+                  name: "admin-money-withdraw"
                 }
               },
               {
                 name: "户内转账",
                 router: {
-                  name: "transfer"
+                  name: "admin-money-transfer"
                 }
               }
             ]
@@ -46,13 +46,13 @@
             children: [{
                 name: "体验金",
                 router: {
-                  name: "discount_experience"
+                  name: "admin-discount-experience"
                 }
               },
               {
                 name: "存送优惠",
                 router: {
-                  name: "discount_savesend"
+                  name: "admin-discount-savesend"
                 }
               },
               {
@@ -104,25 +104,25 @@
             children: [{
                 name: "个人信息",
                 router: {
-                  name: "datum"
+                  name: "admin-setting-information"
                 }
               },
               {
                 name: "银行卡列表",
                 router: {
-                  name: "banks"
+                  name: "admin-setting-banks"
                 }
               },
               {
                 name: "登陆密码",
                 router: {
-                  name: "password"
+                  name: "admin-setting-password"
                 }
               },
               {
                 name: "支付密码",
                 router: {
-                  name: "payword"
+                  name: "admin-setting-payword"
                 }
               }
             ]
@@ -235,48 +235,49 @@
 
 </script>
 <style spcoed lang="scss">
-.sider-menu {
-  border: solid 1px #2b2b2b;
-  background: #131313;
-  color: #fff;
-  .s-menu {
-    h3 {
-      font-size: 18px;
-      background: #282828;
-      line-height: 50px;
-      padding-left: 40px;
-      cursor: pointer;
-      border-bottom: solid 2px #000;
-      .s-menu-ico {
-        display: inline-block;
-        float: right;
-        margin-right: 20px;
-        transition: all 0.4s;
-      }
-    }
-    .s-menu-item {
-      display: block;
-      line-height: 0;
-      padding-left: 50px;
-      height: 0;
-      overflow: hidden;
-      transition: all 0.3s;
-      &.active {
-        background: #000;
-        color: #fb9b08;
-        padding-left: 50px;
-      }
-    }
-    &.active {
-      padding-bottom: 40px;
-      .s-menu-ico {
-        transform: rotate(90deg);
+  .sider-menu {
+    border: solid 1px #2b2b2b;
+    background: #131313;
+    color: #fff;
+    width:230px;
+    .s-menu {
+      h3 {
+        font-size: 18px;
+        background: #282828;
+        line-height: 50px;
+        padding-left: 40px;
+        cursor: pointer;
+        border-bottom: solid 2px #000;
+        .s-menu-ico {
+          display: inline-block;
+          float: right;
+          margin-right: 20px;
+          transition: all 0.4s;
+        }
       }
       .s-menu-item {
-        height: 40px;
-        line-height: 40px;
+        display: block;
+        line-height: 0;
+        padding-left: 50px;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+        &.active {
+          background: #000;
+          color: #fb9b08;
+          padding-left: 50px;
+        }
+      }
+      &.active {
+        padding-bottom: 40px;
+        .s-menu-ico {
+          transform: rotate(90deg);
+        }
+        .s-menu-item {
+          height: 40px;
+          line-height: 40px;
+        }
       }
     }
   }
-}
 </style>

@@ -6,7 +6,7 @@
 import {
   getXimaData,
   doXima
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 export const washCode = {
   data() {
     return {

@@ -29,60 +29,100 @@ const $canGetPt8CouponCheck = '/youhui/canGetPt8CouponCheck.php' // 确认体验
 const $youhuiDisplay = '/youhui/youhuiDisplay.php' // 查询体验金
 const $enablePlatform = '/youhui/enablePlatform.php' // 使用平台类型
 
-export function youhuiDisplay(data) {
-  return ajax.get($youhuiDisplay, data)
+export function youhuiDisplay(params) {
+  return request({
+    url: `${baseURL}/youhui/youhuiDisplay.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function commitPT8Self(data) {
-  return ajax.get($commitPT8Self, data)
+export function commitPT8Self(params) {
+  return request({
+    url: `${baseURL}/youhui/commitPT8Self.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function canGetPt8CouponCheck(data) {
-  return ajax.get($canGetPt8CouponCheck, data)
+export function canGetPt8CouponCheck(params) {
+  return request({
+    url: `${baseURL}/youhui/canGetPt8CouponCheck.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function getAllAutoXimaObject(data) {
-  return ajax.get($getAllAutoXimaObject, data)
+export function getAllAutoXimaObject(params) {
+  return request({
+    url: `${baseURL}/xima/getAllAutoXimaObject.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function transferInforFriend(data) {
-  window.$load.open('正在发送...')
-  
-  return ajax.post($transferInforFriend, data)
+export function transferInforFriend(params) {
+  return request({
+    url: `${baseURL}/youhui/transferInforFriend.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
-export function claimLosePromo(data) {
-  window.$load.open('正在发送...')
-  
-  return ajax.post($claimLosePromo, data)
+export function claimLosePromo(params) {
+  return request({
+    url: `${baseURL}/youhui/claimLosePromo.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
-export function youhui() {
-  return ajax.get($youhui)
+export function youhui(params) {
+  return request({
+    url: `${baseURL}/youhui/youhui.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function getSelfYouHuiObject(data) {
-  return ajax.post($getSelfYouHuiObject, data)
+export function getSelfYouHuiObject(params) {
+  return request({
+    url: `${baseURL}/youhui/getSelfYouHuiObject.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
-export function getXimaData(data) {
-  return ajax.get($getXimaData, data)
+export function getXimaData(params) {
+  return request({
+    url: `${baseURL}/xima/getXimaData.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
-export function doXima(data) {
-  window.$load.open('正在发送...')
-  
-  return ajax.post($doXima, data)
+export function doXima(params) {
+  return request({
+    url: `${baseURL}/xima/doXima.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
-export function transferInforCoupon(data) {
-  window.$load.open('正在发送...')
-  
-  return ajax.post($transferInforCoupon, data)
+export function transferInforCoupon(params) {
+  return request({
+    url: `${baseURL}/youhui/transferInforCoupon.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 
-export function queryPTLosePromo(data) {
-  return ajax.get($queryPTLosePromo, data)
+export function queryPTLosePromo(params) {
+  return request({
+    url: `${baseURL}/youhui/queryPTLosePromo.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
 export function getBetUpgrateVO(params) {
@@ -93,28 +133,49 @@ export function getBetUpgrateVO(params) {
   })
 }
 
-export function checkUpgrade(data) {
-  window.$load.open('正在发送...')
-  
-  return ajax.get($checkUpgrade, data)
+export function checkUpgrade(params) {
+  return request({
+    url: `${baseURL}/youhui/checkUpgrade.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function canClaimBirthdayCoupon(data) {
-  return ajax.get($canClaimBirthdayCoupon, data)
+export function canClaimBirthdayCoupon(params) {
+  return request({
+    url: `${baseURL}/youhui/canClaimBirthdayCoupon.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function claimBirthdayCoupon(data) {
-  window.$load.open('正在发送...')
-  return ajax.get($claimBirthdayCoupon, data)
+export function claimBirthdayCoupon(params) {
+  return request({
+    url: `${baseURL}/youhui/claimBirthdayCoupon.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function queryFriendBonue(data) {
-  return ajax.get($queryFriendBonue, data)
+export function queryFriendBonue(params) {
+  return request({
+    url: `${baseURL}/youhui/queryFriendBonue.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 
-export function transferInforHongBao(data) {
-  return ajax.post($transferInforHongBao, data)
+export function transferInforHongBao(params) {
+  return request({
+    url: `${baseURL}/youhui/transferInforHongBao.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function enablePlatform(data) {
-  return ajax.post($enablePlatform, data)
+export function enablePlatform(params) {
+  return request({
+    url: `${baseURL}/youhui/enablePlatform.php`,
+    method: 'POST',
+    data: params,
+  })
 }

@@ -1,13 +1,12 @@
 
-import { Message, confirm,Spin,conFirm } from 'iview'
+import { Message,Spin,conFirm } from 'iview'
 import openWin from '@@/utils/openWindow'
 
 window.toast = showToast
 window.$load = SpinLoad
 window.$open = openWin
-console.log(Message)
+window.$conFirm = conFirm
 function showToast(msg,type){
-    console.log(msg,type)
     Message.warning(msg)
     // ({
     //     message:msg,

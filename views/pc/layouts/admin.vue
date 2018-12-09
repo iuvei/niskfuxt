@@ -1,7 +1,9 @@
 <template>
   <layout>
-    <adminAgent v-if="isAgent"></adminAgent>
-    <adminUser v-if="isUser"></adminUser>
+    <div>
+      <adminAgent v-if="isAgent"></adminAgent>
+      <adminUser v-if="isUser"></adminUser>
+    </div>
   </layout>
 </template>
 

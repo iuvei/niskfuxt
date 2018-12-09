@@ -2,7 +2,7 @@ import md5 from 'MD5'
 import {
   findUserBankList,
   withdraw_new
-} from '@/api/payment'
+} from '@@/api/payment'
 import {
   mapGetters
 } from 'vuex'

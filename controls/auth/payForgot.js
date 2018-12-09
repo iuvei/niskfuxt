@@ -4,11 +4,11 @@
  */
 import {
   getWithdrawPW
-} from '@/api/user'
+} from '@@/api/user'
 import {
   getAuthImg
-} from '@/api/authService'
-import check from '@/util/RegExp'
+} from '@@/api/authService'
+import check from '@@/utils/RegExp'
 
 export const payForgot = {
   data() {

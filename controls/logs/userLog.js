@@ -3,7 +3,7 @@
  */
 import {
   queryHistory
-} from '@/api/user'
+} from '@@/api/user'
 const filterMenu = [{
     name: '在线存款',
     value: 'deposit'

@@ -25,15 +25,7 @@
     methods:{
 
     }
-  // async asyncData() {
-  //   const res = await getHomeData();
-  //   res.data.map(item => {
-  //     item.imgUrl = config.IMG_URL + item.imgUrl;
-  //   });
-  //   return {
-  //     navList: res.data
-  //   };
-  // }
+
 };
 </script>
 

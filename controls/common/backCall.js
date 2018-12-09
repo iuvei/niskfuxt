@@ -4,8 +4,8 @@
  */
 import {
   makeCall
-} from '@/api/show'
-import check from '@/util/RegExp'
+} from '@@/api/show'
+import check from '@@/utils/RegExp'
 export const backCall = {
   data() {
     return {

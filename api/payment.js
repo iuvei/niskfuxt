@@ -15,16 +15,15 @@ const $validateBankNo = '/asp/validateBankNo.php' // 校验银行卡号
 
 const $withdraw_new = '/asp/withdraw_new.php' // 取款提交
 const $updateGameMoney = '/asp/updateGameMoney.php' // 转账
-const $getPaymentConfigInfo = '/onlinepayment/getPaymentConfigInfo.php' // 充值方式配置  0 1 2 分别是PC/WAP/APP
+// const $getPaymentConfigInfo = '/onlinepayment/getPaymentConfigInfo.php' // 充值方式配置  0 1 2 分别是PC/WAP/APP
 const $mobilePayByEbank = '/onlinepayment/mobilePayByEbank.php' // 存款时，根据支付类型，动态获取网银银行卡列表
 
-const $onlinePayDispathcer = '/onlinepayment/onlinePayDispathcer.php' // 提交普通存款订单
 const $createDepositeOrder = '/asp/createDepositeOrder.php' // 创建秒存订单
 const $getWxZzQuota = '/asp/getWxZzQuotaV2.php' // 微信秒存随机数
 const $getZfbZzQuota = '/asp/getZfbZzQuota.php' // 支付宝秒存随机数
 const $createOrderForYsfpay = '/asp/createOrderForYsfpay.php' // 云闪付
 const $showApplyWithdrawMsg = '/asp/showApplyWithdrawMsg.php' // 存款提示
-const $getTransferOnceProgress = '/asp/getTransferOnceProgress.php'
+const $getTransferOnceProgress = '/asp/getTransferOnceProgress.php' // 
 // const post = function (URL, PARAMS) {
 //   var temp = document.createElement('form')
 //   temp.action = URL
@@ -43,29 +42,43 @@ const $getTransferOnceProgress = '/asp/getTransferOnceProgress.php'
 //   return temp
 // }
 // 调用方法 如
-export function createDepositeOrder(data) {
-  return ajax.post($createDepositeOrder, data)
+export function createDepositeOrder(params) {
+  return request({
+    url: `${baseURL}/asp/createDepositeOrder.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 export function getPaymentConfigInfo(params) {
+  //  充值方式配置terminalType：  0 1 2 分别是PC/WAP/APP
   return request({
     url: `${baseURL}/onlinepayment/getPaymentConfigInfo.php`,
     method: 'GET',
     data: params,
   })
 }
-export function mobilePayByEbank(data) {
-  return ajax.post($mobilePayByEbank, data)
+export function mobilePayByEbank(params) {
+  return request({
+    url: `${baseURL}/onlinepayment/mobilePayByEbank.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function createOrderForYsfpay(data) {
-  return ajax.post($createOrderForYsfpay, data)
+export function createOrderForYsfpay(params) {
+  return request({
+    url: `${baseURL}/asp/createOrderForYsfpay.php`,
+    method: 'POST',
+    data: params,
+  })
 }
 export function onlinePayDispathcer(data) {
   const $form = document.createElement('form')
+  // 解决safari打不开form表单的bug
   const $_target = (new Date()).getTime()
   window.open('/static/page/payment', $_target)
   $form.target = $_target
   $form.method = 'POST'
-  $form.action = $onlinePayDispathcer
+  $form.action = `${baseURL}/onlinepayment/onlinePayDispathcer.php`
   for (const item in data) {
     const inputVal = document.createElement('input')
     inputVal.type = 'hidden'
@@ -79,52 +92,94 @@ export function onlinePayDispathcer(data) {
     document.querySelector('body').removeChild($form)
   }, 0)
 }
-export function updateGameMoney(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($updateGameMoney, data)
+export function updateGameMoney(params) {
+  return request({
+    url: `${baseURL}/asp/updateGameMoney.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function checkWithdrawPwd(data) {
-  return ajax.get($checkWithdrawPwd, data)
+export function checkWithdrawPwd(params) {
+  return request({
+    url: `${baseURL}/asp/checkWithdrawPwd.php`,
+    method: 'GET',
+    data: params,
+  })
 }
 export function changepws(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($change_pws, data)
+  return request({
+    url: `${baseURL}/asp/change_pws.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function modifyWithdrawPwd(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($modifyWithdrawPwd, data)
+export function modifyWithdrawPwd(params) {
+  return request({
+    url: `${baseURL}/asp/modifyWithdrawPwd.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function bindWithdrawPwd(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($bindWithdrawPwd, data)
+export function bindWithdrawPwd(params) {
+  return request({
+    url: `${baseURL}/asp/bindWithdrawPwd.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function findUserBankList(data) {
-  return ajax.get($findUserBankList, data)
+export function findUserBankList(params) {
+  return request({
+    url: `${baseURL}/asp/findUserBankList.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function withdraw_new(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($withdraw_new, data)
+export function withdraw_new(params) {
+  return request({
+    url: `${baseURL}/asp/withdraw_new.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function validateBankNo(data) {
-  return ajax.get($validateBankNo, data)
+export function validateBankNo(params) {
+  return request({
+    url: `${baseURL}/asp/validateBankNo.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function bindBankNo(data) {
-  window.$load.open('正在发送...')
-  return ajax.get($bindBankNo, data)
+export function bindBankNo(params) {
+  return request({
+    url: `${baseURL}/mobi/bindBankNo.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function getWxZzQuota(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($getWxZzQuota, data)
+export function getWxZzQuota(params) {
+  return request({
+    url: `${baseURL}/asp/getWxZzQuotaV2.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function getZfbZzQuota(data) {
-  window.$load.open('正在发送...')
-  return ajax.post($getZfbZzQuota, data)
+export function getZfbZzQuota(params) {
+  return request({
+    url: `${baseURL}/asp/getZfbZzQuota.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function showApplyWithdrawMsg(data) {
-  window.$load.open('正在查询...')
-  console.log(data)
-  return ajax.get($showApplyWithdrawMsg, data)
+export function showApplyWithdrawMsg(params) {
+  return request({
+    url: `${baseURL}/asp/showApplyWithdrawMsg.php`,
+    method: 'POST',
+    data: params,
+  })
 }
-export function getTransferOnceProgress(data) {
-  return ajax.post($getTransferOnceProgress, data)
+export function getTransferOnceProgress(params) {
+  return request({
+    url: `${baseURL}/asp/getTransferOnceProgress.php`,
+    method: 'GET',
+    data: params,
+  })
 }

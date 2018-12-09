@@ -11,7 +11,7 @@
           <Input v-model="submitData.order_amount" :placeholder="placeholder"></Input>
       </FormItem>
       <FormItem>
-          <Button @click="depositPost" class="paybtn">提交</Button>
+          <Button @click="depositPost" class="paybtn" type="warning">提交</Button>
       </FormItem>
     </Form> 
 </template> 
@@ -69,11 +69,11 @@
 </script>
 
 <style lang="scss" scoped>
-  .paybtn{
-    // width:350px;
-    color: #fff;
-    background:#ed7e12;
-    // width: 300px;
+  .deposit-form{
+    width: 500px;
+    .el-select {
+      display: block !important;
+    }
   }
 </style>
 

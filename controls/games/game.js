@@ -12,13 +12,13 @@ import {
 import {
   getAllGames,
   saveOrUpdateGameStatus
-} from '@/api/show'
+} from '@@/api/show'
 import {
   queryGameStatus
-} from '@/api/user'
+} from '@@/api/user'
 import {
   $localStorage
-} from '@/util/storage'
+} from '@@/utils/storage'
 
 // 判断线注的方法
 

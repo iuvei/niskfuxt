@@ -2,14 +2,14 @@ import {
   completeUserInfo,
   getPhoneAndCode,
   modifyCustomerSocialInfo
-} from '@/api/user'
+} from '@@/api/user'
 import {
   validateBankNo
-} from '@/api/payment'
+} from '@@/api/payment'
 import {
   mapGetters
 } from 'vuex'
-import check from '@/util/RegExp'
+import check from '@@/utils/RegExp'
 
 export const update = {
   data() {

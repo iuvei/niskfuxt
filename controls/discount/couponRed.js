@@ -2,7 +2,7 @@
 import {
   transferInforHongBao,
   enablePlatform
-} from '@/api/preferential-terms'
+} from '@@/api/preferential-terms'
 
 export const couponRed = {
   data() {

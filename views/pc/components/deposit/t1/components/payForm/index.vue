@@ -25,12 +25,3 @@
     components:{basePay,mcPay}
   };
 </script>
-<style lang="scss">
-  .deposit-form{
-    margin-top: 30px;
-    width: 500px;
-    .el-select {
-      display: block !important;
-    }
-  }
-</style>
