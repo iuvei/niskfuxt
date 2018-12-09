@@ -84,6 +84,9 @@
         .then(err => {});
     }
   }
+  mounted(){
+    
+  }
   // async asyncData() {
   //   const res = await getHomeData();
   //   res.data.map(item => {

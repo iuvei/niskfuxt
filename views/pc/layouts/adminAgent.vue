@@ -6,7 +6,7 @@
 
     <footerTemp></footerTemp>
     <!-- <rightServer></rightServer> --> 
-    <h3>PC-{{$store.getters.isLogin}}-LAYOUT</h3>
+    <h3>PC-{{$store.getters.isLogin}}-agent-LAYOUT</h3>
   </div>
 </template>
 
