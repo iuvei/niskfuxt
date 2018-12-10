@@ -5,12 +5,27 @@ module.exports = {
    */
   head: {
     title: 'itgo-模版',
-    meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
-      { name: 'format-detection', content: 'telephone=no' },
-      { name: 'msapplication-tap-highlight', content: 'no' },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    meta: [{
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js project'
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        name: 'msapplication-tap-highlight',
+        content: 'no'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
     ],
     link: [
       // { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
@@ -49,23 +64,37 @@ module.exports = {
     vendor: [{
       src: '~plugins/iview',
       ssr: false
-    },{
+    }, {
       src: '~plugins/common',
       ssr: false
-    },{
+    }, {
       src: '~plugins/swiper',
       ssr: false
     }],
-    // extend (config, { isDev, isClient }) {
-    //   if (isDev && isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // }
+    analyze: true,
+    extend(config, {
+      isDev,
+      isClient
+    }) {
+      // if (isDev && isClient) {
+      config.module.rules.push({
+          // enforce: 'pre',
+          test: /\.vue$/,
+          loader: 'iview-loader',
+          options: {
+            prefix: false
+          },
+          exclude: /(node_modules)/
+        }
+        //     {
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /(node_modules)/
+        // }
+      )
+      // }
+    }
   },
   //设置缓存
   cache: true,
@@ -73,10 +102,20 @@ module.exports = {
   performance: {
     prefetch: false
   },
-  plugins: [
-    { src: '~plugins/iview',ssr:false},
-    { src: '~plugins/common',ssr:false},
-    { src: '~plugins/swiper',ssr:false},
-    { src: '~assets/styles/base.scss' }
+  plugins: [{
+      src: '~plugins/iview',
+      // ssr: false
+    },
+    {
+      src: '~plugins/common',
+      ssr: false
+    },
+    {
+      src: '~plugins/swiper',
+      ssr: false
+    },
+    {
+      src: '~assets/styles/base.scss'
+    }
   ]
 }

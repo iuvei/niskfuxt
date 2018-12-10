@@ -1,0 +1,51 @@
+@function r($px, $base-font-size:75) {
+  // @return $px*1px;
+  @return ($px/$base-font-size)*1rem;
+}
+@mixin f($font-size){
+  // font-size:$font-size;
+  font-size: $font-size/2;
+  [data-dpr="2"] & {
+    font-size: $font-size
+  }
+  [data-dpr="3"] & {
+    font-size: $font-size*1.5;
+  }
+}
+
+
+$iconcl:#bda059; //icon色调
+
+$cl1:#37373a; // 主要色调一
+$cl2:#969696;//灰色字体
+$cl3:#e21c1d;//红色字体
+$cl4:#666;//灰色字体 提醒性文字颜色
+$cl5:#24232b;//主要色调二
+$cl6:#bda059;//主要字体颜色1
+$cl7:#ffffff;//主要字体颜色2
+$cl-active:#494949;
+
+$main-bg:$cl1; //主背景颜色 1096b9
+$main-cl:#fff; //主背景 文字颜色
+
+$body-bg:$cl1;//body背景颜色
+
+$text-cl:$cl6;//主要字体颜色
+
+$header:80;
+$cl1:$cl1;
+$herder-bg:$cl5;
+
+$footer-h:112;//底部高度
+$footer-bg:#353643;//底部背景
+
+
+
+
+$btn-dis:#ddd;//按钮背景 禁用色
+
+$btn-bg1:$cl6;//按钮背景 主色调1
+$btn-bg2:#fc4863;//按钮背景  主色调2
+
+$btn-cl1:#fff;//按钮主色调1
+$btn-cl2:#fff;//按钮主色调2
