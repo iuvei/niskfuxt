@@ -56,7 +56,7 @@ module.exports = _.mergeWith({
   },
   router: {
     // middleware: {src:'~~plugins/lazyLoad'}
-        linkActiveClass: 'active',
+    linkActiveClass: 'active',
     linkExactActiveClass: 'active',
   },
   /**
@@ -98,7 +98,7 @@ module.exports = _.mergeWith({
     vendor: [{
         src: '~~plugins/lazyLoad',
         ssr: false
-      },      
+      },
       {
         src: '~~plugins/vueQr',
         ssr: false
@@ -137,16 +137,24 @@ module.exports = _.mergeWith({
       },
     ],
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
-    // extend (config, { isDev, isClient }) {
-    //   if (isDev && isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // }
+    extend(config, {
+      isDev,
+      isClient
+    }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+            test: /\.less$/,
+            loader: "less-loader"
+          },
+          //   {
+          //   enforce: 'pre',
+          //   test: /\.(js|vue)$/,
+          //   loader: 'eslint-loader',
+          //   exclude: /(node_modules)/
+          // }
+        )
+      }
+    }
   },
   //禁止预加载效果
   performance: {
@@ -195,11 +203,10 @@ module.exports = _.mergeWith({
     },
   ],
   proxy: {
-    url: 'https://qhc16.com', // 接口反向代理目标地址
+    url: 'http://qhc.itgo88.com', // 接口反向代理目标地址
   },
   manifest: {
     name: 'nuxt-cms',
     description: 'A pwa program',
-    theme_color: '#618cb9'
   }
 }, mergeData, customizer)

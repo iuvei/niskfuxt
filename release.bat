@@ -2,9 +2,9 @@
 
 
 :: rsync 指向
-set rsync_target=leo@206.161.250.15::qhcstatic
-set rsync_target2=leo@54.179.138.61::qhcstatic
-set rsync_target3=leo@13.251.73.99::qhcstatic
+set rsync_target=leo@172.16.27.200::qhcstatic
+set rsync_target2=leo@172.16.27.200::qhcstatic
+set rsync_target3=leo@172.16.27.200::qhcstatic
 set rsync_target_test=leo@172.16.27.200::qhcstatic
 
 :: 当前路径

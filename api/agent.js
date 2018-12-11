@@ -1,8 +1,7 @@
-
-import ajax from '@/utils/request.js' // 引入axios
-import request from '@/utils/request.js'
+import ajax from '@@/utils/request.js' // 引入axios
+import request from '@@/utils/request.js'
 import config from '~~/config';
-const  baseURL = config.BASE_URL?config.BASE_URL:'' // api的base_url
+const baseURL = config.BASE_URL ? config.BASE_URL : '' // api的base_url
 
 const $agentReport = '/agent/agentReport.php' // 数据汇总（代理首屏页）
 const $searchagprofitData = '/agent/searchagprofitData.php' // 会员输赢查询
@@ -15,29 +14,57 @@ const $getProposalYouHuiTypeSelectionData = '/agent/getProposalYouHuiTypeSelecti
 
 export function agentReport(params) {
   return request({
-    url: `${baseURL}${$agentReport}`,
+    url: `${baseURL}/agent/agentReport.php`,
     method: 'GET',
     data: params,
   })
 }
-export function searchagprofitData(data) {
-  return ajax.get($searchagprofitData, data)
+export function searchagprofitData(params) {
+  return request({
+    url: `${baseURL}/agent/searchagprofitData.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function getAgentQueryType(data) {
-  return ajax.get($getAgentQueryType, data)
+export function getAgentQueryType(params) {
+  return request({
+    url: `${baseURL}/agent/getAgentQueryType.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function queryAgentSubUserInfoData(data) {
-  return ajax.get($queryAgentSubUserInfoData, data)
+export function queryAgentSubUserInfoData(params) {
+  return request({
+    url: `${baseURL}/agent/queryAgentSubUserInfoData.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function getXimaSelectItems(data) {
-  return ajax.get($getXimaSelectItems, data)
+export function getXimaSelectItems(params) {
+  return request({
+    url: `${baseURL}/agent/getXimaSelectItems.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function searchPtCommissionsData(data) {
-  return ajax.get($searchPtCommissionsData, data)
+export function searchPtCommissionsData(params) {
+  return request({
+    url: `${baseURL}/agent/searchPtCommissionsData.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function searchsubuserProposalData(data) {
-  return ajax.get($searchsubuserProposalData, data)
+export function searchsubuserProposalData(params) {
+  return request({
+    url: `${baseURL}/agent/searchsubuserProposalData.php`,
+    method: 'GET',
+    data: params,
+  })
 }
-export function getProposalYouHuiTypeSelectionData(data) {
-  return ajax.get($getProposalYouHuiTypeSelectionData, data)
+export function getProposalYouHuiTypeSelectionData(params) {
+  return request({
+    url: `${baseURL}/agent/getProposalYouHuiTypeSelectionData.php`,
+    method: 'GET',
+    data: params,
+  })
 }
