@@ -19,9 +19,7 @@ export default function ({
     if (window._czc) {
       window._czc.push(['_trackPageview', route.fullPath])
     }
-    // console.log('pageview ok!')
   } catch (err) {
     console.error(err)
   }
-  // store.commit('SET_ROUTE',route.fullPath)
 }

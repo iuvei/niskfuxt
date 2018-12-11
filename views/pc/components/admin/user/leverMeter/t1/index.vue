@@ -10,7 +10,7 @@
 <script>
   import {
     vipGold
-  } from "@@/controls/discount/vipGold";
+  } from "@@/mixins/discount/vipGold";
   import {
     mapGetters,
     mapActions,

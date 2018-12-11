@@ -1,14 +1,14 @@
 <template>
   <div class="wrapcards agent-index">
-    <div  v-for="item in list" :class="['box',getClass(item)]" :key="item.bankno">
-      <div :class="['bank_card_info',getClass(item)]">
+    <div  v-for="item in list" class="box" :key="item.bankno">
+      <div class='bank_card_info'>
         <h2 class="bankname">{{item.bankname}}</h2><span
         class="acctnumber">**** **** **** {{item.bankno}}</span><span
         class="acctname">持卡人：{{userData.accountName}}</span></div>
     </div>
     <div class="box" @click="add" v-if="list.length<3">
       <div class="add">
-        <p class="text"><span class="iconyg yg-jiahao"></span>添加银行卡</p>
+        <p class="text"><Icon type="ios-add-circle-outline" />添加银行卡</p>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
   import {findUserBankList, validateBankNo, bindBankNo} from "@@/api/payment"
   import {mapGetters} from 'vuex'
   import  check from "@@/utils/RegExp"
-  import {bank} from "@@/controls/common/bank"
+  import {bank} from "@@/mixins/common/bank"
   export default {
     mixins:[bank],
     data() {

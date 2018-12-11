@@ -10,6 +10,7 @@ import { getHomeData, checkLogin, ipapi } from "~/assets/services/common";
 import { loginApi } from "~/assets/services/user";
 export default {
   layout: "admin", // 布局文件
+  
   components: {
     // Tabbar,
     // ShopList

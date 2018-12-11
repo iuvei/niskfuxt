@@ -44,7 +44,7 @@
   import {
     slot
   } from "@@/assets/data/games.json"
-  import {washCode} from '@@/controls/discount/washCode'
+  import {washCode} from '@@/mixins/discount/washCode'
   export default {
     mixins:[washCode],
     data() {

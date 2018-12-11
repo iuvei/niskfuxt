@@ -2,7 +2,7 @@
    <div class="nav6 navblock ">
     <div class="nav">
       <span></span>
-      <nuxt-link tag="a" :to="{name:'index'}" >首页</nuxt-link>
+      <nuxt-link tag="a" :to="{name:'show-home'}" >首页</nuxt-link>
       <span></span>
       <nuxt-link tag="a" :to="{name:'admin-summary'}" >summary</nuxt-link>
       <span></span>
@@ -10,31 +10,31 @@
         deposit
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'sport'}">
+      <nuxt-link tag="a" :to="{name:'show-sport'}">
         体育竞技
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'fish'}">
+      <nuxt-link tag="a" :to="{name:'show-fish'}">
         捕鱼
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'chess'}">
+      <nuxt-link tag="a" :to="{name:'show-chess'}">
         棋牌
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'promosIndex'}">
+      <nuxt-link tag="a" :to="{name:'show-promos'}">
         优惠活动
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'downloadIndex'}" >
+      <nuxt-link tag="a" :to="{name:'show-download'}" >
         手机投注
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'vipIndex'}" >
+      <nuxt-link tag="a" :to="{name:'show-vip'}" >
         VIP
       </nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'cooperationIndex'}" >
+      <nuxt-link tag="a" :to="{name:'show-cooperation'}" >
         代理加盟
       </nuxt-link>
       <span></span>

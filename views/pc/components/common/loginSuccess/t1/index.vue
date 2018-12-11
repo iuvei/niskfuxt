@@ -8,15 +8,15 @@
           <span class="icobjh bjh-shuaxin" @click="getGameMoney('MAIN')"></span>
         </div>
         <div class="btns">
-          <nuxt-link class="m-btn" :to="{name:'deposit'}">存款</nuxt-link>
-          <nuxt-link class="m-btn" :to="{name:'transfer'}">转账</nuxt-link>
+          <nuxt-link class="m-btn" :to="{name:'admin-money-deposit'}">存款</nuxt-link>
+          <nuxt-link class="m-btn" :to="{name:'admin-money-transfer'}">转账</nuxt-link>
         </div>
       </div>
       <div class="line2">
         <span class="l-btn sign btn-y1">
           <span class="icobjh bjh-qiandao"></span>签到
         </span>
-        <nuxt-link class="l-btn btn-y2" :to="{name:'user'}">
+        <nuxt-link class="l-btn btn-y2" :to="{name:'admin-money-deposit'}">
           <span class="icobjh bjh-z-user"></span>用户中心
         </nuxt-link>
         <span class="l-btn btn-y3" @click="$store.dispatch('LOGIN_OUT')">
@@ -49,7 +49,7 @@
 
 </template>
 <script>
-  import {loginControl} from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
+  import {loginControl} from "@@/mixins/auth/loginControl"; // 引入公共业务逻辑
   import {mapGetters, mapActions,mapMutations} from 'vuex'
   export default {
     mixins: [loginControl], // 混合

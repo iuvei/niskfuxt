@@ -24,7 +24,7 @@
 
 </template>
 <script>
-  import {loginControl} from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
+  import {loginControl} from "@@/mixins/auth/loginControl"; // 引入公共业务逻辑
 
   import {
     mapGetters,

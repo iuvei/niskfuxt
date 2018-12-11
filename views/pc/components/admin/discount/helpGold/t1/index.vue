@@ -59,7 +59,7 @@
   } from "@@/assets/data/games.json"
   import {
     helpGold
-  } from '@@/controls/discount/helpGold'
+  } from '@@/mixins/discount/helpGold'
   export default {
     mixins: [helpGold],
     data() {

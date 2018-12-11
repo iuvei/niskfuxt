@@ -48,7 +48,7 @@
           </FormItem>
           <!-- 按钮 -->
           <FormItem>
-            <Button @click="transfer(3)">确认转入</Button>
+            <Button type="warning" @click="transfer(3)">确认转入</Button>
           </FormItem>
         </Form>
 
@@ -84,7 +84,7 @@
 
   import {
     transfer
-  } from "@@/controls/money/transfer";
+  } from "@@/mixins/money/transfer";
   import {
     updateGameMoney
   } from "@@/api/payment";

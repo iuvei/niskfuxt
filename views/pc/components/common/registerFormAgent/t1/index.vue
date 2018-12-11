@@ -61,7 +61,7 @@
 
 </template>
 <script>
-  import {AgentRegisterControl} from '@@/controls/auth/registerAgent'
+  import {AgentRegisterControl} from '@@/mixins/auth/registerAgent'
   import {
     mapGetters,
     mapActions,

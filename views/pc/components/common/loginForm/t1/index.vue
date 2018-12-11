@@ -4,13 +4,13 @@
       <Col span="12">
       <div class="inputs">
         <span class="fixed left icobjh bjh-yonghu"></span>
-        <input v-model="loginData.account" @keyup.enter="login">
+        <input v-model="formData.account" @keyup.enter="login">
       </div>
       </Col>
       <Col span="12">
       <div class="inputs">
         <span class="fixed left icobjh bjh-suo1"></span>
-        <input v-model="loginData.password" type="password" @keyup.enter="login">
+        <input v-model="formData.password" type="password" @keyup.enter="login">
       </div>
       </Col>
     </Row>
@@ -18,8 +18,10 @@
       <Col span="12">
       <div class="inputs">
         <span class="fixed left icobjh bjh-yanzhengma"></span>
-        <input v-model="loginData.imageCode" @keyup.enter="login">
+        <input v-model="formData.imageCode" @keyup.enter="login">
         <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
+        <input type="checkbox" v-model="isRemember">
+        {{isRemember}}
       </div>
       </Col>
       <Col span="12">
@@ -59,7 +61,7 @@
 <script>
   import {
     loginControl
-  } from "@@/controls/auth/loginControl"; // 引入公共业务逻辑
+  } from "@@/mixins/auth/loginControl"; // 引入公共业务逻辑
   import registerFormUser from "@/components/common/registerFormUser/t1";
   import registerFormAgent from "@/components/common/registerFormAgent/t1";
   import {
@@ -81,7 +83,7 @@
     methods: {
       ...mapMutations(['GET_VALIDATE']),
       login() {
-        this.loginSubmit(this.loginData).then(res => {
+        this.loginSubmit(this.formData).then(res => {
           // window.toast(res.message)
           this.$Message.success({
             content: res.message,

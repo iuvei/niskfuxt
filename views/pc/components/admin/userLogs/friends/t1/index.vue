@@ -44,7 +44,7 @@
 <script>
   import {
     userLog
-  } from '@@/controls/logs/userLog'
+  } from '@@/mixins/logs/userLog'
   export default {
     mixins: [userLog],
     data() {

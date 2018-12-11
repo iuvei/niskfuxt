@@ -34,7 +34,7 @@
   } from 'vuex'
   import {
     birthday
-  } from '@@/controls/discount/birthday'
+  } from '@@/mixins/discount/birthday'
   export default {
     mixins: [birthday],
     data() {

@@ -46,7 +46,7 @@
 </template>
 <script>
   import {    mapGetters  } from "vuex"
-  import {saveSend} from '@@/controls/discount/saveSend'
+  import {saveSend} from '@@/mixins/discount/saveSend'
   export default {
     mixins:[saveSend],
     data() {

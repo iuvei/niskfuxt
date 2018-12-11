@@ -25,7 +25,7 @@
   </div>
 </template>
 <script>
-  import {couponRed} from "@@/controls/discount/couponRed"
+  import {couponRed} from "@@/mixins/discount/couponRed"
   export default {
     mixins:[couponRed],
     data() {

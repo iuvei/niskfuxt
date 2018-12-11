@@ -55,7 +55,7 @@ module.exports = {
       routes.push({
         name: 'home',
         path: '/',
-        component: resolve(__dirname, 'views/pc/pages/index/index.vue')
+        component: resolve(__dirname, 'views/pc/pages/show/home/index.vue')
       })
     }
 
@@ -71,14 +71,13 @@ module.exports = {
       src: '~plugins/swiper',
       ssr: false
     }],
-    analyze: true,
+    // analyze: true,
     extend(config, {
       isDev,
       isClient
     }) {
       // if (isDev && isClient) {
       config.module.rules.push({
-          // enforce: 'pre',
           test: /\.vue$/,
           loader: 'iview-loader',
           options: {

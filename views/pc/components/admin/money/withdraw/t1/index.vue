@@ -81,7 +81,7 @@
   } from "vuex";
   import {
     withdraw
-  } from "@@/controls/money/withdraw";
+  } from "@@/mixins/money/withdraw";
 
   export default {
     layout: "admin", // 布局文件

@@ -111,10 +111,10 @@
   import verifyPhone from '@/components/admin/user/verifyPhone/t1'
   import {
     update
-  } from '@@/controls/user/update'
+  } from '@@/mixins/user/update'
   import {
     bank
-  } from '@@/controls/common/bank'
+  } from '@@/mixins/common/bank'
   export default {
     mixins: [update, bank],
     data() {

@@ -21,7 +21,7 @@
   } from "@@/api/preferential-terms"
   import {
     vipGold
-  } from '@@/controls/discount/vipGold'
+  } from '@@/mixins/discount/vipGold'
   export default {
     mixins: [vipGold],
     data() {

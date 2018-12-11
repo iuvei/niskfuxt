@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-  import {coupon} from '@@/controls/discount/coupon'
+  import {coupon} from '@@/mixins/discount/coupon'
   export default {
     mixins:[coupon],
     data() {

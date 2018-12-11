@@ -42,7 +42,7 @@
 </template>
 <script>
   import {    slot  } from "@@/assets/data/games.json"
-  import {    recommendFriend  } from '@@/controls/discount/recommendFriend'
+  import {    recommendFriend  } from '@@/mixins/discount/recommendFriend'
   export default {
     mixins: [recommendFriend],
     data() {

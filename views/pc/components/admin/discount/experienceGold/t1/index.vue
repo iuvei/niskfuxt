@@ -41,7 +41,7 @@
   } from 'vuex'
   import {
     experience
-  } from '@@/controls/discount/experience'
+  } from '@@/mixins/discount/experience'
   export default {
     mixins: [experience],
     data() {

@@ -17,7 +17,7 @@
 </template> 
 <script>
   import check from '@@/utils/RegExp'
-  import {basePay} from '@@/controls/money/basePay'
+  import {basePay} from '@@/mixins/money/basePay'
   export default {
     mixins:[basePay],
     data() {

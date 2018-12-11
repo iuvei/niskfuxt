@@ -11,7 +11,7 @@
 </template>
 <script>
 
-  import {depositMenu} from '@@/controls/money/deposit'
+  import {depositMenu} from '@@/mixins/money/deposit'
   export default {
     mixins:[depositMenu],
     data() {

@@ -37,27 +37,11 @@
   </Layout>
 </template>
 <script>
-  import userInfo from "@/components/admin/userInfo/t1";
-  import userMenu from "@/components/admin/userMenu/t1";
+  import userInfo from "@/components/admin/layout/userInfo/t1";
+  import userMenu from "@/components/admin/layout/userMenu/t1";
 
   export default {
-    titil: "test-title",
-    head: {
-      titleTemplate: '%s - Nuxt.js',
-      meta: [{
-          charset: 'utf-8'
-        },
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1'
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Meta description'
-        }
-      ]
-    },
+    middleware:'needLogin',
     computed: {
       userData() {
         return this.$store.getters.userData;
