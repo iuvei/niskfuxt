@@ -2,48 +2,51 @@
   <div class="index-hots content">
     <p class="title">热门游戏</p>
     <div class="items">
-      <a class="item" @click="open('Games.href_ag', 'AG', 900, 640)">
+      <a class="item" @click="open(Games.href_ag, 'AG', 900, 640, true)">
         <img src="./images/game1.jpg">
       </a>
-      <a class="item" @click="open('Games.href_bbin', 'BBIN', 900, 640)">
+      <a class="item" @click="open(Games.href_bbin, 'BBIN', 900, 640, true)">
         <img src="./images/game2.jpg">
       </a>
-      <a class="item" @click="open('Games.href_sunbet', 'SUNBET', 900, 640)">
+      <a class="item" @click="open(Games.href_sunbet, 'SUNBET', 900, 640, true)">
         <img src="./images/game3.png">
       </a>
-      <a class="item" @click="open('Games.href_og', 'OG', 900, 640)">
+      <a class="item" @click="open(Games.href_og, 'OG', 900, 640, true)">
         <img src="./images/game5.jpg">
       </a>
-      <a class="item" @click="open('Games.href_sb_pc', 'SB', 900, 640)">
+      <a class="item" @click="open(Games.href_sb_pc, 'SB', 900, 640, true)">
         <img src="./images/game4.jpg">
       </a>
-      <a class="item" @click="open('Games.href_ug_pc', 'UG', 900, 640)">
+      <a class="item" @click="open(Games.href_ug_pc, 'UG', 900, 640, true)">
         <img src="./images/game8.png">
       </a>
     </div>
   </div>
 </template>
 <script>
+  import { Games } from "@/assets/data"
+  import openWindow from '@/util/openWindow'
   import {mapGetters} from 'vuex'
 
     export default {
         name: "",
         data() {
             return {
+              Games
             }
         },
         computed: {
-          ...mapGetters(["islogin","isAgent"])
+          ...mapGetters(["islogin"])
         },
         methods:{
-          open(url, title, w, h){
+          open(url, title, w, h, needLogin){
+            if(needLogin){
               if(!this.islogin){
                 window.toast('请先登录!')
                 return
-              }else if(this.isAgent){
-                window.toast('代理不能游戏!')
               }
-            $METHODS.openWindow(url, title, w, h)
+            }
+            openWindow(url, title, w, h)
           }
         }
     }

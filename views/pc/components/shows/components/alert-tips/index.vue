@@ -5,7 +5,7 @@
         <div class="alert-tips-content" @click.self="show=false" v-show="show">
           <span class="iclose" @click="close"><img src="./images/close_pc.png"></span>
           <div class="content-info" @click.self="show=false">
-            <div class="url" @click.self="show=false">WEBCONFIG.location</div>
+            <div class="url" @click.self="show=false">{{WEBCONFIG.location}}</div>
             <div class="title" @click.self="show=false">{{title}}</div>
             <div class="conent" v-html="conent" @click.self="show=false"></div>
           </div>
@@ -19,10 +19,20 @@
   import {
     checkConfigSystem,
     generateQRCode
-  } from "@@/api/show"
+  } from "@/api/show"
+  import {
+    $localStorage,
+    $sessionStorage
+  } from "@/util/storage"
+  import {
+    SETTING,
+    WEBCONFIG
+  } from "@/assets/data"
   export default {
     data() {
       return {
+        SETTING,
+        WEBCONFIG,
         myData: {
           itemNo: "type002", //true string
           typeNo: "001",
@@ -43,12 +53,12 @@
       },
       close() {
         this.show = false;
-        $METHODS.sessionStorage.set("index_alert", true)
+        $sessionStorage.set("index_alert", true)
       }
     },
     computed: {},
-    mounted() {
-      if (!$METHODS.sessionStorage.get('index_alert')) {
+    created() {
+      if (!$sessionStorage.get('index_alert')) {
       checkConfigSystem(this.$data).then(res => {
         if (res.success) {
           var arydata = res.data.split('#');

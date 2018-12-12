@@ -12,7 +12,7 @@ const $SITE={
 	wallet:WALLET.default,
 	games:GAMES.default
 }
+console.log($SITE);
 // 挂载数据
 window.$SITE=$SITE
 Vue.prototype.$SITE = $SITE 
-

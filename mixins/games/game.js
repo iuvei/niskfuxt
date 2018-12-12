@@ -16,9 +16,6 @@ import {
 import {
   queryGameStatus
 } from '@@/api/user'
-import {
-  $localStorage
-} from '@@/utils/storage'
 
 // 判断线注的方法
 
@@ -75,7 +72,7 @@ export const games = {
     // 查询历史记录(未做)
     getHistory() {
       // 读取本地历史纪录
-      const HistoryGames = $localStorage && $localStorage.get(`GAME_HISTORY${this.userData.loginname}`)
+      const HistoryGames = $METHODS.localStorage.get(`GAME_HISTORY${this.userData.loginname}`)
       //
       this.hisList = HistoryGames ? JSON.parse(HistoryGames) : []
       // if (this.hisList.length > 0) {
@@ -100,7 +97,7 @@ export const games = {
       // 数组去重
       const historyIndexs = Array.from(new Set(this.hisList))
       // 保存
-      $localStorage && $localStorage.set(`GAME_HISTORY${this.userData.loginname}`, JSON.stringify(historyIndexs))
+      $METHODS.localStorage.set(`GAME_HISTORY${this.userData.loginname}`, JSON.stringify(historyIndexs))
     },
     /**
      * 筛选
@@ -509,7 +506,7 @@ export const games = {
   computed: {
     ...mapGetters(['islogin', 'isAgent', 'userData'])
   },
-  created() {
+  mounted() {
     // 监听筛选事件
     this.$bus.$on('serachGame', (key, value) => {
       this.search(key, value)

@@ -4,7 +4,7 @@
       <span></span>
       <nuxt-link tag="a" :to="{name:'show-home'}" >首页</nuxt-link>
       <span></span>
-      <nuxt-link tag="a" :to="{name:'admin-summary'}" >summary</nuxt-link>
+      <nuxt-link tag="a" :to="{name:'show-slots'}" >游戏大厅</nuxt-link>
       <span></span>
       <nuxt-link tag="a" :to="{name:'admin-money-deposit'}">
         deposit
