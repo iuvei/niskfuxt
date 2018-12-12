@@ -7,14 +7,14 @@ export const ptcommission = {
   data() {
     return {
       pageContents: [],
+      totalPages:0,
+      totalRecords:0,
       formData: {
         starttime: '',
         endtime: '',
         size: 10,
         pageIndex: 1,
-        totalRecords: 0
-      },
-      data: {}
+      }
     }
   },
   methods: {
@@ -32,10 +32,13 @@ export const ptcommission = {
         searchPtCommissionsData(obj).then(res => {
           if (res.success) {
             // 保存数据
-            this.data = res.data
-            this.pageContents = res.data.pageContents
+            this.pageContents = res.data.pageContents.filter(item=>{
+              item.platform=this.getPlatForm(item.id.platform)
+              return item
+            })
             // 保存查询条件
-            this.formData.totalRecords = res.data.totalRecords
+            this.totalRecords = res.data.totalRecords
+            this.totalPages = res.data.totalPages
             this.formData.pageIndex = res.data.pageNumber
             return resolve(res)
           } else {
@@ -47,6 +50,7 @@ export const ptcommission = {
       })
     },
     getPlatForm(val) {
+      console.log(val)
       switch (val) {
         case 'slotmachine':
           return '老虎机佣金'

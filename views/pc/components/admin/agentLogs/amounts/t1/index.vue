@@ -24,26 +24,26 @@
       <Button :loading="loading" type="warning" icon="el-icon-search" @click="search(1)">查询</Button>
     </div>
     <!-- 表格数据显示区域 -->
-    <Table :data="pageContents" style="width: 100%"></Table>
+    <Table :data="pageContents" style="width: 100%" :columns="column"></Table>
     <!-- 表格分页 -->
-    <div v-if="pageContents.length>0">
+    <div v-if="totalPages>1" style="margin-top:10px;">
       <Page
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+        @on-page-size-change="handleSizeChange"
+        @on-change="handleCurrentChange"
         :current-page="formData.pageIndex"
-        :page-sizes="[10, 20, 50, 100]"
+        :page-size-opts="[10, 20, 50, 100]"
         :page-size="formData.size"
-        layout="total, sizes, prev, pager, next"
-        :total="formData.totalRecords"
+        :total="totalRecords"
+        show-sizer
       ></Page>
     </div>
   </div>
 </template>
 <script>
-import { ptcommission } from "@@/mixins/agent/ptcommission";
+import { creditLog } from "@@/mixins/agent/creditLog";
 export default {
   layout: "admin", // 布局文件
-  mixins: [ptcommission],
+  mixins: [creditLog],
   data() {
     return {
       loading: false,
@@ -53,22 +53,22 @@ export default {
           type: "index"
         },
         {
-          title: "会员账号",
-          key: "loginname"
+          title: "操作类型",
+          key: "type"
         },
         {
-          title: "状态",
-          key: "flag"
+          title: "额度变量",
+          key: "remit"
         },
         {
-          title: "账户额度",
+          title: "改变前额度",
           key: "credit"
         },
         {
-          title: "开户地址",
-          key: "tempCreateTime"
+          title: "改变后额度",
+          key: "newCredit"
         },
-        { title: "来源网址", key: "howToKnow" }
+        { title: "加入时间", key: "tempCreateTime" }
       ]
     };
   },

@@ -27,9 +27,9 @@
           <userMenu></userMenu>
         </Col>
         <Col span="19">
-          <div class="window-title">{{$route.title||'用户中心'}}</div>
+          <div class="window-title">{{$route.title||'代理中心'}}</div>
           <div class="window-show">
-            <nuxt/>
+            <nuxt keep-alive/>
           </div>
         </Col>
       </Row>
@@ -47,7 +47,21 @@ export default {
       return this.$store.getters.userData;
     }
   },
+  created() {
+    // 拉取用户信息
+    if (!this.$store.getters.userData.loginname) {
+      this.$store
+        .dispatch("UPDATE_USERDATA")
+        .then(res => {
 
+        })
+        .catch(err => {
+
+        });
+    }else{
+
+    }
+  },
   mounted() {
     console.log(this.$route);
     // console.log(window.location.href)

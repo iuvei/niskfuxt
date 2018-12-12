@@ -5,13 +5,13 @@
       <div class="form-box">
 
         <div class="inputbox">
-          <DatePicker v-model="searchData.starttime" type="datetime" placeholder="选择开始日期" :picker-options="pickerOptions"
+          <DatePicker v-model="formData.starttime" type="datetime" placeholder="选择开始日期" :picker-options="pickerOptions"
             format="yyyy-MM-dd HH:mm" :default-value="new Date()">
           </DatePicker>
         </div>
 
         <div class="inputbox">
-          <DatePicker v-model="searchData.endtime" align="right" type="datetime" placeholder="选择结束日期" :picker-options="pickerOptions"
+          <DatePicker v-model="formData.endtime" align="right" type="datetime" placeholder="选择结束日期" :picker-options="pickerOptions"
             format="yyyy-MM-dd HH:mm" :default-value="new Date()">
           </DatePicker>
         </div>
@@ -25,8 +25,14 @@
       </Table>
       <!-- 表格分页 -->
       <div v-if="pageContents.length>0" style="margin-top:10px;">
-        <Page @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="searchData.pageIndex"
-          :page-sizes="[10, 20, 50, 100]" :page-size="searchData.size" layout="total, sizes, prev, pager, next" :total="searchData.totalRecords">
+        <Page 
+        @on-page-size-change="handleSizeChange"
+        @on-change="handleCurrentChange"
+        :current-page="formData.pageIndex"
+        :page-size-opts="[10, 20, 50, 100]"
+        :page-size="formData.size"
+        :total="totalRecords"
+        show-sizer          >
         </Page>
       </div>
     </div>
@@ -40,7 +46,7 @@
     mixins: [userLog],
     data() {
       return {
-        searchData: {
+        formData: {
           // 记录类型
           historyType: 'ximaDetail',
           // 开始时间
@@ -116,20 +122,20 @@
     methods: {
       handleSizeChange(val) {
         // 每页条数触发函数
-        this.searchData.size = val;
+        this.formData.size = val;
         this.search();
       },
       handleCurrentChange(val) {
         // 翻页触发函数
-        this.searchData.pageIndex = val;
+        this.formData.pageIndex = val;
         this.search(val);
       },
       search(index) {
         // 查询按钮触发函数
         if (!isNaN(index)) {
-          this.searchData.pageIndex = index;
+          this.formData.pageIndex = index;
         }
-        this.getLog(this.searchData).then(res => {
+        this.getLog(this.formData).then(res => {
           window.toast(res.message)
         }).catch(err => {
           window.toast(err.message)

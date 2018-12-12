@@ -29,7 +29,7 @@
         <Col span="19">
         <div class="window-title">{{$route.title||'用户中心'}}</div>
         <div class="window-show">
-          <nuxt />
+          <nuxt keep-alive/>
         </div>
         </Col>
       </Row>

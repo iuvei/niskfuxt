@@ -31,13 +31,13 @@
         >Hi,&nbsp;&nbsp;{{userData.loginname}}&nbsp;&nbsp;老虎机余额:&nbsp;&nbsp;{{wallet['MAIN']}}&nbsp;&nbsp;其他余额:&nbsp;&nbsp;{{wallet['LIVE']}}</div>
         <div class="btns">
           <Badge :value="unread?unread:''" :max="50">
-            <nuxt-link class="m-btn" :to="{name:'agent_message'}">站内信</nuxt-link>
+            <nuxt-link class="m-btn" :to="{name:'admin-message'}">站内信</nuxt-link>
           </Badge>
-          <nuxt-link class="m-btn" :to="{name:'agent_drawmoney'}">提款</nuxt-link>
+          <nuxt-link class="m-btn" :to="{name:'admin-money-withdraw'}">提款</nuxt-link>
         </div>
       </div>
       <div class="line2">
-        <nuxt-link class="l-btn" :to="{name:'agent_summary'}">
+        <nuxt-link class="l-btn" :to="{name:'admin-logs-agent-listsummary'}">
           <span class="icobjh bjh-z-user"></span>代理中心
         </nuxt-link>
         <span class="l-btn" @click="$store.dispatch('LOGIN_OUT')">

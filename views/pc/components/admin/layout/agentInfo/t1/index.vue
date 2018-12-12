@@ -35,7 +35,7 @@
         <p>专属客服二维码</p>
         <p>工作时间：</p>
         <p>周一至周五 09:00-18:00</p>
-        <vue-qr text="$CONTACT.live800" :size="100" class="qr-code"></vue-qr>
+        <vue-qr :text="$SITE.contact.live800" :size="100" class="qr-code"></vue-qr>
       </div>
     </Col>
   </Row>
@@ -144,6 +144,7 @@ export default {
       width: 90px;
     }
     .qr-code {
+        margin-top:10px;
       img {
         display: inline-block;
         // max-width:80%;

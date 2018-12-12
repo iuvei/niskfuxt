@@ -34,8 +34,15 @@
           </Table>
           <!-- 表格分页 -->
           <div v-if="pageContents.length>0" style="margin-top:10px;">
-            <Page @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="searchData.pageIndex"
-              :page-sizes="[10, 20, 50, 100]" :page-size="searchData.size" layout="total, sizes, prev, pager, next" :total="searchData.totalRecords">
+            <Page 
+              @on-page-size-change="handleSizeChange"
+              @on-change="handleCurrentChange"
+              :current-page="formData.pageIndex"
+              :page-size-opts="[10, 20, 50, 100]"
+              :page-size="formData.size"
+              :total="totalRecords"
+              show-sizer              
+              >
             </Page>
           </div>
         </div>

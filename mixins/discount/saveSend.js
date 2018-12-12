@@ -40,13 +40,14 @@ export const saveSend = {
     },
     Type() {
       this.submitData.youhuiConfigId = ''
+      this.submitData.remit=''
     },
     'submitData.remit'(val, old) {
-      if (/[^\d]/g.test(val)) {
-        this.submitData.remit = this.submitData.remit.toString().replace(/[^\d]/g, '')
-      } else {
-        val == '' || this.computedMoney()
-      }
+      // if (/[^\d]/g.test(val)) {
+      //   this.submitData.remit = this.submitData.remit.toString().replace(/[^\d]/g, '')
+      // } else {
+        this.computedMoney()
+      // }
     }
   },
   computed: {
@@ -65,7 +66,6 @@ export const saveSend = {
         return false
       }
     },
-    // 筛选可用优惠的平台
     // 筛选可用优惠的平台
     setPlatformData(data) {
       let pf = []
@@ -121,7 +121,11 @@ export const saveSend = {
       // 计算金额
       // 找到当前的优惠数据
       let _data = this.listData.filter(item => item.id == this.submitData.youhuiConfigId)
-      if (_data.length <= 0 || this.submitData.youhuiConfigId == '' || this.submitData.remit == '') return
+      if (_data.length <= 0 || this.submitData.youhuiConfigId == ''||!this.submitData.remit) {
+        this.percentMoney=0
+        this.limitMoney=0
+        return
+      }
       _data = _data[0]
       // 流水倍数
       this.betMultiples = _data.betMultiples

@@ -24,17 +24,17 @@
       <Button :loading="loading" type="warning" icon="el-icon-search" @click="search(1)">查询</Button>
     </div>
     <!-- 表格数据显示区域 -->
-    <Table :data="pageContents" style="width: 100%"></Table>
+    <Table :data="pageContents" style="width: 100%" :columns="column"></Table>
     <!-- 表格分页 -->
-    <div v-if="pageContents.length>0">
+    <div v-if="totalPages>1" style="margin-top:10px;">
       <Page
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+        @on-page-size-change="handleSizeChange"
+        @on-change="handleCurrentChange"
         :current-page="formData.pageIndex"
-        :page-sizes="[10, 20, 50, 100]"
+        :page-size-opts="[10, 20, 50, 100]"
         :page-size="formData.size"
-        layout="total, sizes, prev, pager, next"
-        :total="formData.totalRecords"
+        :total="totalRecords"
+        show-sizer
       ></Page>
     </div>
   </div>
@@ -53,22 +53,35 @@ export default {
           type: "index"
         },
         {
-          title: "会员账号",
-          key: "loginname"
+          title: "平台",
+          key: "platform"
         },
         {
-          title: "状态",
-          key: "flag"
+          title: "日佣金",
+          key: "amount"
         },
         {
-          title: "账户额度",
-          key: "credit"
+          title: "输赢额度",
+          key: "profitall"
+        },
+                {
+          title: "优惠额度",
+          key: "couponfee"
+        },
+                {
+          title: "洗码额度",
+          key: "ximafee"
         },
         {
-          title: "开户地址",
-          key: "tempCreateTime"
+          title: "平台费",
+          key: "platformfee"
         },
-        { title: "来源网址", key: "howToKnow" }
+                {
+          title: "投注额",
+          key: "betall"
+        },
+        
+        { title: "执行时间", key: "tempExcuteTime" }
       ]
     };
   },

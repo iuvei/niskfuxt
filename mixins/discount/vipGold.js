@@ -22,40 +22,6 @@ export const vipGold = {
           bet: 0
         }]
       },
-      columnsLevel: [
-        {
-            type: 'index',
-            width: 60,
-            align: 'center'
-        },
-        {
-            title: '等级',
-            key: 'levelName'
-        },
-        {
-            title: '晋级礼金',
-            key: 'upgradeprize'
-        },
-        {
-            title: '晋级流水',
-            key: 'upgradethreshold'
-        }
-    ],
-    columnsBetList: [
-      {
-          type: 'index',
-          width: 60,
-          align: 'center'
-      },
-      {
-          title: '平台',
-          key: 'platform'
-      },
-      {
-          title: '投注额',
-          key: 'bet'
-      }
-  ],
       // 未知，好像没用到
       thisMonthMoney: 0, // 本月投注额
       level: [], // 保存对应的等级信息

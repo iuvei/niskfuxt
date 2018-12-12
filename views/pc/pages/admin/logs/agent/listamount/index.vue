@@ -1,12 +1,16 @@
 <template>
-  <div class="home-page">
-    <h2>额度记录报表</h2>
+  <div class="listAmount-page">
+    <listAmount></listAmount>
   </div>
 </template>
 
 <script>
+import listAmount from "@/components/admin/agentLogs/amounts/t1/index.vue";
 export default {
-    layout: "admin", // 布局文件
+  layout: "admin", // 布局文件
+  components: {
+    listAmount
+  },
   data() {
     return {};
   },
@@ -16,5 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~assets/styles/mixin";
 </style>

@@ -11,7 +11,6 @@
     >
       <div class="name">{{item.name}}</div>
       <div class="money">
-      {{item.value}}
         <span
           v-if="wallet[item.value]&&wallet[item.value].toString()&&!loading[item.value]"
         >{{wallet[item.value]}}元</span>

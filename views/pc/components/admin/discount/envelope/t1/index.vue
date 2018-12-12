@@ -8,7 +8,9 @@
       <!-- 游戏平台 -->
       <FormItem label="游戏平台" prop="couponType">
         <Select v-model="data.couponType" placeholder="请选择需要转入的游戏平台">
-          <Option v-for="(item,key)  in platformData" :value="item.value" :key="key">{{item.name}}</Option>
+          <Option v-for="(item,key)  in platformData" :value="item.value" :key="key">
+            {{$METHODS.getName(item.value)||item.name}}
+        </Option>
         </Select>
       </FormItem>
 

@@ -117,7 +117,7 @@ module.exports = _.mergeWith({
       },
       {
         // 配置公共方法
-        src: '~~plugins/data',
+        src: '~~plugins/methods',
         ssr: false
       },
       {

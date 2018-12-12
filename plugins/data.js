@@ -6,11 +6,11 @@ import * as WALLET from '@@/assets/data/walletData.json'
 import * as GAMES from '@@/assets/data/games.json'
 
 const $SITE={
-	config:CONFIG,
-	download:DOWNLOAD,
-	contact:CONTACT,
-	wallet:WALLET,
-	games:GAMES
+	config:CONFIG.default,
+	download:DOWNLOAD.default,
+	contact:CONTACT.default,
+	wallet:WALLET.default,
+	games:GAMES.default
 }
 // 挂载数据
 window.$SITE=$SITE

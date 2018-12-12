@@ -7,12 +7,13 @@ export const memberList = {
   data() {
     return {
       pageContents: [],
+      totalPages:0,
+      totalRecords:0,
       formData: {
         starttime: '',
         endtime: '',
         size: 10,
         pageIndex: 1,
-        totalRecords: 0
       }
     }
   },
@@ -29,14 +30,17 @@ export const memberList = {
       } catch (err) {}
       return new Promise((resolve, reject) => {
         queryAgentSubUserInfoData(obj).then(res => {
-          console.log(res)
-
           if (res.success) {
             // 保存数据
-            this.pageContents = res.data.pageContents
+            this.pageContents = res.data.pageContents.filter(item=>{
+              item.flag=item.flag?'启用':'关闭'
+              return item
+            })
             // 保存查询条件
-            this.formData.totalRecords = res.data.totalRecords
+            this.totalRecords = res.data.totalRecords
+            this.totalPages = res.data.totalPages
             this.formData.pageIndex = res.data.pageNumber
+
             return resolve(res)
           } else {
             return reject(res)

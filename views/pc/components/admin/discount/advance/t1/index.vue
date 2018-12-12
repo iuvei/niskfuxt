@@ -28,7 +28,44 @@
       return {
         // disabled:false
         showUpgrade: false,
-        loading: false
+        loading: false,
+        columnsBetList: [
+          {
+              type: 'index',
+              width: 60,
+              align: 'center'
+          },
+          {
+              title: '平台',
+              key: 'platform',
+              // render: (h, params) => {
+              //               return h('span',{}, params.row);
+              //           }
+          },
+          {
+              title: '投注额',
+              key: 'bet'
+          }
+        ],
+          columnsLevel: [
+          {
+              type: 'index',
+              width: 60,
+              align: 'center'
+          },
+          {
+              title: '等级',
+              key: 'levelName'
+          },
+          {
+              title: '晋级礼金',
+              key: 'upgradeprize'
+          },
+          {
+              title: '晋级流水',
+              key: 'upgradethreshold'
+          }
+        ],
       };
     },
     methods: {

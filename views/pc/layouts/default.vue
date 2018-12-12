@@ -4,7 +4,7 @@
     <navTemp></navTemp>
     <div class="page-view">
       <slot>
-        <nuxt/>
+        <nuxt keep-alive/>
       </slot>
     </div>
     <footerTemp></footerTemp>

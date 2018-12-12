@@ -18,6 +18,10 @@
     "name": "PT老虎机",
     "value": "PT"
   },
+    {
+    "name": "PT老虎机",
+    "value": "PT2TIGER"
+  },
   {
     "name": "DT老虎机",
     "value": "DT"
@@ -83,6 +87,10 @@
     "value": "UG"
   },
   {
+    "name": "平博体育",
+    "value": "PBSPORT"
+  },
+  {
     "name": "BTI体育",
     "value": "BTI"
   },
@@ -95,7 +103,7 @@
     "value": "City761"
   },
   {
-    "name": "MW捕鱼",
+    "name": "大满贯捕鱼",
     "value": "MW"
   },
   {
@@ -109,5 +117,9 @@
   {
     "name": "BBCP彩票",
     "value": "BBCP"
+  },
+    {
+    "name": "泛亚电竞",
+    "value": "AVIA"
   }
 ]

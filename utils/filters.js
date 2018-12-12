@@ -4,7 +4,7 @@
  * 是否有必要注册为全局过滤器？
 */
 
-function pluralize(time, label) {
+export function pluralize(time, label) {
   if (time === 1) {
     return time + label
   }
@@ -141,4 +141,3 @@ export function conceal(val, start = 1, end = 0, replaceval = '*') {
 export function stringSplit(val, num = 3, rpl = ',') {
   return !val ? 0 : (val.toString().strSplit(num, rpl))
 }
-
