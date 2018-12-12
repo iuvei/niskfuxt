@@ -1,5 +1,4 @@
 <template>
-  <!-- <transition> -->
   <div>
     <div class="right-server">
       <a class="cont-item" target="_blank" href="SETTING.live800">
@@ -13,7 +12,7 @@
           <p class="c-text-inline">SETTING.email</p>
         </div>
       </a>
-      <a class="cont-item">
+      <a class="cont-item" @click="showbackCall=true">
         <span class="c-ico icobjh bjh-tele"></span>
         <span class="c-text">电话回拨</span>
       </a>
@@ -50,14 +49,24 @@
         <span class="c-text">返回顶部</span>
       </a>
     </div>
+    <Modal v-model="showbackCall" draggable :mask-closable="false" :width="400">
+      <header slot="header" style="color:#f60;text-align:center">
+        <h3>
+          <img src="/favicon.ico" style="display:inline-block;height:40px;vertical-align:middle;">
+          电话回拨
+        </h3>
+      </header>
+      <backCall></backCall>
+    </Modal>
   </div>
-  <!-- </transition> -->
 </template>
 <script>
+  import backCall from '@/components/common/backCall/t1'
 export default {
   data() {
     return {
-      showMyself: true
+      showMyself: true,
+      showbackCall:false
     };
   },
   props: {},
@@ -65,6 +74,9 @@ export default {
     backToTop() {
       window.scrollTo(0, 0);
     }
+  },
+  components:{
+    backCall
   }
 };
 </script>

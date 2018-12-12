@@ -20,14 +20,12 @@
         <span class="fixed left icobjh bjh-yanzhengma"></span>
         <input v-model="formData.imageCode" @keyup.enter="login">
         <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
-        <input type="checkbox" v-model="isRemember">
-        {{isRemember}}
       </div>
       </Col>
       <Col span="12">
       <div class="inputs">
         <a @click="login" class="btn btn01">登录</a>
-        <a class="btn btn02" @click="$bus.$emit('showForget',true)">忘记密码?</a>
+        <a class="btn btn02" @click="showPwdForgot=true">忘记密码?</a>
         <a class="btn btn02" @click="showRegister=true">马上注册?</a>
         <a class="btn btn02" @click="showRegisterAgent=true">马上加盟?</a>
       </div>
@@ -55,6 +53,17 @@
       <footer slot="footer" style="text-align:center;">
       </footer>
     </Modal>
+    <Modal v-model="showPwdForgot" draggable :mask-closable="false" :width="500">
+      <header slot="header" style="color:#f60;text-align:center">
+        <h3>
+          <img src="/favicon.ico" style="display:inline-block;height:40px;vertical-align:middle;">
+          找回登陆密码
+        </h3>
+      </header>
+      <pwdForgot></pwdForgot>
+      <footer slot="footer" style="text-align:center;">
+      </footer>
+    </Modal>
   </div>
 
 </template>
@@ -64,6 +73,7 @@
   } from "@@/mixins/auth/loginControl"; // 引入公共业务逻辑
   import registerFormUser from "@/components/common/registerFormUser/t1";
   import registerFormAgent from "@/components/common/registerFormAgent/t1";
+  import pwdForgot from "@/components/common/forgotPassword/t1";
   import {
     mapGetters,
     mapActions,
@@ -75,6 +85,7 @@
       return {
         showRegister: false,
         showRegisterAgent: false,
+        showPwdForgot:false
       };
     },
     computed: {
@@ -95,12 +106,12 @@
             closable: true
           })
         })
-        console.log('login')
       }
     },
     components: {
       registerFormUser,
-      registerFormAgent
+      registerFormAgent,
+      pwdForgot
     }
   };
 

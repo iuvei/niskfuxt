@@ -1,44 +1,51 @@
 <template>
-    <div class="login-form">
-        <Row :gutter="10">
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-yonghu"></span>
-              <input v-model="loginData.account" @keyup.enter="login">
-            </div>
-          </Col>
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-suo1"></span>
-              <input v-model="loginData.password" type="password" @keyup.enter="login">
-            </div>
-          </Col>
-        </Row>
-        <Row :gutter="10">
-          <Col span="12">
-            <div class="inputs">
-              <span class="fixed left icobjh bjh-yanzhengma"></span>
-              <input v-model="loginData.imageCode" @keyup.enter="login">
-              <img class="fixed right code" :src="validateImage" @click="GET_VALIDATE" title="点击刷新">
-            </div>
-          </Col>
-          <Col span="12">
-            <div class="inputs">
-              <a @click="login" class="btn btn01">登录</a>
-              <a class="btn btn02" @click="$bus.$emit('showForget',true)" >忘记密码?</a>
-            </div>
-          </Col>
-        </Row>
+    <div class="pwd-forgot-form">
+      <div class="pwd-forgot-header">
+        <a class="tabs" :class="{active:findBackType=='phone'}" @click="findBackType='phone'">手机找回</a>
+        <a class="tabs" :class="{active:findBackType=='email'}" @click="findBackType='email'">邮箱找回</a>
+        <a class="tabs" target="_blank">客服找回</a>
+      </div>
+      <Form :model="phone" label-position="top" v-show="findBackType=='phone'">
+        <FormItem label="游戏帐号">
+          <Input v-model="phone.name" placeholder="请填写游戏账号" :maxlength="16"></Input>
+        </FormItem>
+        <FormItem label="手机号">
+          <Input v-model="phone.phone" placeholder="请填写手机号" :maxlength="11"></Input>
+        </FormItem>
+        <FormItem>
+          <Button type="error" @click="submitPhone">提交</Button>
+        </FormItem>
+      </Form>
+      <Form :model="email" label-position="top" v-show="findBackType=='email'">
+        <FormItem label="游戏帐号">
+          <Input v-model="email.name" placeholder="请填写游戏账号" :maxlength="16"></Input>
+        </FormItem>
+        <FormItem label="邮箱地址">
+          <Input v-model="email.yxdz" placeholder="请填写绑定邮箱地址" :maxlength="100"></Input>
+        </FormItem>
+        <FormItem label="验证码">
+          <Input v-model="email.code" placeholder="验证码" :maxlength="50">
+          <a @click="GET_VALIDATE" slot="append" class="imgCode" >
+            <img :src="validateImage" style="width:100px;height:20px;display:inline-block;">
+          </a>
+        </Input>
+        </FormItem>
+        <FormItem>
+          <Button type="error" @click="submitEmail">提交</Button>
+        </FormItem>
+      </Form>
+
   </div>
 
 </template>
 <script>
-  import {loginControl} from "@@/mixins/auth/loginControl"; // 引入公共业务逻辑
+  import {pwdForgot} from "@@/mixins/auth/pwdForgot"; // 引入公共业务逻辑
   import {mapGetters, mapActions,mapMutations} from 'vuex'
   export default {
-    mixins: [loginControl], // 混合
+    mixins: [pwdForgot], // 混合
     data() {
       return {
+        findBackType:'phone'
       };
     },
     computed: {
@@ -46,99 +53,36 @@
     },
     methods:{
       ...mapMutations(['GET_VALIDATE']),
-      login(){
-        this.loginSubmit(this.loginData).then(res=>{
-          // window.toast(res.message)
-          this.$Message.success({
-            content:res.message,
-            closable:true
-          })
+      submitPhone(){
+        this.getbackPwdByDx_dc(this.phone).then(res=>{
+          window.toast(res.message)
         }).catch(err=>{
-          this.$Message.error({
-            content:err.message,
-            closable:true
-          })
+          window.toast(err.message)
         })
-        console.log('login')
+      },
+      submitEmail(){
+        this.getbackPwdByEmail(this.email).then(res=>{
+          window.toast(res.message)
+        }).catch(err=>{
+          window.toast(err.message)
+        })
       }
     }
   };
 </script>
 <style lang="scss" scoped>
-  .login-form {
-    width: 330px;
-    float:right;
-    margin-top:10px;
-    .inputs {
-      width:100%;
-      margin:4px 0;
-      display: inline-block;
-      position:relative;
-      border-radius:6px;
-      overflow:hidden;
-      .fixed{
-        position:absolute;
-        top:0;
-        color:#999;
-        &.left{
-          left:0;
-        }
-        &.right{
-          right:0;
-        }
-      }
-      .icobjh{
-        margin-left:8px;
-        line-height:28px;
-      }
-      .code{
-        height:28px;
-        width:60px;
-        cursor:pointer;
-      }
-      input {
-        background: #fff;
-        color: #343434;
-        display:block;
-        width:100%;
-        height:28px;
-        padding-left:30px;
-        outline:0;
-      }
-
-      input::-moz-placeholder {
-        color: #ccc;
-      }
-
-      input:-ms-input-placeholder {
-        color: #ccc;
-      }
-
-      input::-webkit-input-placeholder {
-        color: #ccc;
-      }
-    }
-    .btn{
-      line-height:32px;
-      height:32px;
-      width:50%;
-      color:#fff;
-      display:inline-block;
-      margin:-2px;
-      text-align:center;
-      border-radius:9px;
-      cursor:pointer;
-      &.btn01{
-        background: rgb(255,236,183); /* Old browsers */
-        background: -moz-linear-gradient(top, rgba(255,236,183,1) 0%, rgba(255,209,120,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255,236,183,1) 0%,rgba(255,209,120,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255,236,183,1) 0%,rgba(255,209,120,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffecb7', endColorstr='#ffd178',GradientType=0 ); /* IE6-9 */
-        color:#343434;
-      }
-      &.btn02{
-        background:none;
-      }
+.pwd-forgot-header{
+  display:flex;
+  justify-content: space-around;
+  margin-bottom:20px;
+  .tabs{
+    color:#333;
+    border-bottom:solid 2px transparent;
+    transition:all 0.5s;
+    padding:4px 10px;
+    &.active,&:hover{
+      border-bottom:solid 2px #333;
     }
   }
+}
 </style>
