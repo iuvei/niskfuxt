@@ -59,7 +59,7 @@ export const pwdForgot = {
       }
     },
     getbackPwdByDx_dc(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 手机号码找回，提交
       return new Promise((resolve, reject) => {
         // 表单验证
@@ -88,7 +88,7 @@ export const pwdForgot = {
     },
     getbackPwdByEmail(data,needCheck=true) {
       // 邮箱找回，提交
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       return new Promise((resolve, reject) => {
         // 表单验证
         if(needCheck){

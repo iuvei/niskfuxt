@@ -91,7 +91,7 @@ export const saveSend = {
       return pfs
     },
     saveSendSubmit(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         // 验证表单

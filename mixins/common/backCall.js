@@ -21,7 +21,7 @@ export const backCall = {
       }
     },
     backCall(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       return new Promise((resolve, reject) => {
         // 先验证表单
         if(needCheck){

@@ -35,7 +35,7 @@ export const passwordSet = {
     // 提交表单
     submitPwd(data, needCheck = true) {
       return new Promise((resolve, reject) => {
-        let obj = JSON.parse(JSON.stringify(data))
+        let obj = _. cloneDeep(data)
         // 数据验证
         if (needCheck) {
           const unChecked = this.checked(obj)

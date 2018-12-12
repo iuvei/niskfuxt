@@ -116,6 +116,10 @@ module.exports = _.mergeWith({
         ssr: false
       },
       {
+        src: '~~plugins/lodash',
+        ssr: false
+      },
+      {
         src: '~~plugins/clipBoard',
         ssr: false
       },
@@ -178,6 +182,10 @@ module.exports = _.mergeWith({
       ssr: false
     },
     {
+      src: '~~plugins/lodash',
+      ssr: false
+    },
+    {
       src: '~~plugins/clipBoard',
       ssr: false
     },
@@ -203,7 +211,7 @@ module.exports = _.mergeWith({
     },
   ],
   proxy: {
-    url: 'http://qhc.itgo88.com', // 接口反向代理目标地址
+    url: 'https://qhc16.com', // 接口反向代理目标地址
   },
   manifest: {
     name: 'nuxt-cms',

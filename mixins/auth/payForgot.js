@@ -54,7 +54,7 @@ export const payForgot = {
      * }
     */
     findBySms(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       return new Promise((resolve, reject) => {
         // 对传入的表单数据验证一次
         if(needCheck){
@@ -89,7 +89,7 @@ export const payForgot = {
      * }
     */
     findByEmail(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         // 对传入的表单数据验证一次

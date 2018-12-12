@@ -32,7 +32,7 @@ export function parseTime(time, cFormat) {
   })
   return time_str
 }
-
+// 格式化时间
 export function formatTime(time, option) {
   time = +time * 1000
   const d = new Date(time)
@@ -55,23 +55,6 @@ export function formatTime(time, option) {
     return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
   }
 }
-
-// 格式化时间
-export function getQueryObject(url) {
-  url = url == null ? window.location.href : url
-  const search = url.substring(url.lastIndexOf('?') + 1)
-  const obj = {}
-  const reg = /([^?&=]+)=([^?&=]*)/g
-  search.replace(reg, (rs, $1, $2) => {
-    const name = decodeURIComponent($1)
-    let val = decodeURIComponent($2)
-    val = String(val)
-    obj[name] = val
-    return rs
-  })
-  return obj
-}
-
 /**
  *get getByteLen
  * @param {Sting} val input value
@@ -86,7 +69,7 @@ export function getByteLen(val) {
   }
   return Math.floor(len)
 }
-
+// 清空数组
 export function cleanArray(actual) {
   const newArray = []
   for (let i = 0; i < actual.length; i++) {
@@ -96,7 +79,7 @@ export function cleanArray(actual) {
   }
   return newArray
 }
-
+//对象转换城URL，query模式
 export function param(json) {
   if (!json) return ''
   return cleanArray(Object.keys(json).map(key => {
@@ -105,7 +88,7 @@ export function param(json) {
             encodeURIComponent(json[key])
   })).join('&')
 }
-
+// 解析url的对象为obj，可以放弃
 export function param2Obj(url) {
   const search = url.split('?')[1]
   if (!search) {
@@ -113,13 +96,13 @@ export function param2Obj(url) {
   }
   return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
 }
-
+//读取html的text值
 export function html2Text(val) {
   const div = document.createElement('div')
   div.innerHTML = val
   return div.textContent || div.innerText
 }
-
+// 对象合并
 export function objectMerge(target, source) {
   /* Merges two  objects,
      giving the last one precedence */
@@ -140,7 +123,7 @@ export function objectMerge(target, source) {
   })
   return target
 }
-
+// 滚动到对应的位置
 export function scrollTo(element, to, duration) {
   if (duration <= 0) return
   const difference = to - element.scrollTop
@@ -152,56 +135,7 @@ export function scrollTo(element, to, duration) {
     scrollTo(element, to, duration - 10)
   }, 10)
 }
-
-export function toggleClass(element, className) {
-  if (!element || !className) {
-    return
-  }
-  let classString = element.className
-  const nameIndex = classString.indexOf(className)
-  if (nameIndex === -1) {
-    classString += '' + className
-  } else {
-    classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length)
-  }
-  element.className = classString
-}
-
-export const pickerOptions = [
-  {
-    text: '今天',
-    onClick(picker) {
-      const end = new Date()
-      const start = new Date(new Date().toDateString())
-      end.setTime(start.getTime())
-      picker.$emit('pick', [start, end])
-    }
-  }, {
-    text: '最近一周',
-    onClick(picker) {
-      const end = new Date(new Date().toDateString())
-      const start = new Date()
-      start.setTime(end.getTime() - 3600 * 1000 * 24 * 7)
-      picker.$emit('pick', [start, end])
-    }
-  }, {
-    text: '最近一个月',
-    onClick(picker) {
-      const end = new Date(new Date().toDateString())
-      const start = new Date()
-      start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-      picker.$emit('pick', [start, end])
-    }
-  }, {
-    text: '最近三个月',
-    onClick(picker) {
-      const end = new Date(new Date().toDateString())
-      const start = new Date()
-      start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-      picker.$emit('pick', [start, end])
-    }
-  }]
-
+// 获取时间
 export function getTime(type) {
   if (type === 'start') {
     return new Date().getTime() - 3600 * 1000 * 24 * 90
@@ -209,7 +143,7 @@ export function getTime(type) {
     return new Date(new Date().toDateString())
   }
 }
-
+// 延时函数
 export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 
@@ -244,7 +178,7 @@ export function debounce(func, wait, immediate) {
     return result
   }
 }
-
+// 深拷贝duix
 export function deepClone(source) {
   if (!source && typeof source !== 'object') {
     throw new Error('error arguments', 'shallowClone')
@@ -260,6 +194,7 @@ export function deepClone(source) {
   })
   return targetObj
 }
+// url编码
 export  function urlEncode(param, key, encode) {
   if(param==null) return '';
   var paramStr = '?';

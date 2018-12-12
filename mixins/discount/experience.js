@@ -42,7 +42,7 @@ export const experience = {
     },
     // 使用体验金
     CouponSubmit(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         // 验证表单

@@ -57,7 +57,7 @@ export const AgentRegisterControl = {
     // 代理加盟注册提交
     registerSubmit(obj,needCheck=true) {
       return new Promise((resolve, reject) => {
-        let obj=JSON.parse(JSON.stringify(data))
+        let obj=_. cloneDeep(data)
         // 返回异步函数
         if(needCheck){
           const unChecked = this.checked(obj)

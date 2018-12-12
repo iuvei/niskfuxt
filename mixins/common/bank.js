@@ -74,7 +74,7 @@ export const bank = {
     },
     // 添加银行卡操作
     addBankNo(data,needCheck=true) {
-      var obj=JSON.parse(JSON.stringify(data))
+      var obj=_. cloneDeep(data)
       return new Promise((resolve, reject) => {
         // 验证表单规则
         if(needCheck){

@@ -53,7 +53,7 @@ export const payword = {
     },
     // 修改支付密码
     changePwd(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         if(needCheck){
@@ -83,7 +83,7 @@ export const payword = {
     },
     // 初次绑定支付密码
     bindPwd(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         if(needCheck){

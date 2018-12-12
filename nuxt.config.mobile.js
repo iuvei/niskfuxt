@@ -26,9 +26,7 @@ module.exports = {
     link: [
       // { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [{
-      src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js'
-    }, ],
+    script: [],
   },
 
   loading: {
@@ -44,7 +42,7 @@ module.exports = {
       routes.push({
         name: 'home',
         path: '/',
-        component: resolve(__dirname, 'views/mobile/pages/index/index.vue')
+        component: resolve(__dirname, 'views/mobile/pages/show/index/index.vue')
       })
     }
 
@@ -52,18 +50,33 @@ module.exports = {
   cache: true,
 
   build: {
-    vendor: ['axios', 'mint-ui', 'js-cookie'],
-    // extend (config, { isDev, isClient }) {
-    //   if (isDev && isClient) {
-    //     config.module.rules.push({
+    vendor: [{
+      src: '~plugins/mint-ui',
+      ssr: false
+    },{
+      src: '~plugins/fastClick',
+      ssr: false
+    }],
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push(
+      {
+        test: /\.(vue)$/,
+        loader:'px2vw-view-loader',
+          query:{
+            viewportWidth: 750,
+            viewportUnit: 'vw',
+            minPixelValue:1,
+            decimal:3
+          }
+      // {
     //       enforce: 'pre',
     //       test: /\.(js|vue)$/,
     //       loader: 'eslint-loader',
     //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // },
-
+        })
+      }
+    }
   },
   //设置缓存
   cache: true,
@@ -73,6 +86,9 @@ module.exports = {
   },
   plugins: [{
       src: '~plugins/mint-ui'
+    },{
+      src: '~plugins/fastClick',
+      ssr:false
     },
     {
       src: '~assets/styles/base.scss'

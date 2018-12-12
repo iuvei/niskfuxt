@@ -1,6 +1,5 @@
 import {
   completeUserInfo,
-  getPhoneAndCode,
   modifyCustomerSocialInfo
 } from '@@/api/user'
 import dateUtil from 'iview/src/utils/date'

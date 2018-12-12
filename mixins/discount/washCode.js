@@ -41,7 +41,7 @@ export const washCode = {
     },
     // 查询洗码结果
     searchSubmit(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         // 验证表单
@@ -77,7 +77,7 @@ export const washCode = {
     },
     // 确认洗码
     doXimaSubmit(data,needCheck=true) {
-      let obj=JSON.parse(JSON.stringify(data))
+      let obj=_. cloneDeep(data)
       // 返回异步函数
       return new Promise((resolve, reject) => {
         // 验证表单

@@ -19,20 +19,16 @@ export const memberList = {
   methods: {
     getDatas(data) {
       // 加载数据
-      let obj = JSON.parse(JSON.stringify(data))
-      console.log(obj)
+      let obj=_. cloneDeep(data)
       // iview特殊，格式化时间
       try {
         obj.starttime = dateUtil.format(obj.starttime, 'yyyy-MM-dd HH:MM')
       } catch (err) {
-        console.log(err)
       }
       try {
         obj.endtime = dateUtil.format(obj.endtime, 'yyyy-MM-dd HH:MM')
       } catch (err) {
-        console.log(err)
       }
-      console.log(obj)
       return new Promise((resolve, reject) => {
         queryAgentSubUserInfoData(obj).then(res => {
           console.log(res)
