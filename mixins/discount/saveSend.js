@@ -10,7 +10,7 @@ import {
 import {
   mapGetters
 } from 'vuex'
-import Money from '@@/assets/data/gamesData.json'
+import Money from '@@/assets/data/walletData.json'
 export const saveSend = {
   data() {
     return {

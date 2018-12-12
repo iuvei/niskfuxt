@@ -31,7 +31,7 @@
     mapActions,
     mapMutations
   } from 'vuex'
-import GAMES from'@@/assets/data/gamesData.json'
+import GAMES from'@@/assets/data/walletData.json'
 
   import { getGameMoney } from "@@/api/user";
   export default {

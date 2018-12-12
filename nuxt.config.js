@@ -95,50 +95,37 @@ module.exports = _.mergeWith({
         isDev
       }) => isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'
     },
-    vendor: [{
-        src: '~~plugins/lazyLoad',
+    vendor: [
+      {
+        // 配置指令
+        src: '~~plugins/direct',
         ssr: false
       },
       {
-        src: '~~plugins/vueQr',
+        // 配置全局组件
+        src: '~~plugins/components',
         ssr: false
       },
       {
-        src: '~~plugins/eventBus',
-        ssr: false
-      },
-      {
-        src: '~~plugins/localStorage',
-        ssr: false
-      },
-      {
-        src: '~~plugins/sessionStorage',
-        ssr: false
-      },
-      {
-        src: '~~plugins/lodash',
-        ssr: false
-      },
-      {
-        src: '~~plugins/clipBoard',
-        ssr: false
-      },
-      {
-        src: '~~plugins/axios',
-        ssr: false
-      },
-      {
+        // 配置过滤器
         src: '~~plugins/filters',
         ssr: false
       },
       {
-        src: '~~plugins/extend',
+        // 配置公共数据
+        src: '~~plugins/data',
         ssr: false
       },
       {
-        src: '~~plugins/config',
+        // 配置公共方法
+        src: '~~plugins/data',
         ssr: false
-      },
+      }, 
+      {
+        // 扩展功能
+        src: '~~plugins/extend',
+        ssr: false
+      }
     ],
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
     extend(config, {
@@ -165,56 +152,43 @@ module.exports = _.mergeWith({
     prefetch: false
   },
   modules: ['@nuxtjs/pwa'],
-  plugins: [{
-      src: '~~plugins/lazyLoad',
-      ssr: false
-    },
-    {
-      src: '~~plugins/vueQr',
-      ssr: false
-    },
-    {
-      src: '~~plugins/eventBus',
-      ssr: false
-    },
-    {
-      src: '~~plugins/localStorage',
-      ssr: false
-    },
-    {
-      src: '~~plugins/lodash',
-      ssr: false
-    },
-    {
-      src: '~~plugins/clipBoard',
-      ssr: false
-    },
-    {
-      src: '~~plugins/sessionStorage',
-      ssr: false
-    },
-    {
-      src: '~~plugins/axios',
-      ssr: false
-    },
-    {
-      src: '~~plugins/filters',
-      ssr: false
-    },
-    {
-      src: '~~plugins/extend',
-      ssr: false
-    },
-    {
-      src: '~~plugins/config',
-      ssr: false
-    },
+  plugins: [      
+      {
+        // 配置指令
+        src: '~~plugins/direct',
+        ssr: false
+      },
+      {
+        // 配置全局组件
+        src: '~~plugins/components',
+        ssr: false
+      },
+      {
+        // 配置过滤器
+        src: '~~plugins/filters',
+        ssr: false
+      },
+      {
+        // 配置公共数据
+        src: '~~plugins/data',
+        ssr: false
+      },
+      {
+        // 配置公共方法
+        src: '~~plugins/methods',
+        ssr: false
+      }, 
+      {
+        // 扩展功能
+        src: '~~plugins/extend',
+        ssr: false
+      }
   ],
   proxy: {
-    url: 'https://qhc16.com', // 接口反向代理目标地址
+    url: 'http://qhc.itgo88.com', // 接口反向代理目标地址
   },
   manifest: {
-    name: 'nuxt-cms',
+    name: 'nuxt-itgo',
     description: 'A pwa program',
   }
 }, mergeData, customizer)

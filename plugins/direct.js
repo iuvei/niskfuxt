@@ -1,8 +1,12 @@
-require('~~/assets/styles/lazy-load.scss') // 引入图片懒加载样式
-
+// 注册全局指令
 import Vue from 'vue'
+import VueClipboard from 'vue-clipboard2' // 复制插件，考虑移除
+// 注册复制插件
+Vue.use(VueClipboard)
+
+//注册图片懒加载插件
+require('~~/assets/styles/lazy-load.scss') // 引入图片懒加载样式
 import VueLazyload from 'vue-lazyload' // 图片懒加载
-// 注册图片懒加载插件
 // * 如果引用的是本项目的依赖图片 v-lazy="require(url)"
 // * 正常使用 v-lazy="url"
 Vue.use(VueLazyload, {

@@ -77,9 +77,9 @@ export const loginControl = {
             if (this.isRemember) {
               obj.account = CryptoJS.AES.encrypt(obj.account,'login').toString();
               obj.password = CryptoJS.AES.encrypt(obj.password,'login').toString();
-              this.$localStorage.set('isRememberAccount', obj)
+              this.$METHODS.localStorage.set('isRememberAccount', obj)
             } else {
-              this.$localStorage.remove('isRememberAccount')
+              this.$METHODS.localStorage.remove('isRememberAccount')
             }
             // 重新更新store里的用户信息
             this.$store.dispatch('UPDATE_USERDATA') // 更新用户信息
@@ -99,9 +99,9 @@ export const loginControl = {
     // 读取记录的账户信息
     getRememberData() {
       // 读取localStorage之前是否记住用户名
-      if (this.$localStorage.get('isRememberAccount')) {
+      if (this.$METHODS.localStorage.get('isRememberAccount')) {
         this.isRemember = true
-        let _loginData=this.$localStorage.get('isRememberAccount')
+        let _loginData=this.$METHODS.localStorage.get('isRememberAccount')
         // 解密
         this.formData.account = CryptoJS.AES.decrypt(_loginData.account, "login").toString(CryptoJS.enc.Utf8)
         this.formData.password = CryptoJS.AES.decrypt(_loginData.password, "login").toString(CryptoJS.enc.Utf8)
