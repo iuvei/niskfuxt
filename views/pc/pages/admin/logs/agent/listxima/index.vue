@@ -1,11 +1,16 @@
 <template>
-  <div class="home-page">
-    <h2>会员洗码记录</h2>
+  <div class="listXima-page">
+    <listXima></listXima>
   </div>
 </template>
+
 <script>
+import listXima from "@/components/admin/agentLogs/ximas/t1/index.vue";
 export default {
   layout: "admin", // 布局文件
+  components: {
+    listXima
+  },
   data() {
     return {};
   },
@@ -15,5 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~assets/styles/mixin";
 </style>

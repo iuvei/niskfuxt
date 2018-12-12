@@ -1,11 +1,16 @@
 <template>
-  <div class="home-page">
-    <h2>会员输赢记录</h2>
+  <div class="listWin-page">
+    <listWin></listWin>
   </div>
 </template>
+
 <script>
+import listWin from "@/components/admin/agentLogs/wins/t1/index.vue";
 export default {
   layout: "admin", // 布局文件
+  components: {
+    listWin
+  },
   data() {
     return {};
   },
@@ -15,5 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~assets/styles/mixin";
 </style>

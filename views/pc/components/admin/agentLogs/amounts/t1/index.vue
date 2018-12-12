@@ -40,10 +40,10 @@
   </div>
 </template>
 <script>
-import { memberList } from "@@/mixins/agent/memberList";
+import { ptcommission } from "@@/mixins/agent/ptcommission";
 export default {
   layout: "admin", // 布局文件
-  mixins: [memberList],
+  mixins: [ptcommission],
   data() {
     return {
       loading: false,

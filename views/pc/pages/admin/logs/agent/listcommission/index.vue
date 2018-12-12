@@ -1,11 +1,16 @@
 <template>
-  <div class="home-page">
-    <h2>佣金报表</h2>
+  <div class="listCommission-page">
+    <listCommission></listCommission>
   </div>
 </template>
+
 <script>
+import listCommission from "@/components/admin/agentLogs/commissions/t1/index.vue";
 export default {
   layout: "admin", // 布局文件
+  components: {
+    listCommission
+  },
   data() {
     return {};
   },
@@ -15,5 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~assets/styles/mixin";
 </style>

@@ -21,10 +21,27 @@
           :default-value="new Date()"
         ></DatePicker>
       </div>
+      <div class="inputbox">
+        <Input v-model="formData.loginname" placeholder="会员用户名"></Input>
+      </div>
       <Button :loading="loading" type="warning" icon="el-icon-search" @click="search(1)">查询</Button>
     </div>
     <!-- 表格数据显示区域 -->
-    <Table :data="pageContents" style="width: 100%"></Table>
+    <Table :data="pageContents" style="width: 100%">
+      <TableColumn label="序号" type="index"></TableColumn>
+      <TableColumn prop="loginname" label="会员帐号"></TableColumn>
+      <TableColumn label="状态">
+        <template slot-scope="scope">
+          <div v-if="scope.row.flag === 0">启用</div>
+          <div v-else>关闭</div>
+        </template>
+      </TableColumn>
+      <TableColumn prop="credit" label="账户额度"></TableColumn>
+      <TableColumn label="开户日期">
+        <template slot-scope="scope">{{scope.row.tempCreateTime|Date}}</template>
+      </TableColumn>
+      <TableColumn prop="howToKnow" label="来源网址"></TableColumn>
+    </Table>
     <!-- 表格分页 -->
     <div v-if="pageContents.length>0">
       <Page
@@ -40,13 +57,24 @@
   </div>
 </template>
 <script>
-import { memberList } from "@@/mixins/agent/memberList";
+import { memberBill } from "@@/mixins/agent/memberBill";
 export default {
   layout: "admin", // 布局文件
-  mixins: [memberList],
+  mixins: [memberBill],
   data() {
     return {
       loading: false,
+      formData: {
+        loginname: "",
+        tail: "",
+        total: 0,
+        starttime: "",
+        endtime: "",
+        proposalType: "1",
+        size: 10,
+        pageIndex: 1,
+        totalRecords: 0
+      },
       column: [
         {
           title: "序号",

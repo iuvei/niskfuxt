@@ -1,11 +1,16 @@
 <template>
-  <div class="home-page">
-    <h2>会员提款记录</h2>
+  <div class="listWithdraw-page">
+    <listWithdraw></listWithdraw>
   </div>
 </template>
+
 <script>
+import listWithdraw from "@/components/admin/agentLogs/withdraws/t1/index.vue";
 export default {
   layout: "admin", // 布局文件
+  components: {
+    listWithdraw
+  },
   data() {
     return {};
   },
@@ -15,5 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~assets/styles/mixin";
 </style>

@@ -95,8 +95,7 @@ module.exports = _.mergeWith({
         isDev
       }) => isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'
     },
-    vendor: [
-      {
+    vendor: [{
         // 配置指令
         src: '~~plugins/direct',
         ssr: false
@@ -120,7 +119,7 @@ module.exports = _.mergeWith({
         // 配置公共方法
         src: '~~plugins/data',
         ssr: false
-      }, 
+      },
       {
         // 扩展功能
         src: '~~plugins/extend',
@@ -152,40 +151,39 @@ module.exports = _.mergeWith({
     prefetch: false
   },
   modules: ['@nuxtjs/pwa'],
-  plugins: [      
-      {
-        // 配置指令
-        src: '~~plugins/direct',
-        ssr: false
-      },
-      {
-        // 配置全局组件
-        src: '~~plugins/components',
-        ssr: false
-      },
-      {
-        // 配置过滤器
-        src: '~~plugins/filters',
-        ssr: false
-      },
-      {
-        // 配置公共数据
-        src: '~~plugins/data',
-        ssr: false
-      },
-      {
-        // 配置公共方法
-        src: '~~plugins/methods',
-        ssr: false
-      }, 
-      {
-        // 扩展功能
-        src: '~~plugins/extend',
-        ssr: false
-      }
+  plugins: [{
+      // 配置指令
+      src: '~~plugins/direct',
+      ssr: false
+    },
+    {
+      // 配置全局组件
+      src: '~~plugins/components',
+      ssr: false
+    },
+    {
+      // 配置过滤器
+      src: '~~plugins/filters',
+      ssr: false
+    },
+    {
+      // 配置公共数据
+      src: '~~plugins/data',
+      ssr: false
+    },
+    {
+      // 配置公共方法
+      src: '~~plugins/methods',
+      ssr: false
+    },
+    {
+      // 扩展功能
+      src: '~~plugins/extend',
+      ssr: false
+    }
   ],
   proxy: {
-    url: 'http://qhc.itgo88.com', // 接口反向代理目标地址
+    url: 'https://bomen1.com', // 接口反向代理目标地址
   },
   manifest: {
     name: 'nuxt-itgo',
