@@ -26,6 +26,6 @@ function getName(key,lang='zh-cn'){
 	if(_data){
 		return _data.name
 	}else{
-		return ''
+		return key
 	}
 }

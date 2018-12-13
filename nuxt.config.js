@@ -126,6 +126,11 @@ module.exports = _.mergeWith({
         ssr: false
       }
     ],
+    loaders: {
+      less: {
+        javascriptEnabled: true
+      }
+    },
     // vendor: ['axios', 'mint-ui', 'js-cookie'],
     extend(config, {
       isDev,
@@ -133,8 +138,13 @@ module.exports = _.mergeWith({
     }) {
       if (isDev && isClient) {
         config.module.rules.push({
-            test: /\.less$/,
-            loader: "less-loader"
+            test: /\.(css|less)$/,
+            loader: "less-loader",
+            javascriptEnabled: true,
+            options: { javascriptEnabled: true },
+            less: {
+              javascriptEnabled: true
+            }
           },
           //   {
           //   enforce: 'pre',

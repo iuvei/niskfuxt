@@ -6,7 +6,7 @@
             <img v-lazy="item.showUrl" :alt="item.title" class="swiper-lazy">
           </a>
         </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
+          <div class="swiper-pagination" slot="pagination" v-if="bannerList.length>0"></div>
       </swiper>
       </div>
 </template>

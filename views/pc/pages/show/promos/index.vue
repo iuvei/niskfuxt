@@ -6,9 +6,9 @@
   </div>
 </template>
 <script>
-  import banner from '@/components/shows/page-promos/banner/t1'
-  import menus from '@/components/shows/page-promos/filts/t1'
-  import pros from '@/components/shows/page-promos/lists/t1'
+  import banner from '@/components/shows/banners/t1'
+  import menus from '@/components/shows/pros-filter/t1'
+  import pros from '@/components/shows/pros-list/t1'
   export default {
     name: "",
     data() {

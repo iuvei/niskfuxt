@@ -25,7 +25,7 @@
 
             </div>
 
-            <Button :loading="loading" class='searchbtn' icon="el-icon-search" @click="search(1)">查询
+            <Button :loading="loading" type="warning" icon="el-icon-search" @click="search(1)">查询
             </Button>
 
           </div>

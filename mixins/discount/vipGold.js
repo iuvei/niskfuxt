@@ -46,7 +46,10 @@ export const vipGold = {
           if (res.success) {
             // 保存当前等级
             this.level = res.data.upgradeThresholdList
-            this.betList = res.data.betList
+            this.betList = res.data.betList.filter(item=>{
+              item.platform=$METHODS.getName(item.platform)
+              return item
+            })
             // 计算当月总投注额
             this.tips.allbet = res.data.betList[res.data.betList.length - 1].bet // 总投注额度
             //   如果还没有到顶级
@@ -70,7 +73,6 @@ export const vipGold = {
           // toast('晋级查询失败')
         })
       })
-
     },
     // 获取当前vip礼金可领取状态
     checkUpgrade(data) {
