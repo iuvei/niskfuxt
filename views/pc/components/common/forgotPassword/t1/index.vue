@@ -3,7 +3,7 @@
       <div class="pwd-forgot-header">
         <a class="tabs" :class="{active:findBackType=='phone'}" @click="findBackType='phone'">手机找回</a>
         <a class="tabs" :class="{active:findBackType=='email'}" @click="findBackType='email'">邮箱找回</a>
-        <a class="tabs" target="_blank">客服找回</a>
+        <a class="tabs" target="_blank" :href="$SITE.contact.live800">客服找回</a>
       </div>
       <Form :model="phone" label-position="top" v-show="findBackType=='phone'">
         <FormItem label="游戏帐号">

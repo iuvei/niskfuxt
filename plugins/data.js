@@ -14,5 +14,7 @@ const $SITE={
 }
 console.log($SITE);
 // 挂载数据
-window.$SITE=$SITE
+if (process.browser) {
+	window.$SITE=$SITE
+}
 Vue.prototype.$SITE = $SITE 

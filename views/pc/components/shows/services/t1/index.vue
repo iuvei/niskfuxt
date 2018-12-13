@@ -35,10 +35,10 @@
       <div class="box">
         <p class="title">产品优势</p>
         <div class="contact">
-          <span class="icobjh bjh-service"></span>客服邮箱：
+          <span class="icobjh bjh-service"></span>客服邮箱：{{$SITE.contact.email}}
         </div>   
         <div class="contact">
-          <span class="icobjh bjh-tele"></span>投诉建议邮箱：
+          <span class="icobjh bjh-tele"></span>投诉建议邮箱：{{$SITE.contact.SuggessEmail}}
         </div>   
         <div class="contact">
           <span class="icobjh bjh-wechat"></span>微信服务号二维码&nbsp;&nbsp;&nbsp;&nbsp;微信公众号二维码

@@ -169,12 +169,10 @@ module.exports = _.mergeWith({
     {
       // 配置公共数据
       src: '~~plugins/data',
-      ssr: false
     },
     {
       // 配置公共方法
       src: '~~plugins/methods',
-      ssr: false
     },
     {
       // 扩展功能
