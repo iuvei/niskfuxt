@@ -1,15 +1,15 @@
 <template>
   <div class="fliter content">
-    <div class="filter-type" v-for="(filter,i) in data">
+    <div class="filter-type" v-for="(filter,i) in data" :key="i">
       <span>{{filter.title}}</span>
-      <div v-for="(item,i) in filter.data" :class="['filter-item',{active:item.value==filter.active}]" @click="search(item,i,filter)">
+      <div v-for="(item,i) in filter.data" :key="i" :class="['filter-item',{active:item.value==filter.active}]" @click="search(item,i,filter)">
         {{item.name}}
       </div>
     </div>
-  <div class="fliter-input">
-    <input  v-model="inputVal" placeholder="通过游戏名搜索" type="text">
-    <span class="iconfont icon-sousuo"></span>
-  </div>
+    <div class="fliter-input">
+      <input v-model="inputVal" placeholder="通过游戏名搜索" type="text">
+      <span class="iconfont icon-sousuo"></span>
+    </div>
   </div>
 </template>
 <script>
@@ -26,7 +26,7 @@
       }, {
         name: "1-15",
         value: "1-15"
-      },{
+      }, {
         name: "16-40",
         value: "16-40"
       },
@@ -37,10 +37,7 @@
         name: "其它",
         value: "1025-2048"
       }
-    ],
-            inputVal: '',
-        inputData: [],
-        showList:false,
+    ]
   }
   const tag = {
     title: "游戏类型：",
@@ -79,18 +76,18 @@
     ]
   }
   const history = {
-    title:'历史纪录：',
-    filter:'his',
-    active:'',
-    data:[{
-      name:'全部',
-      value:''
-    },{
-      name:'玩过',
-      value:'yes'
-    },{
-      name:'未玩过',
-      value:'no'
+    title: '历史纪录：',
+    filter: 'his',
+    active: '',
+    data: [{
+      name: '全部',
+      value: ''
+    }, {
+      name: '玩过',
+      value: 'yes'
+    }, {
+      name: '未玩过',
+      value: 'no'
     }]
   }
   const users = {
@@ -112,11 +109,14 @@
   export default {
     data() {
       return {
-        data: [line, tag]
+        data: [line, tag],
+        inputVal: '',
+        inputData: [],
+        showList: false,
       }
     },
-        watch:{
-      inputVal(val){
+    watch: {
+      inputVal(val) {
         this.search(val);
       }
     },
@@ -127,14 +127,13 @@
         filter.active = item.value;
         this.$bus.$emit('serachGame', filter.filter, item.value);
       },
-            searchInput() {
+      searchInput() {
         // if (this.inputVal == "") return;//没有数据不查询
         // 调用列表组件的查询事件
-        this.$bus.$emit('searchByInput',this.inputVal);
+        this.$bus.$emit('searchByInput', this.inputVal);
       },
     },
-    components: {
-    }
+    components: {}
   };
 
 </script>
@@ -147,11 +146,13 @@
     border-radius: 0 0 10px 10px;
     margin-bottom: 30px;
     font-size: 14px;
-    position:relative;
+    position: relative;
+
     .filter-type {
       margin-top: 10px;
       color: #fff;
     }
+
     .filter-item {
       display: inline-block;
       padding: 0 20px;
@@ -159,6 +160,7 @@
       color: #fff;
       border-radius: 6px;
       margin: 0 4px;
+
       &.active,
       &:hover {
         background: rgb(255, 236, 183);
@@ -169,27 +171,30 @@
         /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(to bottom, rgba(255, 236, 183, 1) 0%, rgba(255, 209, 120, 1) 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffecb7', endColorstr='#ffd178', GradientType=0);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffecb7', endColorstr='#ffd178', GradientType=0);
         /* IE6-9 */
         color: #343434;
       }
     }
-    .filter-input{
-      position:absolute;
-      top:0;
-      right:20px;
+
+    .filter-input {
+      position: absolute;
+      top: 0;
+      right: 20px;
     }
   }
-    .fliter-input {
+
+  .fliter-input {
     display: inline-block;
     padding: 0 20px;
     border-radius: 15px;
     background: #d7d7d7;
     font-size: 15px;
     color: #999999;
-    width:220px;
+    width: 220px;
     padding-right: 40px;
     position: relative;
+
     span {
       cursor: pointer;
       position: absolute;
@@ -200,6 +205,7 @@
       text-align: center;
       font-size: 25px;
     }
+
     input {
       display: block;
       width: 170px;

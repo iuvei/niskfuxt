@@ -1,5 +1,5 @@
 <template>
-  <div class="slot-game-list content" v-loading="loading">
+  <div class="slot-game-list content">
     <!--el-scrollbar style="height:800px;"--> 
       <div class="slot-item" v-for="(item,i) in fillterData" :key="item.category+item.id+i" v-show="fillterData.length>0">
         <div class="img">

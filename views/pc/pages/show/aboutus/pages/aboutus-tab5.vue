@@ -5,7 +5,7 @@
               <p>澳盈官方咨询邮箱？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>您好，{{WEBCONFIG.title}}官方客服邮箱为{{SETTING.email}} 如有任何问题可发送邮件至我们的邮箱！我们会在收到后第一时间回复您！</p>
+                <p>您好，{{$SITE.config.title}}官方客服邮箱为{{$SITE.config.email}} 如有任何问题可发送邮件至我们的邮箱！我们会在收到后第一时间回复您！</p>
               </div>
             </li>
             <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('存款提醒？')>-1}">
@@ -19,7 +19,7 @@
               <p>打开网址进入其他网站？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>您好，您的这个情况是DNS被劫持了，请先不要担心，您可以联系我们QQ客服/微信客服，让客服为您解决被劫持的问题，切勿相信任何关于，网站更名、网站合并……等相关信息，切勿通过任何方式把自己的账号密码、个人信息发送给他人，{{WEBCONFIG.title}}官方是不会通过任何方式向您索取账号密码的，请悉知！</p>
+                <p>您好，您的这个情况是DNS被劫持了，请先不要担心，您可以联系我们QQ客服/微信客服，让客服为您解决被劫持的问题，切勿相信任何关于，网站更名、网站合并……等相关信息，切勿通过任何方式把自己的账号密码、个人信息发送给他人，{{$SITE.config.title}}官方是不会通过任何方式向您索取账号密码的，请悉知！</p>
               </div>
             </li>
             <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('转账存款没到账原因？')>-1}">
@@ -46,14 +46,14 @@
               <p>我可以对押吗？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>您好，对押是完全禁止的。一旦发现对押，将会采取冻结资金和账号的措施。优惠的对象是娱乐玩家，如发现会员为职业赌徒或只为寻求红利的玩家，例如进行对投，{{WEBCONFIG.title}}娱乐将保留取消红利，扣除本金的权利。</p>
+                <p>您好，对押是完全禁止的。一旦发现对押，将会采取冻结资金和账号的措施。优惠的对象是娱乐玩家，如发现会员为职业赌徒或只为寻求红利的玩家，例如进行对投，{{$SITE.config.title}}将保留取消红利，扣除本金的权利。</p>
               </div>
             </li>
             <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('我的个人资料是否安全？')>-1}">
               <p>我的个人资料是否安全？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>{{WEBCONFIG.title}}娱乐（ow8.com）采用了256位SSL国际标准加密技术，其安全级别已经超越了国内大多数银行。更配合我们的专业技术人员精密设计的严格安全管理系统，所有的客户资料都在极其安全机密的情况下处理，任何情况下，我们都不会向任何第三方透露我们的客户资料，请您放心。</p>
+                <p>{{$SITE.config.title}}（{{$SITE.config.location}}）采用了256位SSL国际标准加密技术，其安全级别已经超越了国内大多数银行。更配合我们的专业技术人员精密设计的严格安全管理系统，所有的客户资料都在极其安全机密的情况下处理，任何情况下，我们都不会向任何第三方透露我们的客户资料，请您放心。</p>
               </div>
             </li>
           </ul>

@@ -19,6 +19,7 @@
   import alertTips from "@/components/shows/adPopup/t1"
   
   export default {
+    layout: "main", // 布局文件
     data() {
       return {
       };

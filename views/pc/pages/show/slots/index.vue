@@ -10,6 +10,7 @@
   import dadaList from "@/components/shows/slots-list/t1"
   import vFilter from "@/components/shows/slots-filter/t1"
   export default {
+    layout: "main", // 布局文件
     data() {
       return {
 

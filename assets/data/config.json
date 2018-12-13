@@ -1,8 +1,8 @@
 {
-  "name": "BJH",
-  "title": "北京会",
-  "location": "www.bjh188.com",
+  "name": "ITGO",
+  "title": "ITGO包网",
+  "location": "itgo88.com",
   "games": "AG/PT/DT/NT/MG/PNG/DT",
-  "appNative": "bjhnative://",
-  "PtBefore": "bjh"
+  "appNative": "itgonative://",
+  "PtBefore": "itgo"
 }

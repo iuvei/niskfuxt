@@ -13,7 +13,7 @@
       <h3>自助服务</h3>
       <ul>
         <li v-for="(menu,i) in menus" :key="i">
-          <nuxt-link class="mail" :to="{name:'show-aboutus',params:{'tab':menu.key}}">
+          <nuxt-link class="mail" :to="{name:'show-aboutus-tab',params:{'tab':menu.key}}">
             <i class="iconay" :class="menu.ico"></i><span>{{menu.title}}</span>
           </nuxt-link>
         </li>
@@ -79,6 +79,7 @@
     line-height: 50px;
     a {
       padding-left: 50px;
+    color:#333;
       display: block;
       &:hover {
         background: #b58f53;

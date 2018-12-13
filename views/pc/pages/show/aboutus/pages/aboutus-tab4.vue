@@ -1,8 +1,8 @@
 <template>
   <div id="deposit" class="collapse-group tab-pane active">
           <ul ref="parentNode">
-            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('澳盈娱乐提供什么类型游戏？')>-1}">
-              <p>澳盈娱乐提供什么类型游戏？</p>
+            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf($SITE.config.title+'提供什么类型游戏？')>-1}">
+              <p>{{$SITE.config.title}}提供什么类型游戏？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
                 <p>真人娱乐：</p>
@@ -13,7 +13,7 @@
                 <p>BBIN真人娱乐</p>
                 <p></p>
                 <p>老虎机游戏：</p>
-                <p>{{WEBCONFIG.title}}娱乐收集全球2000多款最热门的电子游戏，且不断上架最新游戏！打老虎，来{{WEBCONFIG.title}}！</p>
+                <p>{{$SITE.config.title}}收集全球2000多款最热门的电子游戏，且不断上架最新游戏！打老虎，来{{$SITE.config.title}}！</p>
                 <p>目前老虎机游戏平台已涵盖：PT/SW/DT/MG/PNG/QT/NT/TTG/XIN</p>
                 <p></p>
                 <p>棋牌游戏：</p>
@@ -94,8 +94,8 @@
               <p>登录PT客户端时账号需要加前缀？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>PT客户端登陆，必须在游戏账号前面加上大写字母“{{WEBCONFIG.PtBefore}}＂，登录手机app和官网不用加前缀。</p>
-                <p>例如：{{WEBCONFIG.title}}娱乐登录账号为：owin888 则PT客户端登录账号极为：{{WEBCONFIG.PtBefore}}owin888。</p>
+                <p>PT客户端登陆，必须在游戏账号前面加上大写字母“{{$SITE.config.PtBefore}}＂，登录手机app和官网不用加前缀。</p>
+                <p>例如：{{$SITE.config.title}}登录账号为：xxx888 则PT客户端登录账号极为：{{$SITE.config.PtBefore}}xxx888。</p>
               </div>
             </li>
             <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('PT平台被锁住？')>-1}">

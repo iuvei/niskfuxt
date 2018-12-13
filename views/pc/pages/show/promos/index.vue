@@ -10,6 +10,7 @@
   import menus from '@/components/shows/pros-filter/t1'
   import pros from '@/components/shows/pros-list/t1'
   export default {
+    layout: "main", // 布局文件
     name: "",
     data() {
       return {

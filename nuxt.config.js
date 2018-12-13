@@ -191,7 +191,7 @@ module.exports = _.mergeWith({
     }
   ],
   proxy: {
-    url: 'https://bomen1.com', // 接口反向代理目标地址
+    url: 'https://qhc16.com', // 接口反向代理目标地址
   },
   manifest: {
     name: 'nuxt-itgo',

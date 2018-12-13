@@ -5,7 +5,7 @@
               <p>如何注册？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>进入{{WEBCONFIG.title}}官网/App，在登录界面点击“免费注册”按钮，在跳转页面中设置游戏账号、游戏密码、手机号码；填写验证码，再勾选“我已阅读并同意接受所有《规则》与《条款》”，最后点击“立即注册”按钮即可。</p>
+                <p>进入{{$SITE.config.title}}官网/App，在登录界面点击“免费注册”按钮，在跳转页面中设置游戏账号、游戏密码、手机号码；填写验证码，再勾选“我已阅读并同意接受所有《规则》与《条款》”，最后点击“立即注册”按钮即可。</p>
               </div>
             </li>
             <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('我可以注册多个账号吗？')>-1}">
@@ -47,7 +47,7 @@
               <p>怎么更改注册姓名？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
-                <p>您好，更改姓名只可更改同音不同字的姓名，申请方法：请您发送邮件到邮箱 cs@ow8.com 进行申请（邮箱格式为 主题：申请更改姓名 内容:账号,注册邮箱,注册电话,身份证正、反面高清照片，以及正脸手持身份证照片)。然后等待上级部门的审核，大概1-5个工作日，谢谢。</p>
+                <p>您好，更改姓名只可更改同音不同字的姓名，申请方法：请您发送邮件到邮箱 {{$SITE.contact.email}} 进行申请（邮箱格式为 主题：申请更改姓名 内容:账号,注册邮箱,注册电话,身份证正、反面高清照片，以及正脸手持身份证照片)。然后等待上级部门的审核，大概1-5个工作日，谢谢。</p>
               </div>
             </li>
             <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('如何绑定提款的银行卡？')>-1}">
@@ -121,7 +121,6 @@
     name: "",
     data() {
       return {
-        Download,
         idx:'',
         isShowMsg:[]
       }

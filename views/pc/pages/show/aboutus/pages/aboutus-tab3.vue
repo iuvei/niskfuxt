@@ -60,15 +60,15 @@
                 <p>3、致电核实通过后，由于提款卡卡号或者开户姓名有误。</p>
               </div>
             </li>
-            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('什么是澳盈VIP会所？')>-1}">
-              <p>什么是澳盈VIP会所？</p>
+            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('什么是'+$SITE.config.title+'VIP会所？')>-1}">
+              <p>什么是{{$SITE.config.title}}VIP会所？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
                 <p>{{$SITE.config.title}}作为游戏产业旗舰品牌，离不开广大玩家的大力支持，为了更好的回馈玩家，特设{{$SITE.config.title}}VIP会所。会员等级越高，享受的洗码、返水、返赠彩金、生日彩金、节日彩金、每月回馈彩金等多项活动的红利金额就会越高，最重要的是您的每一次存款资金就会更有机会打出巨额大奖。您达到晋级要求后，可以主动使用“自助晋级”或者等待每月2号“系统晋级”为您提升VIP级别并派发对应晋级彩金红利，成功晋升{{$SITE.config.title}}VIP将永不降级。</p>
               </div>
             </li>
-            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('晋级澳盈VIP需要什么条件？')>-1}">
-              <p>晋级澳盈VIP需要什么条件？</p>
+            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('晋级'+$SITE.config.title+'VIP需要什么条件？')>-1}">
+              <p>晋级{{$SITE.config.title}}VIP需要什么条件？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
                 <p>{{$SITE.config.title}}VIP晋级分有“自助晋级”和“系统晋级”。</p>
@@ -153,8 +153,8 @@
                 <p>个人中心>账户清单>优惠活动记录，可以自助查询系统返水的时间与金额。若因不可抗拒的因素延迟派发，官网将以公告形式通知您。</p>
               </div>
             </li>
-            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('如何查看最新澳盈优惠活动？')>-1}">
-              <p>如何查看最新澳盈优惠活动？</p>
+            <li @click="showMsg($event)" :class="{active:isShowMsg.indexOf('如何查看最新'+$SITE.config.title+'优惠活动？')>-1}">
+              <p>如何查看最新{{$SITE.config.title}}优惠活动？</p>
               <span class="iconay ay-xiangyou"></span>
               <div class="collapse light">
                 <p>{{$SITE.config.title}}优惠活动举办频繁，您可以通过浏览器访问{{$SITE.config.title}}官网，或者通过{{$SITE.config.title}}App点击“优惠活动”查询最新优惠活动，您还可以通过24小时在线客服为您提供最新的活动资讯。</p>
@@ -184,7 +184,6 @@
     name: "",
     data() {
       return {
-        Download,
         idx:'',
         isShowMsg:[]
       }

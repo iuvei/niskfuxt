@@ -2,7 +2,6 @@
   <div class="service">
     <div class="self-main clearfix wr">
       <menus></menus>
-      <!-- <component :is="showTab[showKey]"></component> -->
       <div class="self-content fl">
         <div class="self-tit clearfix">
           <p class="fl">
@@ -148,6 +147,9 @@
         background: #f4f4f4;
         font-size: 16px;
         height: 60px;
+        a{
+          color:#666;
+        }
         .iconay {
           font-size: 42px;
           color: #b58f53;

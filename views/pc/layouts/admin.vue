@@ -10,7 +10,7 @@
 <script>
 import adminAgent from "./adminAgent";
 import adminUser from "./adminUser";
-import layout from "./default";
+import layout from "./main";
 import {mapGetters, mapActions, mapMutations} from 'vuex'
 export default {
   middleware:'needLogin',
