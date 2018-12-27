@@ -28,7 +28,10 @@ module.exports = {
       },
     ],
     link: [
-      // { rel: 'SHORTCUT ICON', type: 'image/x-icon', href: '/favicon.ico' }
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap-grid.min.css'
+      }
     ],
     script: [
       // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
@@ -99,7 +102,7 @@ module.exports = {
   cache: true,
   //禁止预加载效果
   performance: {
-    prefetch: false
+    prefetch: true
   },
   plugins: [{
       src: '~plugins/iview',

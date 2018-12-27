@@ -40,10 +40,6 @@
   } from "~/assets/services/user";
   
   export default {
-    components: {
-      // Tabbar,
-      // ShopList
-    },
     data() {
       return {
         loginData: {
@@ -63,11 +59,7 @@
       };
     },
     mounted() {
-      // checkLogin().then(res => {
-      //   console.log(res)
-      // }).catch(err => {
-      //   console.log(err)
-      // })
+
       ipapi().then(res => {
 
       }).catch(err => {
@@ -85,15 +77,6 @@
         .then(err => {});
     }
   }
-  // async asyncData() {
-  //   const res = await getHomeData();
-  //   res.data.map(item => {
-  //     item.imgUrl = config.IMG_URL + item.imgUrl;
-  //   });
-  //   return {
-  //     navList: res.data
-  //   };
-  // }
 };
 </script>
 

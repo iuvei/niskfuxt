@@ -158,7 +158,7 @@ module.exports = _.mergeWith({
   },
   //禁止预加载效果
   performance: {
-    prefetch: false
+    prefetch: true
   },
   modules: ['@nuxtjs/pwa'],
   plugins: [{

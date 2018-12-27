@@ -1,0 +1,95 @@
+[{
+  "path": "/index",
+  "title": "title1",
+  "keywords": "keywords1",
+  "description": "description1",
+  "datas": [{
+      "style": {
+        "margin": 0,
+        "background":"blue"
+      },
+      "text": "A",
+      "rows": [{
+        "text": "内容区块1",
+        "style": {
+            "margin": "10px",
+            "background":"red"
+          },
+        "cols": [{
+            "text": "格子",
+            "width": 24,
+            "components":[{
+                "name":"name1",
+                "path":"/static/components/componentA.js"
+            },{
+                "name":"name1",
+                "path":"/static/components/componentB.js"
+            }]
+          },
+          {
+            "text": "格子",
+            "width": 24,
+            "components":[{
+                "name":"name1",
+                "path":"/static/components/componentFoot.js"
+            },{
+                "name":"name1",
+                "path":"/static/components/componentNav.js"
+            }]
+          }
+        ]
+      }]
+    }
+  ],
+  "styleText": "body{background:blue;}",
+  "scriptText": "console.log(\"hello1\")",
+  "styleList":["/static/style1.css","/static/style2.css"],
+  "scriptList":["/static/js1.js","/static/js2.js"]
+},{
+    "path": "/slot",
+    "title": "title2",
+    "keywords": "keywords2",
+    "description": "description2",
+    "datas": [{
+        "style": {
+          "margin": 0,
+          "background":"blue"
+        },
+        "text": "A",
+        "rows": [{
+          "text": "内容区块1",
+          "style": {
+              "margin": "10px",
+              "background":"red"
+            },
+          "cols": [{
+              "text": "格子",
+              "width": 24,
+              "components":[{
+                  "name":"name1",
+                  "path":"/static/components/componentFoot.js"
+              },{
+                  "name":"name1",
+                  "path":"/static/components/componentNav.js"
+              }]
+            },
+            {
+              "text": "格子",
+              "width": 24,
+              "components":[{
+                "name":"name1",
+                "path":"/static/components/componentA.js"
+            },{
+                "name":"name1",
+                "path":"/static/components/componentB.js"
+            }]
+            }
+          ]
+        }]
+      }
+    ],
+    "styleText": "body{background:red;}",
+    "scriptText": "console.log(\"hello2\")",
+    "styleList":["/static/style3.css","/static/style4.css"],
+    "scriptList":["/static/js3.js","/static/js4.js"]
+  }]
