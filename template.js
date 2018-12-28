@@ -30,7 +30,7 @@ function mkdirsSync(dirname) {
   const _id=(new Date()).getTime()
   let htmlTemp=`
   <template>
-    <div class="${_id}-page">`
+    <div class="page-${_id}">`
     page.datas.forEach(block=>{
       htmlTemp+=`
       <div :style='${JSON.stringify(block.style)}' class="block">`
@@ -53,7 +53,7 @@ function mkdirsSync(dirname) {
       htmlTemp+=`
       </div>`
     })
-  htmlTemp+=`
+    htmlTemp+=`
     </div>
   </template>`
   htmlTemp+=`
@@ -81,15 +81,16 @@ function mkdirsSync(dirname) {
       })
       htmlTemp+=`
       {
-        innerHTML: '${page.scriptText}', 
+        innerHTML: "${page.scriptText}", 
         type: 'text/javascript', 
         body: true 
-      }]
+      }],
+      __dangerouslyDisableSanitizers: ['script']
     }
   }
   </script>
   <style lang="scss" scoped>
-    .${_id}-page {
+    .page-${_id} {
       ${page.styleText}
     }
   </style>`
@@ -98,6 +99,11 @@ function mkdirsSync(dirname) {
   })
 
 return;
+
+
+
+
+
 if (!dirName) {
   console.log('文件夹名称不能为空！');
   console.log('示例：npm run create test');

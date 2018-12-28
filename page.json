@@ -89,7 +89,7 @@
       }
     ],
     "styleText": "body{background:red;}",
-    "scriptText": "console.log(\"hello2\")",
+    "scriptText": "console.log('hello2');alert(window.location.href)",
     "styleList":["/static/style3.css","/static/style4.css"],
     "scriptList":["/static/js3.js","/static/js4.js"]
   }]

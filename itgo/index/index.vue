@@ -1,6 +1,6 @@
 
   <template>
-    <div class="1545927249638-page">
+    <div class="page-1545957003661">
       <div :style='{"margin":0,"background":"blue"}' class="block">
         <div :style='{"margin":"10px","background":"red"}' class="row">
           <div class="col24">
@@ -34,15 +34,16 @@
       ],
       script: [{ src: '/static/js1.js',type: 'text/javascript',body: true },{ src: '/static/js2.js',type: 'text/javascript',body: true },
       {
-        innerHTML: 'console.log("hello1")', 
+        innerHTML: "console.log("hello1")", 
         type: 'text/javascript', 
         body: true 
-      }]
+      }],
+      __dangerouslyDisableSanitizers: ['script']
     }
   }
   </script>
   <style lang="scss" scoped>
-    .1545927249638-page {
+    .page-1545957003661 {
       body{background:blue;}
     }
   </style>
