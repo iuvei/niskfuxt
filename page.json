@@ -42,7 +42,7 @@
     }
   ],
   "styleText": "body{background:blue;}",
-  "scriptText": "console.log(\"hello1\")",
+  "scriptText": "<style>body{background:blue!important;}</style><script>alert('lsakjfls')</script><meta></meta>",
   "styleList":["/static/style1.css","/static/style2.css"],
   "scriptList":["/static/js1.js","/static/js2.js"]
 },{

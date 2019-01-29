@@ -9,9 +9,9 @@ const dirName = process.argv[2];
 const pages= require("./page.json")
 
 //递归创建目录 同步方法  
-function mkdirsSync(dirname) {  
+function mkdirsSync(dirname) {
   //console.log(dirname);  
-  if (fs.existsSync(dirname)) {  
+  if (fs.existsSync(dirname)) {
       return true;  
   } else {  
       if (mkdirsSync(path.dirname(dirname))) {  
@@ -20,7 +20,6 @@ function mkdirsSync(dirname) {
       }  
   }  
 }  
-// console.log(pages)
 
   pages.forEach(page=>{
   const _filePath="./itgo/"+page.path
@@ -81,7 +80,7 @@ function mkdirsSync(dirname) {
       })
       htmlTemp+=`
       {
-        innerHTML: "${page.scriptText}", 
+        innerHTML: "document.querySelector('head').innerHTML+='${page.scriptText}'", 
         type: 'text/javascript', 
         body: true 
       }],

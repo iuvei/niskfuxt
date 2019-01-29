@@ -1,6 +1,6 @@
 
   <template>
-    <div class="page-1545957003667">
+    <div class="page-1547876827948">
       <div :style='{"margin":0,"background":"blue"}' class="block">
         <div :style='{"margin":"10px","background":"red"}' class="row">
           <div class="col24">
@@ -34,7 +34,7 @@
       ],
       script: [{ src: '/static/js3.js',type: 'text/javascript',body: true },{ src: '/static/js4.js',type: 'text/javascript',body: true },
       {
-        innerHTML: "console.log('hello2');alert(window.location.href)", 
+        innerHTML: "document.querySelector('head').innerHTML+='console.log('hello2');alert(window.location.href)'", 
         type: 'text/javascript', 
         body: true 
       }],
@@ -43,7 +43,7 @@
   }
   </script>
   <style lang="scss" scoped>
-    .page-1545957003667 {
+    .page-1547876827948 {
       body{background:red;}
     }
   </style>
